@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* TableStyles.css */
+
+/* General Styles */
+.table-container {
+    padding: 1rem 1.5rem 2rem; /* px-4 sm:px-6 lg:px-8 */
+    width: 100%;
+}
+
+.title-header {
+    font-size: 1rem; /* text-base */
+    font-weight: 600; /* font-semibold */
+    color: #1f2937; /* text-gray-900 */
+    line-height: 1.5; /* leading-6 */
+}
+
+.description-text {
+    margin-top: 0.5rem; /* mt-2 */
+    font-size: 0.875rem; /* text-sm */
+    color: #4b5563; /* text-gray-700 */
+}
+
+/* Table Header Styles */
+.table-header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    width: 5%;
+    background-color: #fff;
+    border-bottom: 1px solid #d1d5db; /* border-gray-300 */
+    padding: 0.875rem; /* py-3.5 pl-4 pr-3 sm:pl-6 lg:pl-8 */
+    text-align: left;
+    word-wrap: break-word;
+    white-space: normal;
+    font-size: 0.875rem; /* text-sm */
+    font-weight: 600; /* font-semibold */
+    color: #1f2937; /* text-gray-900 */
+    backdrop-filter: blur();
+}
+
+/* Table Body Styles */
+.table-row {
+    display: table-row;
+}
+
+.table-cell {
+    border-bottom: 1px solid #e5e7eb; /* border-gray-200 */
+    width: 5%;
+    word-wrap: break-word;
+    white-space: normal;
+    padding: 1rem; /* py-4 pl-4 pr-3 sm:pl-6 lg:pl-8 */
+    font-size: 0.875rem; /* text-sm */
+    font-weight: 500; /* font-medium */
+    color: #1f2937; /* text-gray-900 */
+}
+
+/* Other styles as per your component's need */

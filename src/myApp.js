@@ -8,7 +8,7 @@ const MyApp = () => {
   const [btn, setBtn] = useState("");
   return (
     <>
-      <div id="jobsTable" className="container w-full columns-17 flex flex-row gap-2">
+      <div id="jobsTable" className="container w-full columns-2 flex flex-col">
         <Table jobs = {jobs}/>
       </div>
     </>

@@ -1,30 +1,117 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import '../src/style.css';
 
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
-}
+};
 
 export default function Table({jobs}) {
-    console.log(jobs)
+    //console.log(jobs)
+    const [sortFields, setSortFields] = useState([]); // expected value example "[{field: 'Job Number', direction:'Asc'}]"
+    const [sortedJobs, setSortedJobs] = useState([...jobs]);
+
+    // Function to add a new sort field
+    const addSortField = (newField, newDirection) => {
+        // Add the new sort criteria to the array
+        setSortFields([...sortFields, { field: newField, direction: newDirection }]);
+    };
+
+    // Function to remove a sort field
+    const removeSortField = (fieldToRemove) => {
+        // Filter out the sort criteria that needs to be removed
+        setSortFields(sortFields.filter(sortField => sortField.field !== fieldToRemove));
+    };
+
+    // Function to toggle the sort direction of an existing field
+    const toggleSortDirection = (fieldToToggle) => {
+        // Map through the existing sort fields and update the direction of the matched field
+        setSortFields(sortFields.map(sortField =>
+            sortField.field === fieldToToggle
+            ? { ...sortField, direction: sortField.direction === 'Asc' ? 'Desc' : 'Asc' }
+            : sortField
+        ));
+    };
+    
+    // Helper function to get the value from the job object based on the field
+    const getValueByField = (job, field) => {
+    // This function would extract nested fields too if necessary
+    return field.split('.').reduce((obj, key) => (obj && obj[key] != null) ? obj[key] : null, job);
+    };
+    
+    // A generic compare function that handles strings, numbers, and dates
+    const compareFunction = (a, b, fieldType, direction) => {
+    const aValue = getValueByField(a, fieldType);
+    const bValue = getValueByField(b, fieldType);
+    
+    // Handle if one or both values are null or undefined
+    if (aValue == null && bValue == null) return 0;
+    if (aValue == null) return direction === 'Asc' ? -1 : 1;
+    if (bValue == null) return direction === 'Asc' ? 1 : -1;
+    
+    // Assuming that 'date' fields are known and are suffixed with 'Date'
+    if (fieldType.toLowerCase().includes('date')) {
+        const dateA = new Date(aValue);
+        const dateB = new Date(bValue);
+        return direction === 'Asc' ? dateA - dateB : dateB - dateA;
+    } else if (typeof aValue === 'number' && typeof bValue === 'number') {
+        // If the field is a number
+        return direction === 'Asc' ? aValue - bValue : bValue - aValue;
+    } else {
+        // Default to string comparison
+        return direction === 'Asc' ? aValue.localeCompare(bValue, undefined, { sensitivity: 'base' }) : bValue.localeCompare(aValue, undefined, { sensitivity: 'base' });
+    }
+    };
+
+    useEffect(() => {
+        const sortedData = [...jobs].sort((a, b) => {
+            let result = 0;
+            for (let { field, direction } of sortFields) {
+                result = compareFunction(a.fieldData, b.fieldData, field, direction);
+                if (result !== 0) break;
+            }
+            return result;
+        });
+
+        setSortedJobs(sortedData);
+    }, [jobs, sortFields]);
+    
+
+
     return (
-        <div className="table-container">
-            <div className="sm:flex sm:items-center">
-                <div className="sm:flex-auto">
-                    <h1 className="title-header">Jobs</h1>
-                    <p className="description-text">
-                        All active Jobs
-                    </p>
+        <>
+        <div className="header">
+            {/*-- Flex Container for the Header --*/}
+            <div className="flex items-center justify-between p-4 w-full columns-2">
+
+                {/*-- Logo or Title --*/}
+                <div className="title-container">
+                    Job Tracker
+                </div>
+
+                {/*-- Navigation Menu --*/}
+                <div className="nav-container">
+                    <nav className="flex justify-center">
+                        <a href="#" className="header-button header-button-left">Menu</a>
+                        <a href="#" className="header-button">Jobs</a>
+                        <a href="#" className="header-button">Service</a>
+                        <a href="#" className="header-button">Quotes</a>
+                        <a href="#" className="header-button">Customers</a>
+                        <a href="#" className="header-button">Vendors</a>
+                        <a href="#" className="header-button">Purchase Orders</a>
+                        <a href="#" className="header-button header-button-right">Print</a>
+                    </nav>
                 </div>
             </div>
-            <div className="mt-8 flow-root">
+        </div>
+
+        <div className="table-container">
+            <div className="flow-root">
                 <div className="-mx-4 -my-2 sm:-mx-6 lg:-mx-8">
                     <div className="inline-block min-w-full py-2 align-middle">
                         <table className="min-w-full border-separate border-spacing-0">
                             <thead>
                                 <tr>
                                     <th scope="col" className="table-header">
-                                        {/* Empty header for '>' icon, will set onClick later */}
                                     </th>
                                     <th scope="col" className="table-header">
                                         {/* Empty header for image column */}
@@ -48,18 +135,26 @@ export default function Table({jobs}) {
                                 </tr>
                             </thead>
                             <tbody>
-                                {jobs.map((job, jobIdx) => {
+                                {sortedJobs.map((job, jobIdx) => {
                                 
-                                console.log('Logging job:', job);
+                                //console.log('Logging job:', job);
                                 
                                 return (
                                     
                                     <tr key={job.fieldData['id']}>
-                                        <td className={classNames(jobIdx !== jobs.length - 1 ? 'border-b border-gray-200' : '', "table-cell")}>
-                                            {/* Here, add your '>' icon or button */}
+                                        <td 
+                                            className={classNames(jobIdx !== jobs.length - 1 ? 'border-b border-gray-200' : '', "table-cell")}
+                                            style={{ maxWidth: '40px' }}
+                                        >
+                                            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M8 5l7 7-7 7" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+                                            </svg>
                                         </td>
-                                        <td className={classNames(jobIdx !== jobs.length - 1 ? 'border-b border-gray-200' : '', "table-cell")}>
-                                            <img src={job["jobs_IMG__Images::Image"]} alt="Job" />
+                                        <td 
+                                            className={classNames(jobIdx !== jobs.length - 1 ? 'border-b border-gray-200' : '', "table-cell")}
+                                            style={{ minWidth: '120px' }}
+                                        >
+                                            <img src={job.fieldData["jobs_IMG__Images::Image"]} alt='image' />
                                         </td>
                                         <td className={classNames(jobIdx !== jobs.length - 1 ? 'border-b border-gray-200' : '', "table-cell")}>
                                             {job.fieldData['Workorder Type'] != null ? job.fieldData['Workorder Type']:''} 
@@ -68,7 +163,7 @@ export default function Table({jobs}) {
                                             {job.fieldData['JobNumText'] != null ? job.fieldData['JobNumText']:''} 
                                         </td>
                                         <td className={classNames(jobIdx !== jobs.length - 1 ? 'border-b border-gray-200' : '', "table-cell")}>
-                                            {job.fieldData['CustomerName'] != null ? job.fieldData['CustomerName']:''} 
+                                            {job.fieldData['jobs_CUSTOMER::CustomerName'] != null ? job.fieldData['jobs_CUSTOMER::CustomerName']:''} 
                                         </td>
                                         <td className={classNames(jobIdx !== jobs.length - 1 ? 'border-b border-gray-200' : '', "table-cell")}>
                                             {job.fieldData['Part Name'] != null ? job.fieldData['Part Name']:''} 
@@ -77,22 +172,27 @@ export default function Table({jobs}) {
                                             {job.fieldData['ToolNumber'] != null ? job.fieldData['ToolNumber']:''} 
                                         </td>
                                         <td className={classNames(jobIdx !== jobs.length - 1 ? 'border-b border-gray-200' : '', "table-cell")}>
-                                            {job.fieldData['mold_description_a'] != null ? job.fieldData['mold_description_a']:''} 
+                                            {job.fieldData['mold_Description_a'] != null ? job.fieldData['mold_Description_a']:''} 
                                         </td>
                                         <td className={classNames(jobIdx !== jobs.length - 1 ? 'border-b border-gray-200' : '', "table-cell")}>
-                                            {job.fieldData['Tool_Kickoff Date'] != null ? new Date(job.fieldData['Tool_Kickoff Date']).toLocaleDateString():''}
+                                            {job.fieldData['Tool_KickoffDate'] != null ? new Date(job.fieldData['Tool_KickoffDate']).toLocaleDateString():''}
                                         </td>
                                         <td className={classNames(jobIdx !== jobs.length - 1 ? 'border-b border-gray-200' : '', "table-cell")}>
                                             {job.fieldData['Tool_Timming'] != null ? new Intl.NumberFormat().format(job.fieldData['Tool_Timming']):''} 
                                         </td>
                                         <td className={classNames(jobIdx !== jobs.length - 1 ? 'border-b border-gray-200' : '', "table-cell")}>
-                                            {job.fieldData['Tool_CommitmentDate'] != null ? new Date(job.fieldData['Tool_CommitmentDate']).toLocaleDateString():''}
+                                            {job.fieldData['Tool_ComitmentDate'] != null ? new Date(job.fieldData['Tool_ComitmentDate']).toLocaleDateString():''}
+                                        </td>
+                                        <td className={classNames(
+                                            jobIdx !== jobs.length - 1 ? 'border-b border-gray-200' : '',
+                                            "table-cell",
+                                            job.fieldData['Tool_DaysRemaining'] <= 0 ? 'text-alert' : 
+                                            job.fieldData['Tool_DaysRemaining'] <= 7 ? 'text-warn' : ''
+                                        )}>
+                                            {job.fieldData['Tool_DaysRemaining'] != null ? job.fieldData['Tool_DaysRemaining'] : ''}
                                         </td>
                                         <td className={classNames(jobIdx !== jobs.length - 1 ? 'border-b border-gray-200' : '', "table-cell")}>
-                                            {job.fieldData['Tool_DaysRemaining'] != null ? job.fieldData['Tool_DaysRemaining']:''} 
-                                        </td>
-                                        <td className={classNames(jobIdx !== jobs.length - 1 ? 'border-b border-gray-200' : '', "table-cell")}>
-                                            {job.fieldData['Percentage Complete'] != null ? `${(job.fieldData['Percentage Complete'] * 100).toFixed(2)}%` : ''}
+                                            {job.fieldData['Percentage Complete'] != null ? `${(job.fieldData['Percentage Complete'] * 100).toFixed(0)}%` : ''}
                                         </td>
                                         <td className={classNames(jobIdx !== jobs.length - 1 ? 'border-b border-gray-200' : '', "table-cell")}>
                                             {job.fieldData['status'] != null ? job.fieldData['status']:''} 
@@ -107,7 +207,7 @@ export default function Table({jobs}) {
                                             {job.fieldData['Moldmaker'] != null ? job.fieldData['Moldmaker']:''} 
                                         </td>
                                         <td className={classNames(jobIdx !== jobs.length - 1 ? 'border-b border-gray-200' : '', "table-cell")}>
-                                            {job.fieldData['CAD Designer'] != null ? job.fieldData['CAD Designer']:''} 
+                                            {job.fieldData['Cad Designer'] != null ? job.fieldData['Cad Designer']:''} 
                                         </td>
                                         
                                     </tr>
@@ -118,5 +218,6 @@ export default function Table({jobs}) {
                 </div>
             </div>
         </div>
+        </>
     )
 }  

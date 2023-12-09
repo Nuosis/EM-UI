@@ -3,24 +3,21 @@
 @tailwind utilities;
 
 /* TableStyles.css */
+#jobsTable{
+    max-width: none;
+    width: 100%;
+    overflow-x: auto;
+}
 
-/* General Styles */
+table {
+    width: 100%;
+    min-width: 8600px; /* Set a minimum width as needed */
+    table-layout: auto; /* Columns adjust to content */
+}
+
 .table-container {
     padding: 1rem 1.5rem 2rem; /* px-4 sm:px-6 lg:px-8 */
     width: 100%;
-}
-
-.title-header {
-    font-size: 1rem; /* text-base */
-    font-weight: 600; /* font-semibold */
-    color: #1f2937; /* text-gray-900 */
-    line-height: 1.5; /* leading-6 */
-}
-
-.description-text {
-    margin-top: 0.5rem; /* mt-2 */
-    font-size: 0.875rem; /* text-sm */
-    color: #4b5563; /* text-gray-700 */
 }
 
 /* Table Header Styles */
@@ -56,5 +53,74 @@
     font-weight: 500; /* font-medium */
     color: #1f2937; /* text-gray-900 */
 }
+.text-warn {
+    color: #FFA500; /* A yellow color that is visible against white */
+    font-weight: bold;
+}
+
+.text-alert {
+    color: red;
+    font-weight: bold;
+}
+
+/* General Styles */
+
+
+.header {
+    position: sticky;
+    top: 0; /* or the distance from the top you want the header to stick */
+    z-index: 1000; /* Adjust the z-index to be higher than the content below */
+    background-color: #000;
+    color: #fff;
+    width: 100%;
+}
+.header .title-container {
+    /* Aligns title to the left */
+    font-size: 1.5rem; /* Adjust this value as needed for larger text */
+    font-weight: bold; /* Makes the text bold */
+}
+
+.header .nav-container {
+    flex-grow: 1; /* Allows the container to take up remaining space */
+    display: flex;
+    justify-content: center; /* Centers navigation menu */
+}
+.header-button {
+    background-color: #e5e7eb; /* bg-slate-200 */
+    padding: 0.75rem 0.5rem; /* px-3 py-2 */
+    color: #000; /* text-black */
+    transition: background-color 150ms ease-in-out; /* for smooth background color transition on hover */
+}
+
+.header-button-left {
+    border-top-left-radius: 0.375rem; /* rounded-tl-md */
+    border-bottom-left-radius: 0.375rem; /* rounded-bl-md */
+    padding-left: 24px;
+}
+
+.header-button-right {
+    border-top-right-radius: 0.375rem; /* rounded-tl-md */
+    border-bottom-right-radius: 0.375rem; /* rounded-bl-md */
+    padding-right: 24px;
+}
+
+.header-button:hover {
+    background-color: #b3b3b3; /* hover:bg-gray-700 */
+}
+
+.title-header {
+    font-size: 1rem; /* text-base */
+    font-weight: 600; /* font-semibold */
+    color: #1f2937; /* text-gray-900 */
+    line-height: 1.5; /* leading-6 */
+}
+
+.description-text {
+    margin-top: 0.5rem; /* mt-2 */
+    font-size: 0.875rem; /* text-sm */
+    color: #4b5563; /* text-gray-700 */
+}
+
+
 
 /* Other styles as per your component's need */

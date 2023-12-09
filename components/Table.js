@@ -9,28 +9,53 @@ export default function Table({jobs}) {
     //console.log(jobs)
     const [sortFields, setSortFields] = useState([]); // expected value example "[{field: 'Job Number', direction:'Asc'}]"
     const [sortedJobs, setSortedJobs] = useState([...jobs]);
+    const columns = [
+        {field: '', label: '', sort: false, filter: false},
+        {field: 'jobs_IMG_Images::Image', label: '', sort: false, filter: false},
+        {field: 'Workorder Type', label: 'WO Type', sort: true, filter: true},
+        {field: 'JobNumText', label: 'Job Number', sort: true, filter: true},
+        {field: 'jobs_CUSTOMER::CustomerName', label: 'Customer', sort: true, filter: true},
+        {field: 'Part Name', label: 'Part Name', sort: true, filter: true},
+        {field: 'ToolNumber', label: 'Tool Number', sort: true, filter: true},
+        {field: 'mold_Description_a', label: 'Mold Description', sort: false, filter: false},
+        {field: 'Tool_KickoffDate', label: 'Kickoff Date', sort: true, filter: true},
+        {field: 'Tool_Timming', label: 'Timing', sort: true, filter: false},
+        {field: 'Tool_ComitmentDate', label: 'Commitment', sort: true, filter: true},
+        {field: 'Tool_DaysRemaining', label: 'Days', sort: true, filter: false},
+        {field: 'Percentage Complete', label: '% Complete', sort: true, filter: false},
+        {field: 'status', label: 'Status', sort: true, filter: true},
+        {field: 'Description', label: 'Notes', sort: false, filter: false},
+        {field: 'Program Manager', label: 'Prog. Man', sort: true, filter: true},
+        {field: 'MoldMaker', label: 'Mold Maker', sort: true, filter: true},
+        {field: 'Cad Designer', label: 'CAD Designer', sort: true, filter: true},
+    ];
 
     // Function to add a new sort field
     const addSortField = (newField, newDirection) => {
-        // Add the new sort criteria to the array
-        setSortFields([...sortFields, { field: newField, direction: newDirection }]);
+        console.log('newField:', newField, 'newDir:',newDirection, 'sortFieldState:', sortFields)
+        // Check if the field already exists in the sortFields array
+        const existingFieldIndex = sortFields.findIndex(sortField => sortField.field === newField);
+    
+        if (existingFieldIndex !== -1) {
+            // Update the direction of the existing field
+            const updatedSortFields = [...sortFields];
+            updatedSortFields[existingFieldIndex] = { ...updatedSortFields[existingFieldIndex], direction: newDirection };
+            setSortFields(updatedSortFields);
+            console.log('sortFieldState:', sortFields)
+        } else {
+            // Add the new sort criteria to the array
+            setSortFields([...sortFields, { field: newField, direction: newDirection }]);
+            console.log('sortFieldState:', sortFields)
+        }
     };
+    
 
     // Function to remove a sort field
-    const removeSortField = (fieldToRemove) => {
+    const clearSortField = (fieldToRemove) => {
         // Filter out the sort criteria that needs to be removed
-        setSortFields(sortFields.filter(sortField => sortField.field !== fieldToRemove));
+        setSortFields([]);
     };
 
-    // Function to toggle the sort direction of an existing field
-    const toggleSortDirection = (fieldToToggle) => {
-        // Map through the existing sort fields and update the direction of the matched field
-        setSortFields(sortFields.map(sortField =>
-            sortField.field === fieldToToggle
-            ? { ...sortField, direction: sortField.direction === 'Asc' ? 'Desc' : 'Asc' }
-            : sortField
-        ));
-    };
     
     // Helper function to get the value from the job object based on the field
     const getValueByField = (job, field) => {
@@ -63,6 +88,7 @@ export default function Table({jobs}) {
     };
 
     useEffect(() => {
+        console.log('sortingFields', sortFields)
         const sortedData = [...jobs].sort((a, b) => {
             let result = 0;
             for (let { field, direction } of sortFields) {
@@ -71,7 +97,6 @@ export default function Table({jobs}) {
             }
             return result;
         });
-
         setSortedJobs(sortedData);
     }, [jobs, sortFields]);
     
@@ -110,28 +135,47 @@ export default function Table({jobs}) {
                     <div className="inline-block min-w-full py-2 align-middle">
                         <table className="min-w-full border-separate border-spacing-0">
                             <thead>
+                                {/* First row for column titles */}
                                 <tr>
-                                    <th scope="col" className="table-header">
-                                    </th>
-                                    <th scope="col" className="table-header">
-                                        {/* Empty header for image column */}
-                                    </th>
-                                    <th scope="col" className="table-header">WO Type</th>
-                                    <th scope="col" className="table-header">Job Number</th>
-                                    <th scope="col" className="table-header">Customer</th>
-                                    <th scope="col" className="table-header">Part Name</th>
-                                    <th scope="col" className="table-header">Tool Number</th>
-                                    <th scope="col" className="table-header">Mold Description</th>
-                                    <th scope="col" className="table-header">Kickoff Date</th>
-                                    <th scope="col" className="table-header">Timing</th>
-                                    <th scope="col" className="table-header">Commitment Date</th>
-                                    <th scope="col" className="table-header">Remaining Days</th>
-                                    <th scope="col" className="table-header">% Complete</th>
-                                    <th scope="col" className="table-header">Status</th>
-                                    <th scope="col" className="table-header">Notes</th>
-                                    <th scope="col" className="table-header">Program Manager</th>
-                                    <th scope="col" className="table-header">Mold Maker</th>
-                                    <th scope="col" className="table-header">CAD Designer</th>
+                                    {columns.map((column, index) => (
+                                        <th scope="col" className="table-header" key={index}>
+                                            {/* Render the clear sort button in the second column */}
+                                            {index === 1 && (
+                                            <button onClick={clearSortField} className="clear-sort-button">
+                                                Clear Sort
+                                            </button>
+                                            )}
+                                            {/* Sort icons (only if sort is true) */}
+                                            {column.sort && (
+                                                <div className="sorting-icons">
+                                                    <svg onClick={() => addSortField(column.field, 'asc')} width="12" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M12 5v14M19 12l-7-7-7 7" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"/>
+                                                    </svg>
+                                                    <svg onClick={() => addSortField(column.field, 'desc')} width="12" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M12 19V5m7 7l-7 7-7-7" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"/>
+                                                    </svg>
+                                                </div>
+                                            )}
+                                            {/* Column label */}
+                                            {column.label}
+                                        </th>
+                                    ))}
+                                </tr>
+                                {/* Second row for filter inputs */}
+                                <tr className="filter-row">
+                                    {columns.map((column, index) => (
+                                        <th key={index}>
+                                            {/* Filter input (only if filter is true and index is 2 or greater) */}
+                                            {column.filter && (
+                                                <input
+                                                    type="text"
+                                                    placeholder={``}
+                                                    onChange={(e) => handleFilter(column.field, e.target.value)}
+                                                    className="filter-input"
+                                                />
+                                            )}
+                                        </th>
+                                    ))}
                                 </tr>
                             </thead>
                             <tbody>

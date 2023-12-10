@@ -41,11 +41,9 @@ export default function Table({jobs}) {
             const updatedSortFields = [...sortFields];
             updatedSortFields[existingFieldIndex] = { ...updatedSortFields[existingFieldIndex], direction: newDirection };
             setSortFields(updatedSortFields);
-            console.log('sortFieldState:', sortFields)
         } else {
             // Add the new sort criteria to the array
             setSortFields([...sortFields, { field: newField, direction: newDirection }]);
-            console.log('sortFieldState:', sortFields)
         }
     };
     
@@ -65,27 +63,34 @@ export default function Table({jobs}) {
     
     // A generic compare function that handles strings, numbers, and dates
     const compareFunction = (a, b, fieldType, direction) => {
-    const aValue = getValueByField(a, fieldType);
-    const bValue = getValueByField(b, fieldType);
-    
-    // Handle if one or both values are null or undefined
-    if (aValue == null && bValue == null) return 0;
-    if (aValue == null) return direction === 'Asc' ? -1 : 1;
-    if (bValue == null) return direction === 'Asc' ? 1 : -1;
-    
-    // Assuming that 'date' fields are known and are suffixed with 'Date'
-    if (fieldType.toLowerCase().includes('date')) {
-        const dateA = new Date(aValue);
-        const dateB = new Date(bValue);
-        return direction === 'Asc' ? dateA - dateB : dateB - dateA;
-    } else if (typeof aValue === 'number' && typeof bValue === 'number') {
-        // If the field is a number
-        return direction === 'Asc' ? aValue - bValue : bValue - aValue;
-    } else {
-        // Default to string comparison
-        return direction === 'Asc' ? aValue.localeCompare(bValue, undefined, { sensitivity: 'base' }) : bValue.localeCompare(aValue, undefined, { sensitivity: 'base' });
-    }
+        const aValue = getValueByField(a, fieldType);
+        const bValue = getValueByField(b, fieldType);
+        
+        // Handle if one or both values are null or undefined
+        if (aValue == null && bValue == null) return 0;
+        if (aValue == null) return direction === 'Asc' ? -1 : 1;
+        if (bValue == null) return direction === 'Asc' ? 1 : -1;
+        
+        // Handle dates
+        if (fieldType.toLowerCase().includes('date')) {
+            const dateA = new Date(aValue);
+            const dateB = new Date(bValue);
+            return direction === 'Asc' ? dateA - dateB : dateB - dateA;
+        }
+        // Handle numbers
+        else if (typeof aValue === 'number' && typeof bValue === 'number') {
+            return direction === 'Asc' ? aValue - bValue : bValue - aValue;
+        }
+        // Handle strings
+        else if (typeof aValue === 'string' && typeof bValue === 'string') {
+            return direction === 'Asc' ? aValue.localeCompare(bValue, undefined, { numeric: true, sensitivity: 'base' }) : bValue.localeCompare(aValue, undefined, { numeric: true, sensitivity: 'base' });
+        }
+        // If types are mixed or other types, convert to strings to compare
+        else {
+            return direction === 'Asc' ? String(aValue).localeCompare(String(bValue), undefined, { numeric: true, sensitivity: 'base' }) : String(bValue).localeCompare(String(aValue), undefined, { numeric: true, sensitivity: 'base' });
+        }
     };
+    
 
     useEffect(() => {
         console.log('sortingFields', sortFields)
@@ -148,11 +153,23 @@ export default function Table({jobs}) {
                                             {/* Sort icons (only if sort is true) */}
                                             {column.sort && (
                                                 <div className="sorting-icons">
-                                                    <svg onClick={() => addSortField(column.field, 'asc')} width="12" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                        <path d="M12 5v14M19 12l-7-7-7 7" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"/>
+                                                    {/* Up arrow */}
+                                                    <svg onClick={() => addSortField(column.field, 'Asc')}
+                                                        className="sort-arrow"
+                                                        width="12" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                                                        stroke={sortFields.some(sf => sf.field === column.field && sf.direction === 'Asc') ? "blue" : "currentColor"}
+                                                        strokeWidth={sortFields.some(sf => sf.field === column.field && sf.direction === 'Asc') ? "3" : "1"}
+                                                        strokeLinecap="round" strokeLinejoin="round">
+                                                        <path d="M12 5v14M19 12l-7-7-7 7"/>
                                                     </svg>
-                                                    <svg onClick={() => addSortField(column.field, 'desc')} width="12" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                        <path d="M12 19V5m7 7l-7 7-7-7" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"/>
+                                                    {/* Down arrow */}
+                                                    <svg onClick={() => addSortField(column.field, 'Desc')}
+                                                        className="sort-arrow"
+                                                        width="12" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                                                        stroke={sortFields.some(sf => sf.field === column.field && sf.direction === 'Desc') ? "blue" : "currentColor"}
+                                                        strokeWidth={sortFields.some(sf => sf.field === column.field && sf.direction === 'Desc') ? "3" : "1"}
+                                                        strokeLinecap="round" strokeLinejoin="round">
+                                                        <path d="M12 19V5m7 7l-7 7-7-7"/>
                                                     </svg>
                                                 </div>
                                             )}

@@ -6,7 +6,6 @@
 #jobsTable{
     max-width: none;
     width: 100%;
-    overflow-x: auto;
 }
 
 table {
@@ -23,7 +22,7 @@ table {
 /* Table Header Styles */
 .table-header {
     position: sticky;
-    top: 0;
+    top: 80;
     z-index: 10;
     background-color: #fff;
     border-bottom: 1px solid #d1d5db; /* border-gray-300 */
@@ -73,6 +72,9 @@ background-color: #f3f4f6; /* Slightly different background on hover */
 }
 
 .filter-row {
+    position: sticky;
+    top: 120;
+    z-index: 10;
     background-color:#cccccc; 
 }
 
@@ -118,7 +120,7 @@ background-color: #f3f4f6; /* Slightly different background on hover */
 .header {
     position: sticky;
     top: 0; /* or the distance from the top you want the header to stick */
-    z-index: 1000; /* Adjust the z-index to be higher than the content below */
+    z-index: 10; /* Adjust the z-index to be higher than the content below */
     background-color: #000;
     color: #fff;
     width: 100%;

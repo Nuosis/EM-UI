@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import LoadJobsTable from "../components/JobsTable";
 
-export default Tracker = (jobs) => {
+export const Tracker = ({jobs}) => {
   console.log('init Tracker')
   return (
     <>

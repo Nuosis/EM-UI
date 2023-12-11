@@ -5,8 +5,8 @@ function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
 };
 
-export default function LoadJobsTable({data}) {
-    const jobs = JSON.parse(data.jobs)    
+export default function LoadJobsTable({data}) {  
+    const jobs = data; 
     const [sortFields, setSortFields] = useState([]); // expected value example "[{field: 'Job Number', direction:'Asc'}]"
     const [sortedJobs, setSortedJobs] = useState([...jobs]);
     const columns = useMemo(() => [

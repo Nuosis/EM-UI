@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import '../src/style.css';
+// import '../src/style.css';
 
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
@@ -227,7 +227,7 @@ export default function LoadJobsTable({data}) {
                         <table className="min-w-full border-separate border-spacing-0">
                             <thead>
                                 {/* First row for column titles */}
-                                <tr>
+                                <tr className = "table-header-row">
                                     {columns.map((column, index) => (
                                         <th scope="col" className="table-header" key={index}>
                                             {/* Render the clear sort button in the second column */}
@@ -284,7 +284,7 @@ export default function LoadJobsTable({data}) {
                                             )}
                                             {index === 1 && (
                                                 <button onClick={clearFilters} className="clear-filter-button">
-                                                    Clear Filters
+                                                    Clear Filter
                                                 </button>
                                             )}
                                         </th>

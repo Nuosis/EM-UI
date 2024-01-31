@@ -1,33 +1,59 @@
 import React, { useState, useEffect, useMemo } from 'react';
-// import '../src/style.css';
 
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
 };
 
-export default function LoadJobsTable({data}) {  
-    const jobs = data; 
+export default function LoadJobsTable({data, hostIP}) {  
+    const [jobs, setJobs] = useState(data); 
+
+    useEffect(() => {
+        console.log(`image reprocessing init`);
+        const updateImageUrl = (url) => {
+            if (!url || !hostIP) return url;
+            const localhostRegex = /https:\/\/(.*?):443/;
+            const result = url.replace(localhostRegex, `https://${hostIP}:443`);
+            console.log(`image reprocessing from ${url} to ${result}`)
+            return result;
+        };
+
+        const updatedJobs = data.map(job => {
+            const updatedJob = { ...job };
+            const imageUrl = job.fieldData?.["jobs_IMG__Images::Image"];
+            if (imageUrl) {
+                updatedJob.fieldData = {
+                    ...job.fieldData,
+                    "jobs_IMG__Images::Image": updateImageUrl(imageUrl)
+                };
+            }
+            return updatedJob;
+        });
+
+        setJobs(updatedJobs);
+    }, [data, hostIP]); // Depend on data and hostIP
+
     const [sortFields, setSortFields] = useState([]); // expected value example "[{field: 'Job Number', direction:'Asc'}]"
     const [sortedJobs, setSortedJobs] = useState([...jobs]);
     const columns = useMemo(() => [
         {field: '', label: '', sort: false, filter: false},
-        {field: 'jobs_IMG_Images::Image', label: '', sort: false, filter: false},
-        {field: 'Workorder Type', label: 'WO Type', sort: true, filter: true},
-        {field: 'JobNumText', label: 'Job Number', sort: true, filter: true},
-        {field: 'jobs_CUSTOMER::CustomerName', label: 'Customer', sort: true, filter: true},
-        {field: 'Part Name', label: 'Part Name', sort: true, filter: true},
-        {field: 'ToolNumber', label: 'Tool Number', sort: true, filter: true},
-        {field: 'mold_Description_a', label: 'Mold Description', sort: false, filter: false},
-        {field: 'Tool_KickoffDate', label: 'Kickoff Date', sort: true, filter: true},
-        {field: 'Tool_Timming', label: 'Timing', sort: true, filter: false},
-        {field: 'Tool_ComitmentDate', label: 'Commitment', sort: true, filter: true},
-        {field: 'Tool_DaysRemaining', label: 'Days', sort: true, filter: false},
-        {field: 'Percentage Complete', label: '% Complete', sort: true, filter: false},
-        {field: 'status', label: 'Status', sort: true, filter: true},
-        {field: 'Description', label: 'Notes', sort: false, filter: false},
-        {field: 'Program Manager', label: 'Prog. Man', sort: true, filter: true},
-        {field: 'MoldMaker', label: 'Mold Maker', sort: true, filter: true},
-        {field: 'Cad Designer', label: 'CAD Designer', sort: true, filter: true},
+        {field: 'jobs_IMG_Images::Image', label: '', sort: false, filter: false, editable: false, image: true},
+        {field: 'commodity', label: 'Commodity', sort: true, filter: true, editable: false, image: false},
+        {field: 'Workorder Type', label: 'WO Type', sort: true, filter: true, editable: false, image: false},
+        {field: 'JobNumText', label: 'Job Number', sort: true, filter: true, editable: false, image: false},
+        {field: 'jobs_CUSTOMER::CustomerName', label: 'Customer', sort: true, filter: true, editable: false, image: false},
+        {field: 'Part Name', label: 'Part Name', sort: true, filter: true, editable: false, image: false},
+        {field: 'ToolNumber', label: 'Tool Number', sort: true, filter: true, editable: false, image: false},
+        {field: 'mold_Description_a', label: 'Description', sort: false, filter: false, editable: true, image: false},
+        {field: 'Tool_KickoffDate', label: 'Kickoff Date', sort: true, filter: true, editable: true, image: false},
+        {field: 'Tool_Timming', label: 'Timing', sort: true, filter: false, editable: true, image: false},
+        {field: 'Tool_ComitmentDate', label: 'Commitment', sort: true, filter: true, editable: true, image: false},
+        {field: 'Tool_DaysRemaining', label: 'Days', sort: true, filter: false, editable: false, image: false},
+        {field: 'Percentage Complete', label: '% Complete', sort: true, filter: false, editable: true, image: false},
+        {field: 'status', label: 'Status', sort: true, filter: true, editable: false, image: false},
+        {field: 'Description', label: 'Notes', sort: false, filter: false, editable: true, image: false},
+        {field: 'Program Manager', label: 'Prog. Man', sort: true, filter: true, editable: false, image: false},
+        {field: 'MoldMaker', label: 'Mold Maker', sort: true, filter: true, editable: false, image: false},
+        {field: 'Cad Designer', label: 'CAD Designer', sort: true, filter: true, editable: false, image: false},
     ], []);
 
     const [filters, setFilters] = useState(() => {
@@ -71,13 +97,11 @@ export default function LoadJobsTable({data}) {
         }
     };
     
-
     // Function to remove a sort field
     const clearSortField = (fieldToRemove) => {
         // Filter out the sort criteria that needs to be removed
         setSortFields([]);
     };
-
     
     // Helper function to get the value from the job object based on the field
     const getValueByField = (job, field) => {
@@ -115,6 +139,13 @@ export default function LoadJobsTable({data}) {
         }
     };
     
+    const sendToFilemaker = (scriptName,payload) => {
+        // const scriptName = "MyPage * JScallbacks";
+        // const obj = {internalScriptPath, payload};
+        const scriptParameter = JSON.stringify(payload);
+        // console.log(scriptParameter);
+        FileMaker.PerformScript(scriptName, scriptParameter);
+    }
 
     const handleFilterChange = (field, value) => {
         setSelectedFilterValues(prevValues => ({
@@ -126,12 +157,30 @@ export default function LoadJobsTable({data}) {
     const handleRowClick = (id) => {
         console.log('handleRowClicked');
         const scriptName = "MyPage * JScallbacks";
-        const obj = {type:'jobsTracker.goToCustomer', ID: id};
+        const obj = {path:'jobsTracker.goToCustomer', ID: id};
         const scriptParameter = JSON.stringify(obj);
-        console.log(scriptParameter);
+        // console.log(scriptParameter);
         FileMaker.PerformScript(scriptName, scriptParameter);
     };
     
+    // Handle Edit Function
+    const handleEdit = (jobId, field, value) => {
+        // send update to FileMaker to update the data
+        sendToFilemaker("MyPage * JScallbacks",{ID: jobId, field, value, path: "jobsTracker.updateData"})
+        // Update the data with the new value
+        const updatedJobs = jobs.map(job => {
+            if (job.fieldData['id'] === jobId) {
+                return { ...job, fieldData: { ...job.fieldData, [field]: value }};
+            }
+            return job;
+        });
+
+        // Update the state
+        setSortedJobs(updatedJobs);
+
+        // Optionally, send update to the backend or global state
+        // updateJob(jobId, field, value);
+    };
 
     // Function to clear all filters
     const clearFilters = () => {
@@ -178,7 +227,6 @@ export default function LoadJobsTable({data}) {
         setSortedJobs(sortedData);
     }, [jobs, sortFields, selectedFilterValues]);
     
-    
     useEffect(() => {
         const newFilters = {};
         columns.forEach(column => {
@@ -190,9 +238,7 @@ export default function LoadJobsTable({data}) {
             }
         });
         setFilters(newFilters); // Set the filters state with the new values
-    }, [jobs]); // Depend on the jobs array, which contains the data    
-    
-
+    }, [jobs]); // Depend on the jobs array, which contains the data   
 
     return (
         <>
@@ -292,86 +338,61 @@ export default function LoadJobsTable({data}) {
                                 </tr>
                             </thead>
                             <tbody>
-                                {sortedJobs.map((job, jobIdx) => {
-                                
-                                //console.log('Logging job:', job);
-                                
-                                return (
-                                    
+                                {sortedJobs.map((job, jobIdx) => (
                                     <tr key={job.fieldData['id']}>
-                                        <td 
-                                            className={classNames(jobIdx !== jobs.length - 1 ? 'border-b border-gray-200' : '', "table-cell")}
-                                            style={{ maxWidth: '40px' }}
-                                        >
-                                            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" 
-                                                xmlns="http://www.w3.org/2000/svg" 
-                                                onClick={() => handleRowClick(job.fieldData['id'])}>
-                                                <path d="M8 5l7 7-7 7" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
-                                            </svg>
-                                        </td>
-                                        <td className={classNames(jobIdx !== jobs.length - 1 ? 'border-b border-gray-200' : '', "table-cell")} style={{ minWidth: '120px' }}>
-                                            {job.fieldData?.["jobs_IMG__Images::Image"] ? (
-                                                <img src={job.fieldData["jobs_IMG__Images::Image"]} alt='Job Image' />
-                                            ) : (
-                                                <span>No Image</span> // Or render a default image
-                                            )}
-                                        </td>
-                                        <td className={classNames(jobIdx !== jobs.length - 1 ? 'border-b border-gray-200' : '', "table-cell")}>
-                                            {job.fieldData?.['Workorder Type'] ?? ''} 
-                                        </td>
-                                        <td className={classNames(jobIdx !== jobs.length - 1 ? 'border-b border-gray-200' : '', "table-cell")}>
-                                            {job.fieldData['JobNumText'] != null ? job.fieldData['JobNumText']:''} 
-                                        </td>
-                                        <td className={classNames(jobIdx !== jobs.length - 1 ? 'border-b border-gray-200' : '', "table-cell")}>
-                                            {job.fieldData['jobs_CUSTOMER::CustomerName'] != null ? job.fieldData['jobs_CUSTOMER::CustomerName']:''} 
-                                        </td>
-                                        <td className={classNames(jobIdx !== jobs.length - 1 ? 'border-b border-gray-200' : '', "table-cell")}>
-                                            {job.fieldData['Part Name'] != null ? job.fieldData['Part Name']:''} 
-                                        </td>
-                                        <td className={classNames(jobIdx !== jobs.length - 1 ? 'border-b border-gray-200' : '', "table-cell")}>
-                                            {job.fieldData['ToolNumber'] != null ? job.fieldData['ToolNumber']:''} 
-                                        </td>
-                                        <td className={classNames(jobIdx !== jobs.length - 1 ? 'border-b border-gray-200' : '', "table-cell")}>
-                                            {job.fieldData['mold_Description_a'] != null ? job.fieldData['mold_Description_a']:''} 
-                                        </td>
-                                        <td className={classNames(jobIdx !== jobs.length - 1 ? 'border-b border-gray-200' : '', "table-cell")}>
-                                            {job.fieldData['Tool_KickoffDate'] != null ? new Date(job.fieldData['Tool_KickoffDate']).toLocaleDateString():''}
-                                        </td>
-                                        <td className={classNames(jobIdx !== jobs.length - 1 ? 'border-b border-gray-200' : '', "table-cell")}>
-                                            {job.fieldData['Tool_Timming'] != null ? new Intl.NumberFormat().format(job.fieldData['Tool_Timming']):''} 
-                                        </td>
-                                        <td className={classNames(jobIdx !== jobs.length - 1 ? 'border-b border-gray-200' : '', "table-cell")}>
-                                            {job.fieldData['Tool_ComitmentDate'] != null ? new Date(job.fieldData['Tool_ComitmentDate']).toLocaleDateString():''}
-                                        </td>
-                                        <td className={classNames(
-                                            jobIdx !== jobs.length - 1 ? 'border-b border-gray-200' : '',
-                                            "table-cell",
-                                            job.fieldData['Tool_DaysRemaining'] <= 0 ? 'text-alert' : 
-                                            job.fieldData['Tool_DaysRemaining'] <= 7 ? 'text-warn' : ''
-                                        )}>
-                                            {job.fieldData['Tool_DaysRemaining'] != null ? job.fieldData['Tool_DaysRemaining'] : ''}
-                                        </td>
-                                        <td className={classNames(jobIdx !== jobs.length - 1 ? 'border-b border-gray-200' : '', "table-cell")}>
-                                            {job.fieldData['Percentage Complete'] != null ? `${(job.fieldData['Percentage Complete'] * 100).toFixed(0)}%` : ''}
-                                        </td>
-                                        <td className={classNames(jobIdx !== jobs.length - 1 ? 'border-b border-gray-200' : '', "table-cell")}>
-                                            {job.fieldData['status'] != null ? job.fieldData['status']:''} 
-                                        </td>
-                                        <td className={classNames(jobIdx !== jobs.length - 1 ? 'border-b border-gray-200' : '', "table-cell")}>
-                                            {job.fieldData['Description'] != null ? job.fieldData['Description']:''} 
-                                        </td>
-                                        <td className={classNames(jobIdx !== jobs.length - 1 ? 'border-b border-gray-200' : '', "table-cell")}>
-                                            {job.fieldData['Program Manager'] != null ? job.fieldData['Program Manager']:''} 
-                                        </td>
-                                        <td className={classNames(jobIdx !== jobs.length - 1 ? 'border-b border-gray-200' : '', "table-cell")}>
-                                            {job.fieldData['Moldmaker'] != null ? job.fieldData['Moldmaker']:''} 
-                                        </td>
-                                        <td className={classNames(jobIdx !== jobs.length - 1 ? 'border-b border-gray-200' : '', "table-cell")}>
-                                            {job.fieldData['Cad Designer'] != null ? job.fieldData['Cad Designer']:''} 
-                                        </td>
-                                        
+                                        {columns.map((column, colIndex) => {
+                                            const cellValue = job.fieldData[column.field] != null ? job.fieldData[column.field] : '';
+                                            // Special handling for unique columns like images or buttons
+                                            if (colIndex == 0) {
+                                                return (
+                                                    <td 
+                                                        className={("table-cell")}
+                                                        style={{ maxWidth: '40px' }}
+                                                    >
+                                                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" 
+                                                            xmlns="http://www.w3.org/2000/svg" 
+                                                            onClick={() => handleRowClick(job.fieldData['id'])}>
+                                                            <path d="M8 5l7 7-7 7" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+                                                        </svg>
+                                                    </td>
+                                                );
+                                            } else if (colIndex == 1) {
+                                                return (
+                                                    <td 
+                                                        className={("table-cell")} 
+                                                        style={{ minWidth: '120px' }}
+                                                    >
+                                                        {job.fieldData?.["jobs_IMG__Images::Image"] ? (
+                                                            <img src={job.fieldData["jobs_IMG__Images::Image"]} alt='Job Image' />
+                                                        ) : (
+                                                            <span>No Image</span> // Or render a default image
+                                                        )}
+                                                    </td>
+                                                )
+                                            } else {
+                                                // Render normal or editable cells
+                                                return (
+                                                    <td 
+                                                        className={classNames(jobIdx !== jobs.length - 1 ? 'border-b border-gray-200' : '', "table-cell")}
+                                                        key={`${job.fieldData['id']}-${colIndex}`} // Unique key for each cell
+                                                    >
+                                                        {column.editable ? (
+                                                            <input 
+                                                                type="text" 
+                                                                value={cellValue} 
+                                                                onChange={(e) => handleEdit(job.fieldData['id'], column.field, e.target.value)}
+                                                                className="editable-input"
+                                                            />
+                                                        ) : (
+                                                            // Non-editable cell content
+                                                            cellValue
+                                                        )}
+                                                    </td>
+                                                );
+                                            }
+                                        })}
                                     </tr>
-                                )})}
+                                ))}
                             </tbody>
                         </table>
                     </div>

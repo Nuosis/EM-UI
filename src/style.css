@@ -8,17 +8,6 @@
     width: 100%;
 }
 
-table {
-    width: 100%;
-    min-width: 8600px; /* Set a minimum width as needed */
-    table-layout: auto; /* Columns adjust to content */
-}
-
-.table-container {
-    padding: 0rem 1.5rem 2rem; /* px-4 sm:px-6 lg:px-8 */
-    width: 100%;
-}
-
 /* Table Header Styles */
 .table-header {
     position: sticky;
@@ -226,4 +215,25 @@ background-color: #f3f4f6; /* Slightly different background on hover */
 
 
 
-/* Other styles as per your component's need */
+/* SPINNER */
+
+.feedback-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 400px; /* Adjust the height as needed */
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.spinner {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border-left-color: #09f;
+    animation: spin 1s linear infinite;
+}

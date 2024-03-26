@@ -1,59 +1,62 @@
 import React, { useState, useEffect, useMemo } from 'react';
+import FMGofer from 'fm-gofer';
 
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
 };
 
-export default function LoadJobsTable({data, hostIP}) {  
-    const [jobs, setJobs] = useState(data); 
-
+export default function LoadJobsTable({data}) {  
+    const [jobs, setJobs] = useState([]); 
+    const getImagebase64 = async (id) => {
+        console.log(`image reprocessing ${id}`);
+        //const base64Image = await FMGofer.PerformScript("trackers * load webViewer * callback", JSON.stringify({"path": "base64", id}));
+        //console.log(`image returned ${base64Image}`);
+        //return base64Image;
+    };
     useEffect(() => {
-        console.log(`image reprocessing init`);
-        const updateImageUrl = (url) => {
-            if (!url || !hostIP) return url;
-            const localhostRegex = /https:\/\/(.*?):443/;
-            const result = url.replace(localhostRegex, `https://${hostIP}:443`);
-            console.log(`image reprocessing from ${url} to ${result}`)
-            return result;
+        const processJobs = async () => {
+            const p = data.map(async job => {
+                const updatedJob = { ...job };
+                const imageId = job.fieldData?.["jobs_IMG__Images::__kp_ImageID"];
+                if (imageId) {
+                    const base64Image = await getImagebase64(imageId);
+                    updatedJob.fieldData = {
+                        ...job.fieldData,
+                        "Image": base64Image // Add the Image key with base64 data
+                    };
+                    delete updatedJob.fieldData["jobs_IMG__Images::__kp_ImageID"]; // Remove the imageId key
+                }
+                return updatedJob;
+            });
+    
+            const updatedJobs = await Promise.all(p);
+            setJobs(updatedJobs);
         };
-
-        const updatedJobs = data.map(job => {
-            const updatedJob = { ...job };
-            const imageUrl = job.fieldData?.["jobs_IMG__Images::Image"];
-            if (imageUrl) {
-                updatedJob.fieldData = {
-                    ...job.fieldData,
-                    "jobs_IMG__Images::Image": updateImageUrl(imageUrl)
-                };
-            }
-            return updatedJob;
-        });
-
-        setJobs(updatedJobs);
-    }, [data, hostIP]); // Depend on data and hostIP
+        processJobs();
+    }, []);
 
     const [sortFields, setSortFields] = useState([]); // expected value example "[{field: 'Job Number', direction:'Asc'}]"
     const [sortedJobs, setSortedJobs] = useState([...jobs]);
     const columns = useMemo(() => [
         {field: '', label: '', sort: false, filter: false},
-        {field: 'jobs_IMG_Images::Image', label: '', sort: false, filter: false, editable: false, image: true},
-        {field: 'commodity', label: 'Commodity', sort: true, filter: true, editable: false, image: false},
-        {field: 'Workorder Type', label: 'WO Type', sort: true, filter: true, editable: false, image: false},
-        {field: 'JobNumText', label: 'Job Number', sort: true, filter: true, editable: false, image: false},
-        {field: 'jobs_CUSTOMER::CustomerName', label: 'Customer', sort: true, filter: true, editable: false, image: false},
-        {field: 'Part Name', label: 'Part Name', sort: true, filter: true, editable: false, image: false},
-        {field: 'ToolNumber', label: 'Tool Number', sort: true, filter: true, editable: false, image: false},
-        {field: 'mold_Description_a', label: 'Description', sort: false, filter: false, editable: true, image: false},
-        {field: 'Tool_KickoffDate', label: 'Kickoff Date', sort: true, filter: true, editable: true, image: false},
-        {field: 'Tool_Timming', label: 'Timing', sort: true, filter: false, editable: true, image: false},
-        {field: 'Tool_ComitmentDate', label: 'Commitment', sort: true, filter: true, editable: true, image: false},
-        {field: 'Tool_DaysRemaining', label: 'Days', sort: true, filter: false, editable: false, image: false},
-        {field: 'Percentage Complete', label: '% Complete', sort: true, filter: false, editable: true, image: false},
-        {field: 'status', label: 'Status', sort: true, filter: true, editable: false, image: false},
-        {field: 'Description', label: 'Notes', sort: false, filter: false, editable: true, image: false},
-        {field: 'Program Manager', label: 'Prog. Man', sort: true, filter: true, editable: false, image: false},
-        {field: 'MoldMaker', label: 'Mold Maker', sort: true, filter: true, editable: false, image: false},
-        {field: 'Cad Designer', label: 'CAD Designer', sort: true, filter: true, editable: false, image: false},
+        {field: 'Image', label: '', sort: false, filter: false, editable: false},
+        {field: 'commodity', label: 'Commodity', sort: true, filter: true, editable: false},
+        {field: 'Workorder Type', label: 'WO Type', sort: true, filter: true, editable: false},
+        {field: 'JobNumText', label: 'Job Number', sort: true, filter: true, editable: false},
+        {field: 'jobs_CUSTOMER::CustomerName', label: 'Customer', sort: true, filter: true, editable: false},
+        {field: 'Part Name', label: 'Part Name', sort: true, filter: true, editable: false},
+        {field: 'ToolNumber', label: 'Tool Number', sort: true, filter: true, editable: false},
+        {field: 'mold_Description_a', label: 'Description', sort: false, filter: false, editable: true},
+        {field: 'Tool_KickoffDate', label: 'Kickoff Date', sort: true, filter: true, editable: true},
+        {field: 'Tool_Timming', label: 'Timing', sort: true, filter: false, editable: true},
+        {field: 'Tool_ComitmentDate', label: 'Commitment', sort: true, filter: true, editable: true},
+        {field: 'Tool_DaysRemaining', label: 'Days', sort: true, filter: false, editable: false},
+        {field: 'Percentage Complete', label: '% Complete', sort: true, filter: false, editable: true},
+        {field: 'status', label: 'Status', sort: true, filter: true, editable: false},
+        {field: 'Description', label: 'Notes', sort: false, filter: false, editable: true},
+        {field: 'Program Manager', label: 'Prog. Man', sort: true, filter: true, editable: false},
+        {field: 'MoldMaker', label: 'Mold Maker', sort: true, filter: true, editable: false},
+        {field: 'Cad Designer', label: 'CAD Designer', sort: true, filter: true, editable: false},
     ], []);
 
     const [filters, setFilters] = useState(() => {
@@ -358,12 +361,9 @@ export default function LoadJobsTable({data, hostIP}) {
                                                 );
                                             } else if (colIndex == 1) {
                                                 return (
-                                                    <td 
-                                                        className={("table-cell")} 
-                                                        style={{ minWidth: '120px' }}
-                                                    >
-                                                        {job.fieldData?.["jobs_IMG__Images::Image"] ? (
-                                                            <img src={job.fieldData["jobs_IMG__Images::Image"]} alt='Job Image' />
+                                                    <td className="table-cell" style={{ minWidth: '120px' }}>
+                                                        {job.fieldData?.Image ? (
+                                                            <img src={`data:image/jpeg;base64,${job.fieldData.Image}`} alt='Job Image' />
                                                         ) : (
                                                             <span>No Image</span> // Or render a default image
                                                         )}

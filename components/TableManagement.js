@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
+import { useTableContext } from './TableState'; 
 
 export default function LoadTableManagement({ elements }) {
-    // Example state for search, might be expanded for sort and filter functionality
-    const [searchTerm, setSearchTerm] = useState('');
-    const [filterTerm, setFilterTerm] = useState('');
+    const { searchTerm, setSearchTerm, filterTerm, setFilterTerm } = useTableContext();
 
     const renderElement = (element) => {
         switch (element.objectType) {
@@ -50,7 +49,7 @@ export default function LoadTableManagement({ elements }) {
             return (<div className="relative flex items-center">
                         <input
                         type="text"
-                        placeholder={`Filter by ${element.scope}`}
+                        placeholder={`Filter...`}
                         value={filterTerm}
                         onChange={(e) => setFilterTerm(e.target.value)}
                         className="form-input px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent flex-1"
@@ -73,7 +72,7 @@ export default function LoadTableManagement({ elements }) {
     };
 
     return (
-        <div className="flex flex-row-reverse items-center p-4 gap-4">
+        <div className="flex flex-row-reverse items-center p-4 gap-4 bg-white">
             {elements.map((element, index) => (
                 <div key={index} className="last:ml-auto"> {/* Adjust class as needed */}
                     {renderElement(element)}

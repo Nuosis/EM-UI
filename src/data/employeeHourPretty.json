@@ -1,0 +1,175 @@
+{
+		"fieldData" : 
+		{
+			"Note" : "",
+			"approvedBy" : "",
+			"approvedFLAG" : "",
+			"approvedTS" : "",
+			"dateWorked" : "03/20/2024",
+			"dayName" : "Wednesday",
+			"f_processed" : "1",
+			"id" : "AE103056-6016-FA4B-A4BB-6C28E87D332B",
+			"id_employee" : "A050ED47-995F-D145-9903-6A4F5B832388",
+			"month" : 3,
+			"week" : 12,
+			"weekStartDate_a" : "03/18/2024",
+			"year" : 2024,
+			"zCreatedBy" : "p2punchclock",
+			"zCreationDate" : "03/20/2024",
+			"zCreationTimestamp" : "03/20/2024 06:59:01",
+			"zModificationTimestamp" : "03/26/2024 18:39:36",
+			"zModifiedBy" : "Marcus"
+		},
+		"modId" : "2",
+		"portalData" : 
+		{
+			"employeeDay_EMPLOYEE" : 
+			[
+				{
+					"employeeDay_EMPLOYEE::Reports To" : "Anthony Piazza",
+					"employeeDay_EMPLOYEE::nameDisplay_a" : "Justin Altenbeck",
+					"employeeDay_EMPLOYEE::rate" : 32,
+					"modId" : "15",
+					"recordId" : "335"
+				}
+			],
+			"employeeDay_EMPLOYEEHOURS" : 
+			[
+				{
+					"employeeDay_EMPLOYEEHOURS::dateWorked" : "03/20/2024",
+					"employeeDay_EMPLOYEEHOURS::flag_open_a" : 0,
+					"employeeDay_EMPLOYEEHOURS::flag_processed" : 1,
+					"employeeDay_EMPLOYEEHOURS::hours" : 27900,
+					"modId" : "4",
+					"recordId" : "17682"
+				},
+				{
+					"employeeDay_EMPLOYEEHOURS::dateWorked" : "03/20/2024",
+					"employeeDay_EMPLOYEEHOURS::flag_open_a" : 0,
+					"employeeDay_EMPLOYEEHOURS::flag_processed" : 1,
+					"employeeDay_EMPLOYEEHOURS::hours" : 27900,
+					"modId" : "1",
+					"recordId" : "18056"
+				}
+			],
+			"employeeDay_PAYRECORDS" : 
+			[
+				{
+					"employeeDay_PAYRECORDS::dateWorked" : "03/20/2024",
+					"employeeDay_PAYRECORDS::hours" : 8,
+					"employeeDay_PAYRECORDS::type" : "HRS",
+					"modId" : "2",
+					"recordId" : "4431"
+				},
+				{
+					"employeeDay_PAYRECORDS::dateWorked" : "03/20/2024",
+					"employeeDay_PAYRECORDS::hours" : 7.5,
+					"employeeDay_PAYRECORDS::type" : "OT",
+					"modId" : "0",
+					"recordId" : "4486"
+				}
+			],
+			"employeeDay_TIMEASSIGN" : 
+			[
+				{
+					"employeeDay_TIMEASSIGN::jobNum_a" : "5159",
+					"employeeDay_TIMEASSIGN::totalHoursWorked_c" : 5,
+					"modId" : "0",
+					"recordId" : "10158"
+				},
+				{
+					"employeeDay_TIMEASSIGN::jobNum_a" : "500",
+					"employeeDay_TIMEASSIGN::totalHoursWorked_c" : 2.25,
+					"modId" : "0",
+					"recordId" : "10160"
+				},
+				{
+					"employeeDay_TIMEASSIGN::jobNum_a" : "5573",
+					"employeeDay_TIMEASSIGN::totalHoursWorked_c" : 7.5,
+					"modId" : "0",
+					"recordId" : "10161"
+				},
+				{
+					"employeeDay_TIMEASSIGN::jobNum_a" : "5575",
+					"employeeDay_TIMEASSIGN::totalHoursWorked_c" : 8,
+					"modId" : "0",
+					"recordId" : "10222"
+				},
+				{
+					"employeeDay_TIMEASSIGN::jobNum_a" : "5574",
+					"employeeDay_TIMEASSIGN::totalHoursWorked_c" : 10,
+					"modId" : "0",
+					"recordId" : "10262"
+				},
+				{
+					"employeeDay_TIMEASSIGN::jobNum_a" : "5182",
+					"employeeDay_TIMEASSIGN::totalHoursWorked_c" : 3.5,
+					"modId" : "0",
+					"recordId" : "10277"
+				},
+				{
+					"employeeDay_TIMEASSIGN::jobNum_a" : "5572",
+					"employeeDay_TIMEASSIGN::totalHoursWorked_c" : 10.75,
+					"modId" : "0",
+					"recordId" : "10284"
+				},
+				{
+					"employeeDay_TIMEASSIGN::jobNum_a" : "5576",
+					"employeeDay_TIMEASSIGN::totalHoursWorked_c" : 11.5,
+					"modId" : "0",
+					"recordId" : "10313"
+				},
+				{
+					"employeeDay_TIMEASSIGN::jobNum_a" : "5571",
+					"employeeDay_TIMEASSIGN::totalHoursWorked_c" : 8.75,
+					"modId" : "0",
+					"recordId" : "10343"
+				}
+			],
+			"employeeDay_TIMEHOURS" : 
+			[
+				{
+					"employeeDay_TIMEHOURS::date" : "03/20/2024",
+					"employeeDay_TIMEHOURS::hoursV2" : 7.5,
+					"employeeDay_TIMEHOURS::hoursV2_Original" : 7.5,
+					"employeeDay_TIMEHOURS::otV2" : 0,
+					"modId" : "0",
+					"recordId" : "23475"
+				}
+			]
+		},
+		"portalDataInfo" : 
+		[
+			{
+				"database" : "JOBS",
+				"foundCount" : 1,
+				"returnedCount" : 1,
+				"table" : "employeeDay_EMPLOYEE"
+			},
+			{
+				"database" : "JOBS",
+				"foundCount" : 9,
+				"returnedCount" : 9,
+				"table" : "employeeDay_TIMEASSIGN"
+			},
+			{
+				"database" : "JOBS",
+				"foundCount" : 2,
+				"returnedCount" : 2,
+				"table" : "employeeDay_EMPLOYEEHOURS"
+			},
+			{
+				"database" : "JOBS",
+				"foundCount" : 1,
+				"returnedCount" : 1,
+				"table" : "employeeDay_TIMEHOURS"
+			},
+			{
+				"database" : "JOBS",
+				"foundCount" : 2,
+				"returnedCount" : 2,
+				"table" : "employeeDay_PAYRECORDS"
+			}
+		],
+		"recordId" : "1681"
+	},

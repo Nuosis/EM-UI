@@ -3,6 +3,10 @@ import { useTableContext } from './TableState';
 
 export default function LoadTableBody({ data, columns }) {
     const { searchTerm, filterTerm } = useTableContext();
+    //console.log("dataProvided:", data);
+    //console.log("Current searchTerm:", searchTerm);
+    //console.log("Current filterTerm:", filterTerm);
+
     const indexColumn = columns.find(col => col.index);
 
     const searchData = data.filter(item => {
@@ -14,6 +18,17 @@ export default function LoadTableBody({ data, columns }) {
 
         // Return true if any searchableValue includes the searchTerm
         return searchableValues.includes(searchTerm.toLowerCase());
+    });
+    //console.log("dataAfterSearch:", searchData);
+
+    // Then, conditionally apply the filter to omit matches if filterTerm is not empty
+    const filteredData = searchData.filter(item => {
+        if (!filterTerm) return true; // If filterTerm is null or empty, allow everything
+        const filterableValues = columns
+            .filter(column => column.filterable)
+            .map(column => item[column.field]?.toString().toLowerCase() || "")
+            .join(' ');
+        return !filterableValues.includes(filterTerm.toLowerCase()); // Use '!' to omit matches
     });
 
     return (
@@ -31,7 +46,7 @@ export default function LoadTableBody({ data, columns }) {
                 </tr>
             </thead>
             <tbody>
-                {data.map((item, rowIndex) => {
+                {filteredData.map((item, rowIndex) => {
                     const key = indexColumn ? item[indexColumn.field] : rowIndex;
                     return (
                     <tr key={key}>

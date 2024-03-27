@@ -119,7 +119,7 @@ window.loadTimeManagement = (json) => {
     const sumColumns = [
         { label: 'ID', index: true, filterable: false, searchable: false, sortable: false, hidden: true, field: 'id' },
         { label: 'Employee', index: false, filterable: true, searchable: true, sortable: true, field: 'employeeName'  },
-        { label: 'Allocated', index: false, filterable: true, searchable: true, sortable: true, field: 'timeAssigned'  },
+        { label: 'Allocated', index: false, filterable: false, searchable: false, sortable: true, field: 'timeAssigned'  },
         { label: 'IN/OUT', index: false, filterable: true, searchable: true, sortable: true, field: 'isLoggedIn'  },
         { label: 'Hours Worked', index: false, filterable: false, searchable: false, sortable: true, field: 'totalHours'  }
     ];

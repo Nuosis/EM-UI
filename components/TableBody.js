@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useLayoutEffect } from 'react';
 import { useTableContext } from './TableState';
 import { icons } from '../src/icons'; 
+import { ApprovedButton, ApproveButton } from '../src/icons'; 
 
 export default function LoadTableBody({ data, columns }) {
     const { searchTerm, filterTerm, sort, setSort } = useTableContext();
@@ -57,6 +58,11 @@ export default function LoadTableBody({ data, columns }) {
         });
     }, [filteredData, sort]); 
 
+    const componentMap = {
+        ApprovedButton: ApprovedButton,
+        ApproveButton: ApproveButton,
+    };
+
     const handleCellClick = (callbackPath, record) => {
         const scriptParameter = JSON.stringify({
             path: callbackPath,
@@ -110,7 +116,7 @@ export default function LoadTableBody({ data, columns }) {
                                     </td>
                                 );
                             } else if(column.type === 'component' && column.compairColumn) {
-                                const ComponentToRender = item[column.compairColumn] ? column.ifTrue : column.ifFalse;
+                                const ComponentToRender = item[column.compairColumn] ? componentMap[column.ifTrue] : componentMap[column.ifFalse];
                                 console.log("ComponentToRender:", ComponentToRender.name);
                                 const scriptParameter = JSON.stringify({
                                     path: column.callBackPath, // Adjust as needed

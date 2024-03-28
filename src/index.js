@@ -105,43 +105,45 @@ window.loadJobTracker = (json) => {
 
 window.loadTimeManagement = (json) => {
     console.log('init loadTimeManagement')
-    clearLoadingAnimation()
-    const data = JSON.parse(json); //in FM I am passing in only the data array
-    const hrs = transformedHrs(data.timeAssignData)
-    const hrsElements = [
-        { objectType: 'search', scope: 'all' },
-        { objectType: 'filter', scope: 'date' },
-        // { objectType: 'sort', scope: ['name', 'date'] },
-    ];
-    const hrsColumns = [
-        { label: 'ID', type: 'text', index: true, filterable: false, searchable: false, sortable: false, hidden: true, field: 'id' },
-        { label: 'Date', type: 'text', index: false, filterable: true, searchable: true, sortable: true, sorted: true, field: 'date' },
-        { label: 'Employee', type: 'text', index: false, filterable: true, searchable: true, sortable: true, field: 'employeeName', clickable: true, callbackPath: 'timeManagement.hrs.employee' },
-        { label: 'Department', type: 'text', index: false, filterable: true, searchable: true, sortable: true, field: 'department'  },
-        { label: 'Activity', type: 'text', index: false, filterable: true, searchable: true, sortable: true, field: 'activity'  },
-        { label: 'Job', type: 'text', index: false, filterable: true, searchable: true, sortable: true, field: 'jobNum'  },
-        { label: 'Hours Worked', type: 'text', index: false, filterable: false, searchable: false, sortable: true, field: 'hours'  },
-        { label: '', type: 'button', icon: 'delete24', callBackPath: "timeManagement.delete"  }
-    ];
+    const data = JSON.parse(json);
+    // console.log(`passedData`,data)
+    const hrs = transformedHrs(data.timeAssignData);
+    const hrsElements = data.timeAssignElements
+    const hrsColumns = data.timeAssignColumns
+    // const hrsElements = [
+    //     { objectType: 'search'},
+    //     { objectType: 'filter'},
+    // ];
+    // const hrsColumns = [
+    //     { label: 'ID', type: 'text', index: true, filterable: false, searchable: false, sortable: false, hidden: true, field: 'id' },
+    //     { label: 'Date', type: 'text', index: false, filterable: true, searchable: true, sortable: true, sorted: true, field: 'date' },
+    //     { label: 'Employee', type: 'text', index: false, filterable: true, searchable: true, sortable: true, field: 'employeeName', clickable: true, callbackPath: 'timeManagement.hrs.employee' },
+    //     { label: 'Department', type: 'text', index: false, filterable: true, searchable: true, sortable: true, field: 'department'  },
+    //     { label: 'Activity', type: 'text', index: false, filterable: true, searchable: true, sortable: true, field: 'activity'  },
+    //     { label: 'Job', type: 'text', index: false, filterable: true, searchable: true, sortable: true, field: 'jobNum'  },
+    //     { label: 'Hours Worked', type: 'text', index: false, filterable: false, searchable: false, sortable: true, field: 'hours'  },
+    //     { label: '', type: 'button', icon: 'delete24', callBackPath: "timeManagement.delete"  }
+    // ];
 
     const sum = sumEmployeeHoursData(data.employeeHoursData);
-    //console.log(`sumObject`,sum)
-    const sumElements = [
-        { objectType: 'search', scope: 'all' },
-        //{ objectType: 'filter', scope: 'date' },
-        // { objectType: 'sort', scope: ['name', 'date'] },
-    ];
-    const sumColumns = [
-        { label: 'ID', index: true, filterable: false, searchable: false, sortable: false, hidden: true, field: 'id' },
-        { label: 'Approved', index: true, filterable: false, searchable: false, sortable: false, hidden: true, field: 'approved' },
-        { label: 'Employee', index: false, filterable: true, searchable: true, sortable: true, sorted: true, field: 'employeeName'  },
-        { label: 'Department', index: false, filterable: true, searchable: true, sortable: true, field: 'department'  },
-        { label: 'Date', index: false, filterable: true, searchable: true, sortable: true, field: 'date'  },
-        { label: 'Allocated', index: false, filterable: false, searchable: false, sortable: true, field: 'timeAssigned', clickable: true, callbackPath: 'timeManagement.sum.allocated' },
-        { label: 'IN/OUT', index: false, filterable: true, searchable: true, sortable: true, field: 'isLoggedIn'  },
-        { label: 'Hours', index: false, filterable: false, searchable: false, sortable: true, field: 'totalHours', clickable: true, callbackPath: 'timeManagement.sum.hours'   },
-        { label: '', type: 'component', compairColumn: 'Approved', ifTrue: ApprovedButton, ifFalse: ApproveButton, callBackPath: "timeManagement.approve"  }
-    ];
+    const sumElements = data.employeeHoursElements
+    const sumColumns = data.employeeHoursColumns
+    // console.log(`sumColumns`,sumColumns)
+    // const sumElements = [
+    //     { objectType: 'search'},
+    //     //{ objectType: 'filter'},
+    // ];
+    // const sumColumns = [
+    //     { label: 'ID', index: true, filterable: false, searchable: false, sortable: false, hidden: true, field: 'id' },
+    //     { label: 'Approved', index: true, filterable: false, searchable: false, sortable: false, hidden: true, field: 'approved' },
+    //     { label: 'Employee', index: false, filterable: true, searchable: true, sortable: true, sorted: true, field: 'employeeName'  },
+    //     { label: 'Department', index: false, filterable: true, searchable: true, sortable: true, field: 'department'  },
+    //     { label: 'Date', index: false, filterable: true, searchable: true, sortable: true, field: 'date'  },
+    //     { label: 'Allocated', index: false, filterable: false, searchable: false, sortable: true, field: 'timeAssigned', clickable: true, callbackPath: 'timeManagement.sum.allocated' },
+    //     { label: 'IN/OUT', index: false, filterable: true, searchable: true, sortable: true, field: 'isLoggedIn'  },
+    //     { label: 'Hours', index: false, filterable: false, searchable: false, sortable: true, field: 'totalHours', clickable: true, callbackPath: 'timeManagement.sum.hours'   },
+    //     { label: '', type: 'component', compairColumn: 'Approved', ifTrue: "ApprovedButton", ifFalse: "ApproveButton", callBackPath: "timeManagement.approve"  }
+    // ];
 
     manageRoot("root", 
         <>
@@ -158,6 +160,10 @@ window.loadTimeManagement = (json) => {
 }
 
 window.showLoadingAnimation = () => {
+    const formContainer = document.getElementById("root");
+    // Remove existing content
+    formContainer.innerHTML = '';
+
     const feedbackContainer = document.getElementById("feedback");
     // Ensure the container uses the Flexbox setup for centering
     feedbackContainer.classList.add("feedback-container"); // Add the class to the container
@@ -173,11 +179,10 @@ window.showLoadingAnimation = () => {
 
 window.clearLoadingAnimation = () => {
     const feedbackContainer = document.getElementById("feedback");
-    // Remove existing content
     feedbackContainer.innerHTML = '';
 }
 
 //showLoadingAnimation()
 //clearLoadingAnimation()
 //loadJobTracker(JSON.stringify(jobsData))
-loadTimeManagement(JSON.stringify({timeAssignData,employeeHoursData}))
+//loadTimeManagement(JSON.stringify({timeAssignData,employeeHoursData}))

@@ -28,9 +28,6 @@ export const ApproveButton = ({ onClick }) => (
         justifyContent: 'center',
         gap: '10px', // Space between text and icon
     }}>
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" style={{ marginBottom: '2px' }}>
-            <path d="M13.485 1.55a.7.7 0 0 1 .994.025l.07.08a.7.7 0 0 1-.025.993l-7.297 7.297a.7.7 0 0 1-.888.067l-.08-.067-4.297-4.297a.7.7 0 0 1 .888-1.05l.08.067 3.683 3.683 6.683-6.683z"/>
-        </svg>
         Approve
     </button>
 );

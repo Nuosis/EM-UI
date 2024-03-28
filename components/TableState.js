@@ -9,7 +9,7 @@ export function useTableContext() {
 export const TableProvider = ({ children }) => {
     const [searchTerm, setSearchTerm] = useState('');
     const [filterTerm, setFilterTerm] = useState('');
-    const [sortCriteria, setSortCriteria] = useState(null); // Placeholder for sort implementation
+    const [sort, setSort] = useState({ column: null, direction: 'asc' });
 
     // Directly log within the setters if needed
     const handleSetSearchTerm = (value) => {
@@ -22,6 +22,16 @@ export const TableProvider = ({ children }) => {
         setFilterTerm(value);
     };
 
+    // Add a method to update the sort state
+    const handleSetSort = (columnName) => {
+        console.log("Updating sortCondition:", columnName); 
+        setSort(currentSort => {
+            // If the current sort column is the same as the new, toggle the direction, else set to 'asc'
+            const direction = currentSort.column === columnName ? (currentSort.direction === 'asc' ? 'desc' : 'asc') : 'asc';
+            return { column: columnName, direction };
+        });
+    };
+    
     // Function to reset all filters and searches
     const resetTableFilters = () => {
         console.log("Resetting filters and searches"); // Optionally log the reset action
@@ -36,8 +46,8 @@ export const TableProvider = ({ children }) => {
             setSearchTerm: handleSetSearchTerm, 
             filterTerm, 
             setFilterTerm: handleSetFilterTerm, 
-            sortCriteria, 
-            setSortCriteria, 
+            sort,
+            setSort: handleSetSort,
             resetTableFilters
         }}>
             {children}

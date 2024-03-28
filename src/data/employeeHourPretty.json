@@ -1,175 +1,1558 @@
-{
-		"fieldData" : 
-		{
-			"Note" : "",
-			"approvedBy" : "",
-			"approvedFLAG" : "",
-			"approvedTS" : "",
-			"dateWorked" : "03/20/2024",
-			"dayName" : "Wednesday",
-			"f_processed" : "1",
-			"id" : "AE103056-6016-FA4B-A4BB-6C28E87D332B",
-			"id_employee" : "A050ED47-995F-D145-9903-6A4F5B832388",
-			"month" : 3,
-			"week" : 12,
-			"weekStartDate_a" : "03/18/2024",
-			"year" : 2024,
-			"zCreatedBy" : "p2punchclock",
-			"zCreationDate" : "03/20/2024",
-			"zCreationTimestamp" : "03/20/2024 06:59:01",
-			"zModificationTimestamp" : "03/26/2024 18:39:36",
-			"zModifiedBy" : "Marcus"
-		},
-		"modId" : "2",
-		"portalData" : 
-		{
-			"employeeDay_EMPLOYEE" : 
-			[
-				{
-					"employeeDay_EMPLOYEE::Reports To" : "Anthony Piazza",
-					"employeeDay_EMPLOYEE::nameDisplay_a" : "Justin Altenbeck",
-					"employeeDay_EMPLOYEE::rate" : 32,
-					"modId" : "15",
-					"recordId" : "335"
-				}
-			],
-			"employeeDay_EMPLOYEEHOURS" : 
-			[
-				{
-					"employeeDay_EMPLOYEEHOURS::dateWorked" : "03/20/2024",
-					"employeeDay_EMPLOYEEHOURS::flag_open_a" : 0,
-					"employeeDay_EMPLOYEEHOURS::flag_processed" : 1,
-					"employeeDay_EMPLOYEEHOURS::hours" : 27900,
-					"modId" : "4",
-					"recordId" : "17682"
-				},
-				{
-					"employeeDay_EMPLOYEEHOURS::dateWorked" : "03/20/2024",
-					"employeeDay_EMPLOYEEHOURS::flag_open_a" : 0,
-					"employeeDay_EMPLOYEEHOURS::flag_processed" : 1,
-					"employeeDay_EMPLOYEEHOURS::hours" : 27900,
-					"modId" : "1",
-					"recordId" : "18056"
-				}
-			],
-			"employeeDay_PAYRECORDS" : 
-			[
-				{
-					"employeeDay_PAYRECORDS::dateWorked" : "03/20/2024",
-					"employeeDay_PAYRECORDS::hours" : 8,
-					"employeeDay_PAYRECORDS::type" : "HRS",
-					"modId" : "2",
-					"recordId" : "4431"
-				},
-				{
-					"employeeDay_PAYRECORDS::dateWorked" : "03/20/2024",
-					"employeeDay_PAYRECORDS::hours" : 7.5,
-					"employeeDay_PAYRECORDS::type" : "OT",
-					"modId" : "0",
-					"recordId" : "4486"
-				}
-			],
-			"employeeDay_TIMEASSIGN" : 
-			[
-				{
-					"employeeDay_TIMEASSIGN::jobNum_a" : "5159",
-					"employeeDay_TIMEASSIGN::totalHoursWorked_c" : 5,
-					"modId" : "0",
-					"recordId" : "10158"
-				},
-				{
-					"employeeDay_TIMEASSIGN::jobNum_a" : "500",
-					"employeeDay_TIMEASSIGN::totalHoursWorked_c" : 2.25,
-					"modId" : "0",
-					"recordId" : "10160"
-				},
-				{
-					"employeeDay_TIMEASSIGN::jobNum_a" : "5573",
-					"employeeDay_TIMEASSIGN::totalHoursWorked_c" : 7.5,
-					"modId" : "0",
-					"recordId" : "10161"
-				},
-				{
-					"employeeDay_TIMEASSIGN::jobNum_a" : "5575",
-					"employeeDay_TIMEASSIGN::totalHoursWorked_c" : 8,
-					"modId" : "0",
-					"recordId" : "10222"
-				},
-				{
-					"employeeDay_TIMEASSIGN::jobNum_a" : "5574",
-					"employeeDay_TIMEASSIGN::totalHoursWorked_c" : 10,
-					"modId" : "0",
-					"recordId" : "10262"
-				},
-				{
-					"employeeDay_TIMEASSIGN::jobNum_a" : "5182",
-					"employeeDay_TIMEASSIGN::totalHoursWorked_c" : 3.5,
-					"modId" : "0",
-					"recordId" : "10277"
-				},
-				{
-					"employeeDay_TIMEASSIGN::jobNum_a" : "5572",
-					"employeeDay_TIMEASSIGN::totalHoursWorked_c" : 10.75,
-					"modId" : "0",
-					"recordId" : "10284"
-				},
-				{
-					"employeeDay_TIMEASSIGN::jobNum_a" : "5576",
-					"employeeDay_TIMEASSIGN::totalHoursWorked_c" : 11.5,
-					"modId" : "0",
-					"recordId" : "10313"
-				},
-				{
-					"employeeDay_TIMEASSIGN::jobNum_a" : "5571",
-					"employeeDay_TIMEASSIGN::totalHoursWorked_c" : 8.75,
-					"modId" : "0",
-					"recordId" : "10343"
-				}
-			],
-			"employeeDay_TIMEHOURS" : 
-			[
-				{
-					"employeeDay_TIMEHOURS::date" : "03/20/2024",
-					"employeeDay_TIMEHOURS::hoursV2" : 7.5,
-					"employeeDay_TIMEHOURS::hoursV2_Original" : 7.5,
-					"employeeDay_TIMEHOURS::otV2" : 0,
-					"modId" : "0",
-					"recordId" : "23475"
-				}
-			]
-		},
-		"portalDataInfo" : 
+[
+	{
+	"fieldData" : 
+	{
+		"Note" : "",
+		"approvedBy" : "",
+		"approvedFLAG" : "",
+		"approvedTS" : "",
+		"dateWorked" : "03/22/2024",
+		"dayName" : "Friday",
+		"f_processed" : "1",
+		"id" : "8759C02B-0438-7C4A-AA41-869BCD8E629C",
+		"id_employee" : "FBDB99AE-FE19-1A4E-B575-A11F9376EC2B",
+		"month" : 3,
+		"week" : 12,
+		"weekStartDate_a" : "03/18/2024",
+		"year" : 2024,
+		"zCreatedBy" : "JustinKlimowicz",
+		"zCreationDate" : "03/22/2024",
+		"zCreationTimestamp" : "03/22/2024 07:03:58",
+		"zModificationTimestamp" : "03/26/2024 18:43:11",
+		"zModifiedBy" : "Marcus"
+	},
+	"modId" : "2",
+	"portalData" : 
+	{
+		"employeeDay_EMPLOYEE" : 
 		[
 			{
-				"database" : "JOBS",
-				"foundCount" : 1,
-				"returnedCount" : 1,
-				"table" : "employeeDay_EMPLOYEE"
-			},
-			{
-				"database" : "JOBS",
-				"foundCount" : 9,
-				"returnedCount" : 9,
-				"table" : "employeeDay_TIMEASSIGN"
-			},
-			{
-				"database" : "JOBS",
-				"foundCount" : 2,
-				"returnedCount" : 2,
-				"table" : "employeeDay_EMPLOYEEHOURS"
-			},
-			{
-				"database" : "JOBS",
-				"foundCount" : 1,
-				"returnedCount" : 1,
-				"table" : "employeeDay_TIMEHOURS"
-			},
-			{
-				"database" : "JOBS",
-				"foundCount" : 2,
-				"returnedCount" : 2,
-				"table" : "employeeDay_PAYRECORDS"
+				"employeeDay_EMPLOYEE::Reports To" : "Jeff Pillon",
+				"employeeDay_EMPLOYEE::nameDisplay_a" : "Justin Klimowicz",
+				"employeeDay_EMPLOYEE::rate" : 34.5,
+				"modId" : "9",
+				"recordId" : "347"
 			}
 		],
-		"recordId" : "1681"
+		"employeeDay_EMPLOYEEHOURS" : 
+		[
+			{
+				"employeeDay_EMPLOYEEHOURS::dateWorked" : "03/22/2024",
+				"employeeDay_EMPLOYEEHOURS::flag_open_a" : 0,
+				"employeeDay_EMPLOYEEHOURS::flag_processed" : 1,
+				"employeeDay_EMPLOYEEHOURS::hours" : 32400,
+				"modId" : "3",
+				"recordId" : "18146"
+			}
+		],
+		"employeeDay_PAYRECORDS" : 
+		[
+			{
+				"employeeDay_PAYRECORDS::hours" : 8,
+				"employeeDay_PAYRECORDS::type" : "HRS",
+				"modId" : "0",
+				"recordId" : "4615"
+			},
+			{
+				"employeeDay_PAYRECORDS::hours" : 1,
+				"employeeDay_PAYRECORDS::type" : "OT",
+				"modId" : "0",
+				"recordId" : "4616"
+			}
+		],
+		"employeeDay_TIMEASSIGN" : 
+		[
+			{
+				"employeeDay_TIMEASSIGN::jobNum_a" : "5570",
+				"employeeDay_TIMEASSIGN::totalHoursWorked_c" : 3.75,
+				"modId" : "0",
+				"recordId" : "10244"
+			},
+			{
+				"employeeDay_TIMEASSIGN::jobNum_a" : "5571",
+				"employeeDay_TIMEASSIGN::totalHoursWorked_c" : 1.25,
+				"modId" : "0",
+				"recordId" : "10245"
+			},
+			{
+				"employeeDay_TIMEASSIGN::jobNum_a" : "5572",
+				"employeeDay_TIMEASSIGN::totalHoursWorked_c" : 4,
+				"modId" : "0",
+				"recordId" : "10246"
+			},
+			{
+				"employeeDay_TIMEASSIGN::jobNum_a" : "5573",
+				"employeeDay_TIMEASSIGN::totalHoursWorked_c" : 0.75,
+				"modId" : "0",
+				"recordId" : "10247"
+			},
+			{
+				"employeeDay_TIMEASSIGN::jobNum_a" : "5574",
+				"employeeDay_TIMEASSIGN::totalHoursWorked_c" : 5.75,
+				"modId" : "0",
+				"recordId" : "10248"
+			},
+			{
+				"employeeDay_TIMEASSIGN::jobNum_a" : "5575",
+				"employeeDay_TIMEASSIGN::totalHoursWorked_c" : 18,
+				"modId" : "0",
+				"recordId" : "10249"
+			},
+			{
+				"employeeDay_TIMEASSIGN::jobNum_a" : "5576",
+				"employeeDay_TIMEASSIGN::totalHoursWorked_c" : 1.75,
+				"modId" : "0",
+				"recordId" : "10250"
+			},
+			{
+				"employeeDay_TIMEASSIGN::jobNum_a" : "300",
+				"employeeDay_TIMEASSIGN::totalHoursWorked_c" : 3,
+				"modId" : "0",
+				"recordId" : "10251"
+			},
+			{
+				"employeeDay_TIMEASSIGN::jobNum_a" : "4628-12",
+				"employeeDay_TIMEASSIGN::totalHoursWorked_c" : 4.75,
+				"modId" : "0",
+				"recordId" : "10252"
+			},
+			{
+				"employeeDay_TIMEASSIGN::jobNum_a" : "5441",
+				"employeeDay_TIMEASSIGN::totalHoursWorked_c" : 0.25,
+				"modId" : "0",
+				"recordId" : "10253"
+			},
+			{
+				"employeeDay_TIMEASSIGN::jobNum_a" : "5159-02",
+				"employeeDay_TIMEASSIGN::totalHoursWorked_c" : 0.25,
+				"modId" : "0",
+				"recordId" : "10254"
+			},
+			{
+				"employeeDay_TIMEASSIGN::jobNum_a" : "5442",
+				"employeeDay_TIMEASSIGN::totalHoursWorked_c" : 0.75,
+				"modId" : "0",
+				"recordId" : "10293"
+			}
+		],
+		"employeeDay_TIMEHOURS" : 
+		[
+			{
+				"employeeDay_TIMEHOURS::date" : "03/22/2024",
+				"employeeDay_TIMEHOURS::department" : "Engineering",
+				"employeeDay_TIMEHOURS::hoursV2" : 0.5,
+				"employeeDay_TIMEHOURS::hoursV2_Original" : 0.5,
+				"employeeDay_TIMEHOURS::otV2" : 0,
+				"employeeDay_TIMEHOURS::type" : "Advanced Engineering",
+				"modId" : "0",
+				"recordId" : "23668"
+			},
+			{
+				"employeeDay_TIMEHOURS::date" : "03/22/2024",
+				"employeeDay_TIMEHOURS::department" : "Engineering",
+				"employeeDay_TIMEHOURS::hoursV2" : 2,
+				"employeeDay_TIMEHOURS::hoursV2_Original" : 2,
+				"employeeDay_TIMEHOURS::otV2" : 0,
+				"employeeDay_TIMEHOURS::type" : "Design",
+				"modId" : "0",
+				"recordId" : "23669"
+			},
+			{
+				"employeeDay_TIMEHOURS::date" : "03/22/2024",
+				"employeeDay_TIMEHOURS::department" : "Engineering",
+				"employeeDay_TIMEHOURS::hoursV2" : 3.75,
+				"employeeDay_TIMEHOURS::hoursV2_Original" : 3.75,
+				"employeeDay_TIMEHOURS::otV2" : 1.5,
+				"employeeDay_TIMEHOURS::type" : "Design",
+				"modId" : "0",
+				"recordId" : "23670"
+			},
+			{
+				"employeeDay_TIMEHOURS::date" : "03/22/2024",
+				"employeeDay_TIMEHOURS::department" : "Engineering",
+				"employeeDay_TIMEHOURS::hoursV2" : 0.25,
+				"employeeDay_TIMEHOURS::hoursV2_Original" : 0.25,
+				"employeeDay_TIMEHOURS::otV2" : 0.25,
+				"employeeDay_TIMEHOURS::type" : "Advanced Engineering",
+				"modId" : "0",
+				"recordId" : "23671"
+			},
+			{
+				"employeeDay_TIMEHOURS::date" : "03/22/2024",
+				"employeeDay_TIMEHOURS::department" : "Engineering",
+				"employeeDay_TIMEHOURS::hoursV2" : 0.5,
+				"employeeDay_TIMEHOURS::hoursV2_Original" : 0.5,
+				"employeeDay_TIMEHOURS::otV2" : 0.5,
+				"employeeDay_TIMEHOURS::type" : "Advanced Engineering",
+				"modId" : "0",
+				"recordId" : "23672"
+			},
+			{
+				"employeeDay_TIMEHOURS::date" : "03/22/2024",
+				"employeeDay_TIMEHOURS::department" : "Engineering",
+				"employeeDay_TIMEHOURS::hoursV2" : 2,
+				"employeeDay_TIMEHOURS::hoursV2_Original" : 2,
+				"employeeDay_TIMEHOURS::otV2" : 2,
+				"employeeDay_TIMEHOURS::type" : "Design",
+				"modId" : "0",
+				"recordId" : "23673"
+			}
+		]
 	},
+	"portalDataInfo" : 
+	[
+		{
+			"database" : "JOBS",
+			"foundCount" : 1,
+			"returnedCount" : 1,
+			"table" : "employeeDay_EMPLOYEE"
+		},
+		{
+			"database" : "JOBS",
+			"foundCount" : 12,
+			"returnedCount" : 12,
+			"table" : "employeeDay_TIMEASSIGN"
+		},
+		{
+			"database" : "JOBS",
+			"foundCount" : 1,
+			"returnedCount" : 1,
+			"table" : "employeeDay_EMPLOYEEHOURS"
+		},
+		{
+			"database" : "JOBS",
+			"foundCount" : 6,
+			"returnedCount" : 6,
+			"table" : "employeeDay_TIMEHOURS"
+		},
+		{
+			"database" : "JOBS",
+			"foundCount" : 2,
+			"returnedCount" : 2,
+			"table" : "employeeDay_PAYRECORDS"
+		}
+	],
+	"recordId" : "1770"
+},
+{
+	"fieldData" : 
+	{
+		"Note" : "",
+		"approvedBy" : "",
+		"approvedFLAG" : "",
+		"approvedTS" : "",
+		"dateWorked" : "03/22/2024",
+		"dayName" : "Friday",
+		"f_processed" : "1",
+		"id" : "5640404E-A72B-8146-921D-59E66421BABD",
+		"id_employee" : "21A2D43F-ACB9-894E-B106-44155F5FC97C",
+		"month" : 3,
+		"week" : 12,
+		"weekStartDate_a" : "03/18/2024",
+		"year" : 2024,
+		"zCreatedBy" : "p1punchclock1",
+		"zCreationDate" : "03/22/2024",
+		"zCreationTimestamp" : "03/22/2024 07:04:28",
+		"zModificationTimestamp" : "03/26/2024 18:43:14",
+		"zModifiedBy" : "Marcus"
+	},
+	"modId" : "2",
+	"portalData" : 
+	{
+		"employeeDay_EMPLOYEE" : 
+		[
+			{
+				"employeeDay_EMPLOYEE::Reports To" : "Jeff Pillon",
+				"employeeDay_EMPLOYEE::nameDisplay_a" : "Manuel Martinez",
+				"employeeDay_EMPLOYEE::rate" : 36.25,
+				"modId" : "1",
+				"recordId" : "416"
+			}
+		],
+		"employeeDay_EMPLOYEEHOURS" : 
+		[
+			{
+				"employeeDay_EMPLOYEEHOURS::dateWorked" : "03/22/2024",
+				"employeeDay_EMPLOYEEHOURS::flag_open_a" : 0,
+				"employeeDay_EMPLOYEEHOURS::flag_processed" : 1,
+				"employeeDay_EMPLOYEEHOURS::hours" : 34200,
+				"modId" : "3",
+				"recordId" : "18147"
+			}
+		],
+		"employeeDay_PAYRECORDS" : 
+		[
+			{
+				"employeeDay_PAYRECORDS::hours" : 8,
+				"employeeDay_PAYRECORDS::type" : "HRS",
+				"modId" : "0",
+				"recordId" : "4617"
+			},
+			{
+				"employeeDay_PAYRECORDS::hours" : 1.5,
+				"employeeDay_PAYRECORDS::type" : "OT",
+				"modId" : "0",
+				"recordId" : "4618"
+			}
+		],
+		"employeeDay_TIMEASSIGN" : 
+		[
+			{
+				"employeeDay_TIMEASSIGN::jobNum_a" : "5441",
+				"employeeDay_TIMEASSIGN::totalHoursWorked_c" : 17.5,
+				"modId" : "0",
+				"recordId" : "10203"
+			},
+			{
+				"employeeDay_TIMEASSIGN::jobNum_a" : "5573",
+				"employeeDay_TIMEASSIGN::totalHoursWorked_c" : 5,
+				"modId" : "0",
+				"recordId" : "10204"
+			},
+			{
+				"employeeDay_TIMEASSIGN::jobNum_a" : "5571",
+				"employeeDay_TIMEASSIGN::totalHoursWorked_c" : 9,
+				"modId" : "0",
+				"recordId" : "10205"
+			},
+			{
+				"employeeDay_TIMEASSIGN::jobNum_a" : "5159-02",
+				"employeeDay_TIMEASSIGN::totalHoursWorked_c" : 4.75,
+				"modId" : "0",
+				"recordId" : "10206"
+			},
+			{
+				"employeeDay_TIMEASSIGN::jobNum_a" : "300",
+				"employeeDay_TIMEASSIGN::totalHoursWorked_c" : 5.5,
+				"modId" : "0",
+				"recordId" : "10207"
+			},
+			{
+				"employeeDay_TIMEASSIGN::jobNum_a" : "5574",
+				"employeeDay_TIMEASSIGN::totalHoursWorked_c" : 2,
+				"modId" : "0",
+				"recordId" : "10270"
+			},
+			{
+				"employeeDay_TIMEASSIGN::jobNum_a" : "5570",
+				"employeeDay_TIMEASSIGN::totalHoursWorked_c" : 2,
+				"modId" : "0",
+				"recordId" : "10271"
+			},
+			{
+				"employeeDay_TIMEASSIGN::jobNum_a" : "5292-03",
+				"employeeDay_TIMEASSIGN::totalHoursWorked_c" : 3,
+				"modId" : "0",
+				"recordId" : "10272"
+			},
+			{
+				"employeeDay_TIMEASSIGN::jobNum_a" : "5620",
+				"employeeDay_TIMEASSIGN::totalHoursWorked_c" : 4,
+				"modId" : "0",
+				"recordId" : "10331"
+			}
+		],
+		"employeeDay_TIMEHOURS" : 
+		[
+			{
+				"employeeDay_TIMEHOURS::date" : "03/22/2024",
+				"employeeDay_TIMEHOURS::department" : "Engineering",
+				"employeeDay_TIMEHOURS::hoursV2" : 3,
+				"employeeDay_TIMEHOURS::hoursV2_Original" : 3,
+				"employeeDay_TIMEHOURS::otV2" : 0.75,
+				"employeeDay_TIMEHOURS::type" : "Design",
+				"modId" : "0",
+				"recordId" : "23678"
+			},
+			{
+				"employeeDay_TIMEHOURS::date" : "03/22/2024",
+				"employeeDay_TIMEHOURS::department" : "Engineering",
+				"employeeDay_TIMEHOURS::hoursV2" : 1,
+				"employeeDay_TIMEHOURS::hoursV2_Original" : 1,
+				"employeeDay_TIMEHOURS::otV2" : 1,
+				"employeeDay_TIMEHOURS::type" : "Post Engineering",
+				"modId" : "0",
+				"recordId" : "23679"
+			},
+			{
+				"employeeDay_TIMEHOURS::date" : "03/22/2024",
+				"employeeDay_TIMEHOURS::department" : "Engineering",
+				"employeeDay_TIMEHOURS::hoursV2" : 1,
+				"employeeDay_TIMEHOURS::hoursV2_Original" : 1,
+				"employeeDay_TIMEHOURS::otV2" : 1,
+				"employeeDay_TIMEHOURS::type" : "Design",
+				"modId" : "0",
+				"recordId" : "23680"
+			},
+			{
+				"employeeDay_TIMEHOURS::date" : "03/22/2024",
+				"employeeDay_TIMEHOURS::department" : "Engineering",
+				"employeeDay_TIMEHOURS::hoursV2" : 3,
+				"employeeDay_TIMEHOURS::hoursV2_Original" : 3,
+				"employeeDay_TIMEHOURS::otV2" : 3,
+				"employeeDay_TIMEHOURS::type" : "Design",
+				"modId" : "0",
+				"recordId" : "23681"
+			},
+			{
+				"employeeDay_TIMEHOURS::date" : "03/22/2024",
+				"employeeDay_TIMEHOURS::department" : "Engineering",
+				"employeeDay_TIMEHOURS::hoursV2" : 1.5,
+				"employeeDay_TIMEHOURS::hoursV2_Original" : 1.5,
+				"employeeDay_TIMEHOURS::otV2" : 1.5,
+				"employeeDay_TIMEHOURS::type" : "Design",
+				"modId" : "0",
+				"recordId" : "23682"
+			}
+		]
+	},
+	"portalDataInfo" : 
+	[
+		{
+			"database" : "JOBS",
+			"foundCount" : 1,
+			"returnedCount" : 1,
+			"table" : "employeeDay_EMPLOYEE"
+		},
+		{
+			"database" : "JOBS",
+			"foundCount" : 9,
+			"returnedCount" : 9,
+			"table" : "employeeDay_TIMEASSIGN"
+		},
+		{
+			"database" : "JOBS",
+			"foundCount" : 1,
+			"returnedCount" : 1,
+			"table" : "employeeDay_EMPLOYEEHOURS"
+		},
+		{
+			"database" : "JOBS",
+			"foundCount" : 5,
+			"returnedCount" : 5,
+			"table" : "employeeDay_TIMEHOURS"
+		},
+		{
+			"database" : "JOBS",
+			"foundCount" : 2,
+			"returnedCount" : 2,
+			"table" : "employeeDay_PAYRECORDS"
+		}
+	],
+	"recordId" : "1771"
+},
+{
+	"fieldData" : 
+	{
+		"Note" : "",
+		"approvedBy" : "",
+		"approvedFLAG" : "",
+		"approvedTS" : "",
+		"dateWorked" : "03/22/2024",
+		"dayName" : "Friday",
+		"f_processed" : "1",
+		"id" : "EB0E6B56-31C3-134F-8FE0-80333911421B",
+		"id_employee" : "C03A02F9-8307-054B-B262-EF7C7D52A42A",
+		"month" : 3,
+		"week" : 12,
+		"weekStartDate_a" : "03/18/2024",
+		"year" : 2024,
+		"zCreatedBy" : "DaleEchlin",
+		"zCreationDate" : "03/22/2024",
+		"zCreationTimestamp" : "03/22/2024 07:10:09",
+		"zModificationTimestamp" : "03/26/2024 18:43:16",
+		"zModifiedBy" : "Marcus"
+	},
+	"modId" : "2",
+	"portalData" : 
+	{
+		"employeeDay_EMPLOYEE" : 
+		[
+			{
+				"employeeDay_EMPLOYEE::Reports To" : "Jeff Pillon",
+				"employeeDay_EMPLOYEE::nameDisplay_a" : "Dale Echlin",
+				"employeeDay_EMPLOYEE::rate" : 28.5,
+				"modId" : "9",
+				"recordId" : "365"
+			}
+		],
+		"employeeDay_EMPLOYEEHOURS" : 
+		[
+			{
+				"employeeDay_EMPLOYEEHOURS::dateWorked" : "03/22/2024",
+				"employeeDay_EMPLOYEEHOURS::flag_open_a" : 0,
+				"employeeDay_EMPLOYEEHOURS::flag_processed" : 1,
+				"employeeDay_EMPLOYEEHOURS::hours" : 27900,
+				"modId" : "3",
+				"recordId" : "18148"
+			}
+		],
+		"employeeDay_PAYRECORDS" : 
+		[
+			{
+				"employeeDay_PAYRECORDS::hours" : 7.75,
+				"employeeDay_PAYRECORDS::type" : "HRS",
+				"modId" : "0",
+				"recordId" : "4619"
+			}
+		],
+		"employeeDay_TIMEASSIGN" : [],
+		"employeeDay_TIMEHOURS" : []
+	},
+	"portalDataInfo" : 
+	[
+		{
+			"database" : "JOBS",
+			"foundCount" : 1,
+			"returnedCount" : 1,
+			"table" : "employeeDay_EMPLOYEE"
+		},
+		{
+			"database" : "JOBS",
+			"foundCount" : 0,
+			"returnedCount" : 0,
+			"table" : "employeeDay_TIMEASSIGN"
+		},
+		{
+			"database" : "JOBS",
+			"foundCount" : 1,
+			"returnedCount" : 1,
+			"table" : "employeeDay_EMPLOYEEHOURS"
+		},
+		{
+			"database" : "JOBS",
+			"foundCount" : 0,
+			"returnedCount" : 0,
+			"table" : "employeeDay_TIMEHOURS"
+		},
+		{
+			"database" : "JOBS",
+			"foundCount" : 1,
+			"returnedCount" : 1,
+			"table" : "employeeDay_PAYRECORDS"
+		}
+	],
+	"recordId" : "1772"
+},
+{
+	"fieldData" : 
+	{
+		"Note" : "",
+		"approvedBy" : "",
+		"approvedFLAG" : "",
+		"approvedTS" : "",
+		"dateWorked" : "03/22/2024",
+		"dayName" : "Friday",
+		"f_processed" : "1",
+		"id" : "50E09ACA-6394-1444-9416-58FB4EBC9B2D",
+		"id_employee" : "700545E7-60CC-0041-A05A-E1A00051B82F",
+		"month" : 3,
+		"week" : 12,
+		"weekStartDate_a" : "03/18/2024",
+		"year" : 2024,
+		"zCreatedBy" : "AlStuart",
+		"zCreationDate" : "03/22/2024",
+		"zCreationTimestamp" : "03/22/2024 07:26:16",
+		"zModificationTimestamp" : "03/26/2024 18:43:18",
+		"zModifiedBy" : "Marcus"
+	},
+	"modId" : "2",
+	"portalData" : 
+	{
+		"employeeDay_EMPLOYEE" : 
+		[
+			{
+				"employeeDay_EMPLOYEE::Reports To" : "Anthony Piazza",
+				"employeeDay_EMPLOYEE::nameDisplay_a" : "Alan Stuart",
+				"employeeDay_EMPLOYEE::rate" : 24,
+				"modId" : "9",
+				"recordId" : "368"
+			}
+		],
+		"employeeDay_EMPLOYEEHOURS" : 
+		[
+			{
+				"employeeDay_EMPLOYEEHOURS::dateWorked" : "03/22/2024",
+				"employeeDay_EMPLOYEEHOURS::flag_open_a" : 0,
+				"employeeDay_EMPLOYEEHOURS::flag_processed" : 1,
+				"employeeDay_EMPLOYEEHOURS::hours" : 23400,
+				"modId" : "3",
+				"recordId" : "18149"
+			}
+		],
+		"employeeDay_PAYRECORDS" : 
+		[
+			{
+				"employeeDay_PAYRECORDS::hours" : 6.5,
+				"employeeDay_PAYRECORDS::type" : "HRS",
+				"modId" : "0",
+				"recordId" : "4620"
+			}
+		],
+		"employeeDay_TIMEASSIGN" : 
+		[
+			{
+				"employeeDay_TIMEASSIGN::jobNum_a" : "5441",
+				"employeeDay_TIMEASSIGN::totalHoursWorked_c" : 11,
+				"modId" : "0",
+				"recordId" : "10183"
+			},
+			{
+				"employeeDay_TIMEASSIGN::jobNum_a" : "5573",
+				"employeeDay_TIMEASSIGN::totalHoursWorked_c" : 5,
+				"modId" : "0",
+				"recordId" : "10226"
+			},
+			{
+				"employeeDay_TIMEASSIGN::jobNum_a" : "500",
+				"employeeDay_TIMEASSIGN::totalHoursWorked_c" : 7.5,
+				"modId" : "0",
+				"recordId" : "10227"
+			},
+			{
+				"employeeDay_TIMEASSIGN::jobNum_a" : "4628-12",
+				"employeeDay_TIMEASSIGN::totalHoursWorked_c" : 1.5,
+				"modId" : "0",
+				"recordId" : "10228"
+			},
+			{
+				"employeeDay_TIMEASSIGN::jobNum_a" : "5182",
+				"employeeDay_TIMEASSIGN::totalHoursWorked_c" : 2,
+				"modId" : "0",
+				"recordId" : "10292"
+			},
+			{
+				"employeeDay_TIMEASSIGN::jobNum_a" : "5620",
+				"employeeDay_TIMEASSIGN::totalHoursWorked_c" : 6,
+				"modId" : "0",
+				"recordId" : "10323"
+			}
+		],
+		"employeeDay_TIMEHOURS" : 
+		[
+			{
+				"employeeDay_TIMEHOURS::date" : "03/22/2024",
+				"employeeDay_TIMEHOURS::department" : "EDM",
+				"employeeDay_TIMEHOURS::hoursV2" : 4,
+				"employeeDay_TIMEHOURS::hoursV2_Original" : 4,
+				"employeeDay_TIMEHOURS::otV2" : 0,
+				"employeeDay_TIMEHOURS::type" : "Surface Carbon",
+				"modId" : "0",
+				"recordId" : "23646"
+			},
+			{
+				"employeeDay_TIMEHOURS::date" : "03/22/2024",
+				"employeeDay_TIMEHOURS::department" : "EDM",
+				"employeeDay_TIMEHOURS::hoursV2" : 1,
+				"employeeDay_TIMEHOURS::hoursV2_Original" : 1,
+				"employeeDay_TIMEHOURS::otV2" : 0,
+				"employeeDay_TIMEHOURS::type" : "Surface Carbon",
+				"modId" : "0",
+				"recordId" : "23647"
+			},
+			{
+				"employeeDay_TIMEHOURS::date" : "03/22/2024",
+				"employeeDay_TIMEHOURS::department" : "EDM",
+				"employeeDay_TIMEHOURS::hoursV2" : 1.5,
+				"employeeDay_TIMEHOURS::hoursV2_Original" : 1.5,
+				"employeeDay_TIMEHOURS::otV2" : 0,
+				"employeeDay_TIMEHOURS::type" : "Surface Carbon",
+				"modId" : "0",
+				"recordId" : "23648"
+			}
+		]
+	},
+	"portalDataInfo" : 
+	[
+		{
+			"database" : "JOBS",
+			"foundCount" : 1,
+			"returnedCount" : 1,
+			"table" : "employeeDay_EMPLOYEE"
+		},
+		{
+			"database" : "JOBS",
+			"foundCount" : 6,
+			"returnedCount" : 6,
+			"table" : "employeeDay_TIMEASSIGN"
+		},
+		{
+			"database" : "JOBS",
+			"foundCount" : 1,
+			"returnedCount" : 1,
+			"table" : "employeeDay_EMPLOYEEHOURS"
+		},
+		{
+			"database" : "JOBS",
+			"foundCount" : 3,
+			"returnedCount" : 3,
+			"table" : "employeeDay_TIMEHOURS"
+		},
+		{
+			"database" : "JOBS",
+			"foundCount" : 1,
+			"returnedCount" : 1,
+			"table" : "employeeDay_PAYRECORDS"
+		}
+	],
+	"recordId" : "1773"
+},
+{
+	"fieldData" : 
+	{
+		"Note" : "",
+		"approvedBy" : "",
+		"approvedFLAG" : "",
+		"approvedTS" : "",
+		"dateWorked" : "03/22/2024",
+		"dayName" : "Friday",
+		"f_processed" : "1",
+		"id" : "7F031EA4-D02D-C84B-B992-218AC2A2A0B5",
+		"id_employee" : "D6F6A8A1-54CF-6B4F-B8C7-594BD0D35342",
+		"month" : 3,
+		"week" : 12,
+		"weekStartDate_a" : "03/18/2024",
+		"year" : 2024,
+		"zCreatedBy" : "p1punchclock1",
+		"zCreationDate" : "03/22/2024",
+		"zCreationTimestamp" : "03/22/2024 08:59:31",
+		"zModificationTimestamp" : "03/26/2024 18:23:21",
+		"zModifiedBy" : "Marcus"
+	},
+	"modId" : "1",
+	"portalData" : 
+	{
+		"employeeDay_EMPLOYEE" : 
+		[
+			{
+				"employeeDay_EMPLOYEE::Reports To" : "Anthony Piazza",
+				"employeeDay_EMPLOYEE::nameDisplay_a" : "Ricardo Lago",
+				"employeeDay_EMPLOYEE::rate" : 32.75,
+				"modId" : "9",
+				"recordId" : "346"
+			}
+		],
+		"employeeDay_EMPLOYEEHOURS" : 
+		[
+			{
+				"employeeDay_EMPLOYEEHOURS::dateWorked" : "03/22/2024",
+				"employeeDay_EMPLOYEEHOURS::flag_open_a" : 0,
+				"employeeDay_EMPLOYEEHOURS::flag_processed" : 1,
+				"employeeDay_EMPLOYEEHOURS::hours" : 7200,
+				"modId" : "4",
+				"recordId" : "18120"
+			},
+			{
+				"employeeDay_EMPLOYEEHOURS::dateWorked" : "03/22/2024",
+				"employeeDay_EMPLOYEEHOURS::flag_open_a" : 0,
+				"employeeDay_EMPLOYEEHOURS::flag_processed" : 1,
+				"employeeDay_EMPLOYEEHOURS::hours" : 20700,
+				"modId" : "3",
+				"recordId" : "18150"
+			}
+		],
+		"employeeDay_PAYRECORDS" : 
+		[
+			{
+				"employeeDay_PAYRECORDS::hours" : 7.75,
+				"employeeDay_PAYRECORDS::type" : "HRS",
+				"modId" : "1",
+				"recordId" : "4575"
+			}
+		],
+		"employeeDay_TIMEASSIGN" : 
+		[
+			{
+				"employeeDay_TIMEASSIGN::jobNum_a" : "5441",
+				"employeeDay_TIMEASSIGN::totalHoursWorked_c" : 3,
+				"modId" : "0",
+				"recordId" : "10162"
+			},
+			{
+				"employeeDay_TIMEASSIGN::jobNum_a" : "5570",
+				"employeeDay_TIMEASSIGN::totalHoursWorked_c" : 1,
+				"modId" : "0",
+				"recordId" : "10167"
+			},
+			{
+				"employeeDay_TIMEASSIGN::jobNum_a" : "5572",
+				"employeeDay_TIMEASSIGN::totalHoursWorked_c" : 1,
+				"modId" : "0",
+				"recordId" : "10174"
+			},
+			{
+				"employeeDay_TIMEASSIGN::jobNum_a" : "5571",
+				"employeeDay_TIMEASSIGN::totalHoursWorked_c" : 5,
+				"modId" : "0",
+				"recordId" : "10175"
+			},
+			{
+				"employeeDay_TIMEASSIGN::jobNum_a" : "4628-12",
+				"employeeDay_TIMEASSIGN::totalHoursWorked_c" : 16.25,
+				"modId" : "0",
+				"recordId" : "10310"
+			},
+			{
+				"employeeDay_TIMEASSIGN::jobNum_a" : "5574",
+				"employeeDay_TIMEASSIGN::totalHoursWorked_c" : 4,
+				"modId" : "0",
+				"recordId" : "10320"
+			},
+			{
+				"employeeDay_TIMEASSIGN::jobNum_a" : "5620",
+				"employeeDay_TIMEASSIGN::totalHoursWorked_c" : 1,
+				"modId" : "0",
+				"recordId" : "10338"
+			},
+			{
+				"employeeDay_TIMEASSIGN::jobNum_a" : "5094-03",
+				"employeeDay_TIMEASSIGN::totalHoursWorked_c" : 2,
+				"modId" : "0",
+				"recordId" : "10344"
+			},
+			{
+				"employeeDay_TIMEASSIGN::jobNum_a" : "5573",
+				"employeeDay_TIMEASSIGN::totalHoursWorked_c" : 6,
+				"modId" : "0",
+				"recordId" : "10345"
+			}
+		],
+		"employeeDay_TIMEHOURS" : 
+		[
+			{
+				"employeeDay_TIMEHOURS::date" : "03/22/2024",
+				"employeeDay_TIMEHOURS::department" : "CNC",
+				"employeeDay_TIMEHOURS::hoursV2" : 6,
+				"employeeDay_TIMEHOURS::hoursV2_Original" : 6,
+				"employeeDay_TIMEHOURS::otV2" : 0,
+				"employeeDay_TIMEHOURS::type" : "Finish Machining",
+				"modId" : "0",
+				"recordId" : "23616"
+			},
+			{
+				"employeeDay_TIMEHOURS::date" : "03/22/2024",
+				"employeeDay_TIMEHOURS::department" : "CNC",
+				"employeeDay_TIMEHOURS::hoursV2" : "1\r",
+				"employeeDay_TIMEHOURS::hoursV2_Original" : 1,
+				"employeeDay_TIMEHOURS::otV2" : 0,
+				"employeeDay_TIMEHOURS::type" : "Finish Machining",
+				"modId" : "0",
+				"recordId" : "23640"
+			}
+		]
+	},
+	"portalDataInfo" : 
+	[
+		{
+			"database" : "JOBS",
+			"foundCount" : 1,
+			"returnedCount" : 1,
+			"table" : "employeeDay_EMPLOYEE"
+		},
+		{
+			"database" : "JOBS",
+			"foundCount" : 9,
+			"returnedCount" : 9,
+			"table" : "employeeDay_TIMEASSIGN"
+		},
+		{
+			"database" : "JOBS",
+			"foundCount" : 2,
+			"returnedCount" : 2,
+			"table" : "employeeDay_EMPLOYEEHOURS"
+		},
+		{
+			"database" : "JOBS",
+			"foundCount" : 2,
+			"returnedCount" : 2,
+			"table" : "employeeDay_TIMEHOURS"
+		},
+		{
+			"database" : "JOBS",
+			"foundCount" : 1,
+			"returnedCount" : 1,
+			"table" : "employeeDay_PAYRECORDS"
+		}
+	],
+	"recordId" : "1774"
+},
+{
+	"fieldData" : 
+	{
+		"Note" : "",
+		"approvedBy" : "",
+		"approvedFLAG" : "",
+		"approvedTS" : "",
+		"dateWorked" : "03/22/2024",
+		"dayName" : "Friday",
+		"f_processed" : "1",
+		"id" : "F29E79AF-8089-EF47-B135-73AE2510BDAE",
+		"id_employee" : "EA342162-E8E2-C842-9034-46BBFAA7F9C2",
+		"month" : 3,
+		"week" : 12,
+		"weekStartDate_a" : "03/18/2024",
+		"year" : 2024,
+		"zCreatedBy" : "p1punchclock1",
+		"zCreationDate" : "03/22/2024",
+		"zCreationTimestamp" : "03/22/2024 09:50:53",
+		"zModificationTimestamp" : "03/26/2024 18:43:23",
+		"zModifiedBy" : "Marcus"
+	},
+	"modId" : "2",
+	"portalData" : 
+	{
+		"employeeDay_EMPLOYEE" : 
+		[
+			{
+				"employeeDay_EMPLOYEE::Reports To" : "Anthony Piazza",
+				"employeeDay_EMPLOYEE::nameDisplay_a" : "Deep Patel",
+				"employeeDay_EMPLOYEE::rate" : "$20.00/hr.",
+				"modId" : "2",
+				"recordId" : "434"
+			}
+		],
+		"employeeDay_EMPLOYEEHOURS" : 
+		[
+			{
+				"employeeDay_EMPLOYEEHOURS::dateWorked" : "03/22/2024",
+				"employeeDay_EMPLOYEEHOURS::flag_open_a" : 0,
+				"employeeDay_EMPLOYEEHOURS::flag_processed" : 1,
+				"employeeDay_EMPLOYEEHOURS::hours" : 27900,
+				"modId" : "3",
+				"recordId" : "18151"
+			}
+		],
+		"employeeDay_PAYRECORDS" : 
+		[
+			{
+				"employeeDay_PAYRECORDS::hours" : 7.75,
+				"employeeDay_PAYRECORDS::type" : "HRS",
+				"modId" : "0",
+				"recordId" : "4621"
+			}
+		],
+		"employeeDay_TIMEASSIGN" : 
+		[
+			{
+				"employeeDay_TIMEASSIGN::jobNum_a" : "500",
+				"employeeDay_TIMEASSIGN::totalHoursWorked_c" : 40.25,
+				"modId" : "0",
+				"recordId" : "10184"
+			}
+		],
+		"employeeDay_TIMEHOURS" : 
+		[
+			{
+				"employeeDay_TIMEHOURS::date" : "03/22/2024",
+				"employeeDay_TIMEHOURS::department" : "CNC",
+				"employeeDay_TIMEHOURS::hoursV2" : 8,
+				"employeeDay_TIMEHOURS::hoursV2_Original" : 8,
+				"employeeDay_TIMEHOURS::otV2" : 0.25,
+				"employeeDay_TIMEHOURS::type" : "Finish Machining",
+				"modId" : "0",
+				"recordId" : "23675"
+			}
+		]
+	},
+	"portalDataInfo" : 
+	[
+		{
+			"database" : "JOBS",
+			"foundCount" : 1,
+			"returnedCount" : 1,
+			"table" : "employeeDay_EMPLOYEE"
+		},
+		{
+			"database" : "JOBS",
+			"foundCount" : 1,
+			"returnedCount" : 1,
+			"table" : "employeeDay_TIMEASSIGN"
+		},
+		{
+			"database" : "JOBS",
+			"foundCount" : 1,
+			"returnedCount" : 1,
+			"table" : "employeeDay_EMPLOYEEHOURS"
+		},
+		{
+			"database" : "JOBS",
+			"foundCount" : 1,
+			"returnedCount" : 1,
+			"table" : "employeeDay_TIMEHOURS"
+		},
+		{
+			"database" : "JOBS",
+			"foundCount" : 1,
+			"returnedCount" : 1,
+			"table" : "employeeDay_PAYRECORDS"
+		}
+	],
+	"recordId" : "1775"
+},
+{
+	"fieldData" : 
+	{
+		"Note" : "",
+		"approvedBy" : "",
+		"approvedFLAG" : "",
+		"approvedTS" : "",
+		"dateWorked" : "03/22/2024",
+		"dayName" : "Friday",
+		"f_processed" : "1",
+		"id" : "607BAFB9-4791-184C-B506-6B2EE9C69518",
+		"id_employee" : "DC41B11B-5E8E-0040-B553-C26F57B14881",
+		"month" : 3,
+		"week" : 12,
+		"weekStartDate_a" : "03/18/2024",
+		"year" : 2024,
+		"zCreatedBy" : "moldmaker",
+		"zCreationDate" : "03/22/2024",
+		"zCreationTimestamp" : "03/22/2024 13:39:29",
+		"zModificationTimestamp" : "03/26/2024 18:43:25",
+		"zModifiedBy" : "Marcus"
+	},
+	"modId" : "2",
+	"portalData" : 
+	{
+		"employeeDay_EMPLOYEE" : 
+		[
+			{
+				"employeeDay_EMPLOYEE::Reports To" : "Gaetano Scalia",
+				"employeeDay_EMPLOYEE::nameDisplay_a" : "Toan Vu",
+				"employeeDay_EMPLOYEE::rate" : 27.25,
+				"modId" : "9",
+				"recordId" : "367"
+			}
+		],
+		"employeeDay_EMPLOYEEHOURS" : 
+		[
+			{
+				"employeeDay_EMPLOYEEHOURS::dateWorked" : "03/22/2024",
+				"employeeDay_EMPLOYEEHOURS::flag_open_a" : 0,
+				"employeeDay_EMPLOYEEHOURS::flag_processed" : 1,
+				"employeeDay_EMPLOYEEHOURS::hours" : 28800,
+				"modId" : "3",
+				"recordId" : "18152"
+			}
+		],
+		"employeeDay_PAYRECORDS" : 
+		[
+			{
+				"employeeDay_PAYRECORDS::hours" : 8,
+				"employeeDay_PAYRECORDS::type" : "HRS",
+				"modId" : "0",
+				"recordId" : "4622"
+			}
+		],
+		"employeeDay_TIMEASSIGN" : 
+		[
+			{
+				"employeeDay_TIMEASSIGN::jobNum_a" : "4628-12",
+				"employeeDay_TIMEASSIGN::totalHoursWorked_c" : 8,
+				"modId" : "0",
+				"recordId" : "10209"
+			},
+			{
+				"employeeDay_TIMEASSIGN::jobNum_a" : "500",
+				"employeeDay_TIMEASSIGN::totalHoursWorked_c" : "",
+				"modId" : "0",
+				"recordId" : "10241"
+			},
+			{
+				"employeeDay_TIMEASSIGN::jobNum_a" : "5571",
+				"employeeDay_TIMEASSIGN::totalHoursWorked_c" : 16,
+				"modId" : "0",
+				"recordId" : "10299"
+			}
+		],
+		"employeeDay_TIMEHOURS" : 
+		[
+			{
+				"employeeDay_TIMEHOURS::date" : "03/22/2024",
+				"employeeDay_TIMEHOURS::department" : "Handroom",
+				"employeeDay_TIMEHOURS::hoursV2" : 8,
+				"employeeDay_TIMEHOURS::hoursV2_Original" : 8,
+				"employeeDay_TIMEHOURS::otV2" : 0,
+				"employeeDay_TIMEHOURS::type" : "Handwork Core",
+				"modId" : "0",
+				"recordId" : "23685"
+			}
+		]
+	},
+	"portalDataInfo" : 
+	[
+		{
+			"database" : "JOBS",
+			"foundCount" : 1,
+			"returnedCount" : 1,
+			"table" : "employeeDay_EMPLOYEE"
+		},
+		{
+			"database" : "JOBS",
+			"foundCount" : 3,
+			"returnedCount" : 3,
+			"table" : "employeeDay_TIMEASSIGN"
+		},
+		{
+			"database" : "JOBS",
+			"foundCount" : 1,
+			"returnedCount" : 1,
+			"table" : "employeeDay_EMPLOYEEHOURS"
+		},
+		{
+			"database" : "JOBS",
+			"foundCount" : 1,
+			"returnedCount" : 1,
+			"table" : "employeeDay_TIMEHOURS"
+		},
+		{
+			"database" : "JOBS",
+			"foundCount" : 1,
+			"returnedCount" : 1,
+			"table" : "employeeDay_PAYRECORDS"
+		}
+	],
+	"recordId" : "1776"
+},
+{
+	"fieldData" : 
+	{
+		"Note" : "",
+		"approvedBy" : "",
+		"approvedFLAG" : "",
+		"approvedTS" : "",
+		"dateWorked" : "03/22/2024",
+		"dayName" : "Friday",
+		"f_processed" : "1",
+		"id" : "5726F539-3DF0-DA49-9BD7-7A29262ACCAD",
+		"id_employee" : "05D86EDB-D2B9-ED4C-9127-701E4B7AA5C3",
+		"month" : 3,
+		"week" : 12,
+		"weekStartDate_a" : "03/18/2024",
+		"year" : 2024,
+		"zCreatedBy" : "p2punchclock",
+		"zCreationDate" : "03/22/2024",
+		"zCreationTimestamp" : "03/22/2024 14:19:42",
+		"zModificationTimestamp" : "03/26/2024 18:43:27",
+		"zModifiedBy" : "Marcus"
+	},
+	"modId" : "2",
+	"portalData" : 
+	{
+		"employeeDay_EMPLOYEE" : 
+		[
+			{
+				"employeeDay_EMPLOYEE::Reports To" : "Gaetano Scalia",
+				"employeeDay_EMPLOYEE::nameDisplay_a" : "Shawn Bezaire",
+				"employeeDay_EMPLOYEE::rate" : 32.5,
+				"modId" : "2",
+				"recordId" : "414"
+			}
+		],
+		"employeeDay_EMPLOYEEHOURS" : 
+		[
+			{
+				"employeeDay_EMPLOYEEHOURS::dateWorked" : "03/22/2024",
+				"employeeDay_EMPLOYEEHOURS::flag_open_a" : 0,
+				"employeeDay_EMPLOYEEHOURS::flag_processed" : 1,
+				"employeeDay_EMPLOYEEHOURS::hours" : 28800,
+				"modId" : "3",
+				"recordId" : "18153"
+			}
+		],
+		"employeeDay_PAYRECORDS" : 
+		[
+			{
+				"employeeDay_PAYRECORDS::hours" : 8,
+				"employeeDay_PAYRECORDS::type" : "HRS",
+				"modId" : "0",
+				"recordId" : "4623"
+			}
+		],
+		"employeeDay_TIMEASSIGN" : 
+		[
+			{
+				"employeeDay_TIMEASSIGN::jobNum_a" : "5182",
+				"employeeDay_TIMEASSIGN::totalHoursWorked_c" : 8.75,
+				"modId" : "0",
+				"recordId" : "10210"
+			},
+			{
+				"employeeDay_TIMEASSIGN::jobNum_a" : "5620",
+				"employeeDay_TIMEASSIGN::totalHoursWorked_c" : 24.5,
+				"modId" : "0",
+				"recordId" : "10256"
+			},
+			{
+				"employeeDay_TIMEASSIGN::jobNum_a" : "4628-12",
+				"employeeDay_TIMEASSIGN::totalHoursWorked_c" : 8.75,
+				"modId" : "0",
+				"recordId" : "10303"
+			}
+		],
+		"employeeDay_TIMEHOURS" : 
+		[
+			{
+				"employeeDay_TIMEHOURS::date" : "03/22/2024",
+				"employeeDay_TIMEHOURS::department" : "Mold Making",
+				"employeeDay_TIMEHOURS::hoursV2" : 8,
+				"employeeDay_TIMEHOURS::hoursV2_Original" : 8,
+				"employeeDay_TIMEHOURS::otV2" : 2,
+				"employeeDay_TIMEHOURS::type" : "Assembly",
+				"modId" : "0",
+				"recordId" : "23687"
+			}
+		]
+	},
+	"portalDataInfo" : 
+	[
+		{
+			"database" : "JOBS",
+			"foundCount" : 1,
+			"returnedCount" : 1,
+			"table" : "employeeDay_EMPLOYEE"
+		},
+		{
+			"database" : "JOBS",
+			"foundCount" : 3,
+			"returnedCount" : 3,
+			"table" : "employeeDay_TIMEASSIGN"
+		},
+		{
+			"database" : "JOBS",
+			"foundCount" : 1,
+			"returnedCount" : 1,
+			"table" : "employeeDay_EMPLOYEEHOURS"
+		},
+		{
+			"database" : "JOBS",
+			"foundCount" : 1,
+			"returnedCount" : 1,
+			"table" : "employeeDay_TIMEHOURS"
+		},
+		{
+			"database" : "JOBS",
+			"foundCount" : 1,
+			"returnedCount" : 1,
+			"table" : "employeeDay_PAYRECORDS"
+		}
+	],
+	"recordId" : "1777"
+},
+{
+	"fieldData" : 
+	{
+		"Note" : "",
+		"approvedBy" : "",
+		"approvedFLAG" : "",
+		"approvedTS" : "",
+		"dateWorked" : "03/22/2024",
+		"dayName" : "Friday",
+		"f_processed" : "1",
+		"id" : "B4CB99F6-21D1-CF49-B67A-3D5D3476285D",
+		"id_employee" : "411BD104-6A06-E444-8B51-070D826F169A",
+		"month" : 3,
+		"week" : 12,
+		"weekStartDate_a" : "03/18/2024",
+		"year" : 2024,
+		"zCreatedBy" : "p2punchclock",
+		"zCreationDate" : "03/22/2024",
+		"zCreationTimestamp" : "03/22/2024 14:29:15",
+		"zModificationTimestamp" : "03/26/2024 18:43:29",
+		"zModifiedBy" : "Marcus"
+	},
+	"modId" : "2",
+	"portalData" : 
+	{
+		"employeeDay_EMPLOYEE" : 
+		[
+			{
+				"employeeDay_EMPLOYEE::Reports To" : "Gaetano Scalia",
+				"employeeDay_EMPLOYEE::nameDisplay_a" : "David Dent",
+				"employeeDay_EMPLOYEE::rate" : 30.25,
+				"modId" : "9",
+				"recordId" : "350"
+			}
+		],
+		"employeeDay_EMPLOYEEHOURS" : 
+		[
+			{
+				"employeeDay_EMPLOYEEHOURS::dateWorked" : "03/22/2024",
+				"employeeDay_EMPLOYEEHOURS::flag_open_a" : 0,
+				"employeeDay_EMPLOYEEHOURS::flag_processed" : 1,
+				"employeeDay_EMPLOYEEHOURS::hours" : 28800,
+				"modId" : "3",
+				"recordId" : "18154"
+			}
+		],
+		"employeeDay_PAYRECORDS" : 
+		[
+			{
+				"employeeDay_PAYRECORDS::hours" : 8,
+				"employeeDay_PAYRECORDS::type" : "HRS",
+				"modId" : "0",
+				"recordId" : "4624"
+			}
+		],
+		"employeeDay_TIMEASSIGN" : 
+		[
+			{
+				"employeeDay_TIMEASSIGN::jobNum_a" : "5441",
+				"employeeDay_TIMEASSIGN::totalHoursWorked_c" : 6,
+				"modId" : "0",
+				"recordId" : "10212"
+			},
+			{
+				"employeeDay_TIMEASSIGN::jobNum_a" : "2770-02",
+				"employeeDay_TIMEASSIGN::totalHoursWorked_c" : 11,
+				"modId" : "0",
+				"recordId" : "10255"
+			},
+			{
+				"employeeDay_TIMEASSIGN::jobNum_a" : "5620",
+				"employeeDay_TIMEASSIGN::totalHoursWorked_c" : 16,
+				"modId" : "0",
+				"recordId" : "10275"
+			},
+			{
+				"employeeDay_TIMEASSIGN::jobNum_a" : "5292-03",
+				"employeeDay_TIMEASSIGN::totalHoursWorked_c" : 4,
+				"modId" : "0",
+				"recordId" : "10304"
+			},
+			{
+				"employeeDay_TIMEASSIGN::jobNum_a" : "5159-02",
+				"employeeDay_TIMEASSIGN::totalHoursWorked_c" : 4.5,
+				"modId" : "0",
+				"recordId" : "10305"
+			}
+		],
+		"employeeDay_TIMEHOURS" : 
+		[
+			{
+				"employeeDay_TIMEHOURS::date" : "03/22/2024",
+				"employeeDay_TIMEHOURS::department" : "Mold Making",
+				"employeeDay_TIMEHOURS::hoursV2" : 0,
+				"employeeDay_TIMEHOURS::hoursV2_Original" : 0,
+				"employeeDay_TIMEHOURS::otV2" : 0,
+				"employeeDay_TIMEHOURS::type" : "Toolroom/Mfg Comps",
+				"modId" : "0",
+				"recordId" : "23603"
+			},
+			{
+				"employeeDay_TIMEHOURS::date" : "03/22/2024",
+				"employeeDay_TIMEHOURS::department" : "Mold Making",
+				"employeeDay_TIMEHOURS::hoursV2" : 8,
+				"employeeDay_TIMEHOURS::hoursV2_Original" : 8,
+				"employeeDay_TIMEHOURS::otV2" : 1.5,
+				"employeeDay_TIMEHOURS::type" : "Assembly",
+				"modId" : "0",
+				"recordId" : "23686"
+			}
+		]
+	},
+	"portalDataInfo" : 
+	[
+		{
+			"database" : "JOBS",
+			"foundCount" : 1,
+			"returnedCount" : 1,
+			"table" : "employeeDay_EMPLOYEE"
+		},
+		{
+			"database" : "JOBS",
+			"foundCount" : 5,
+			"returnedCount" : 5,
+			"table" : "employeeDay_TIMEASSIGN"
+		},
+		{
+			"database" : "JOBS",
+			"foundCount" : 1,
+			"returnedCount" : 1,
+			"table" : "employeeDay_EMPLOYEEHOURS"
+		},
+		{
+			"database" : "JOBS",
+			"foundCount" : 2,
+			"returnedCount" : 2,
+			"table" : "employeeDay_TIMEHOURS"
+		},
+		{
+			"database" : "JOBS",
+			"foundCount" : 1,
+			"returnedCount" : 1,
+			"table" : "employeeDay_PAYRECORDS"
+		}
+	],
+	"recordId" : "1778"
+},
+{
+	"fieldData" : 
+	{
+		"Note" : "",
+		"approvedBy" : "",
+		"approvedFLAG" : "",
+		"approvedTS" : "",
+		"dateWorked" : "03/22/2024",
+		"dayName" : "Friday",
+		"f_processed" : "1",
+		"id" : "2F58097A-A677-A04E-AFF8-317FB8EDB38F",
+		"id_employee" : "CFBFECFB-F549-9640-90EC-6BD4F8A73526",
+		"month" : 3,
+		"week" : 12,
+		"weekStartDate_a" : "03/18/2024",
+		"year" : 2024,
+		"zCreatedBy" : "p1punchclock1",
+		"zCreationDate" : "03/22/2024",
+		"zCreationTimestamp" : "03/22/2024 14:53:22",
+		"zModificationTimestamp" : "03/26/2024 18:43:32",
+		"zModifiedBy" : "Marcus"
+	},
+	"modId" : "2",
+	"portalData" : 
+	{
+		"employeeDay_EMPLOYEE" : 
+		[
+			{
+				"employeeDay_EMPLOYEE::Reports To" : "Anthony Piazza",
+				"employeeDay_EMPLOYEE::nameDisplay_a" : "Umangkumar Patel",
+				"employeeDay_EMPLOYEE::rate" : 22,
+				"modId" : "9",
+				"recordId" : "378"
+			}
+		],
+		"employeeDay_EMPLOYEEHOURS" : 
+		[
+			{
+				"employeeDay_EMPLOYEEHOURS::dateWorked" : "03/22/2024",
+				"employeeDay_EMPLOYEEHOURS::flag_open_a" : 0,
+				"employeeDay_EMPLOYEEHOURS::flag_processed" : 1,
+				"employeeDay_EMPLOYEEHOURS::hours" : 39600,
+				"modId" : "3",
+				"recordId" : "18155"
+			}
+		],
+		"employeeDay_PAYRECORDS" : 
+		[
+			{
+				"employeeDay_PAYRECORDS::hours" : 8,
+				"employeeDay_PAYRECORDS::type" : "HRS",
+				"modId" : "0",
+				"recordId" : "4625"
+			},
+			{
+				"employeeDay_PAYRECORDS::hours" : 3,
+				"employeeDay_PAYRECORDS::type" : "OT",
+				"modId" : "0",
+				"recordId" : "4626"
+			}
+		],
+		"employeeDay_TIMEASSIGN" : 
+		[
+			{
+				"employeeDay_TIMEASSIGN::jobNum_a" : "4628-12",
+				"employeeDay_TIMEASSIGN::totalHoursWorked_c" : 14,
+				"modId" : "0",
+				"recordId" : "10213"
+			},
+			{
+				"employeeDay_TIMEASSIGN::jobNum_a" : "5571",
+				"employeeDay_TIMEASSIGN::totalHoursWorked_c" : 5.5,
+				"modId" : "0",
+				"recordId" : "10214"
+			},
+			{
+				"employeeDay_TIMEASSIGN::jobNum_a" : "5573",
+				"employeeDay_TIMEASSIGN::totalHoursWorked_c" : 22.5,
+				"modId" : "0",
+				"recordId" : "10257"
+			},
+			{
+				"employeeDay_TIMEASSIGN::jobNum_a" : "500",
+				"employeeDay_TIMEASSIGN::totalHoursWorked_c" : 3,
+				"modId" : "0",
+				"recordId" : "10258"
+			},
+			{
+				"employeeDay_TIMEASSIGN::jobNum_a" : "5094-03",
+				"employeeDay_TIMEASSIGN::totalHoursWorked_c" : 4,
+				"modId" : "0",
+				"recordId" : "10306"
+			},
+			{
+				"employeeDay_TIMEASSIGN::jobNum_a" : "5620",
+				"employeeDay_TIMEASSIGN::totalHoursWorked_c" : 4,
+				"modId" : "0",
+				"recordId" : "10335"
+			}
+		],
+		"employeeDay_TIMEHOURS" : 
+		[
+			{
+				"employeeDay_TIMEHOURS::date" : "03/22/2024",
+				"employeeDay_TIMEHOURS::department" : "CNC",
+				"employeeDay_TIMEHOURS::hoursV2" : 4,
+				"employeeDay_TIMEHOURS::hoursV2_Original" : 4,
+				"employeeDay_TIMEHOURS::otV2" : 4,
+				"employeeDay_TIMEHOURS::type" : "CNC Components",
+				"modId" : "0",
+				"recordId" : "23695"
+			},
+			{
+				"employeeDay_TIMEHOURS::date" : "03/22/2024",
+				"employeeDay_TIMEHOURS::department" : "CNC",
+				"employeeDay_TIMEHOURS::hoursV2" : 4,
+				"employeeDay_TIMEHOURS::hoursV2_Original" : 4,
+				"employeeDay_TIMEHOURS::otV2" : 4,
+				"employeeDay_TIMEHOURS::type" : "Finish Machining",
+				"modId" : "0",
+				"recordId" : "23696"
+			},
+			{
+				"employeeDay_TIMEHOURS::date" : "03/22/2024",
+				"employeeDay_TIMEHOURS::department" : "CNC",
+				"employeeDay_TIMEHOURS::hoursV2" : 3,
+				"employeeDay_TIMEHOURS::hoursV2_Original" : 3,
+				"employeeDay_TIMEHOURS::otV2" : 3,
+				"employeeDay_TIMEHOURS::type" : "CNC Components",
+				"modId" : "0",
+				"recordId" : "23697"
+			}
+		]
+	},
+	"portalDataInfo" : 
+	[
+		{
+			"database" : "JOBS",
+			"foundCount" : 1,
+			"returnedCount" : 1,
+			"table" : "employeeDay_EMPLOYEE"
+		},
+		{
+			"database" : "JOBS",
+			"foundCount" : 6,
+			"returnedCount" : 6,
+			"table" : "employeeDay_TIMEASSIGN"
+		},
+		{
+			"database" : "JOBS",
+			"foundCount" : 1,
+			"returnedCount" : 1,
+			"table" : "employeeDay_EMPLOYEEHOURS"
+		},
+		{
+			"database" : "JOBS",
+			"foundCount" : 3,
+			"returnedCount" : 3,
+			"table" : "employeeDay_TIMEHOURS"
+		},
+		{
+			"database" : "JOBS",
+			"foundCount" : 2,
+			"returnedCount" : 2,
+			"table" : "employeeDay_PAYRECORDS"
+		}
+	],
+	"recordId" : "1779"
+}
+]

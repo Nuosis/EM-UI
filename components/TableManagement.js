@@ -4,8 +4,8 @@ import { useTableContext } from './TableState';
 export default function LoadTableManagement({ elements }) {
     const { searchTerm, setSearchTerm, filterTerm, setFilterTerm } = useTableContext();
 
-    console.log("Current searchTerm:", searchTerm);
-    console.log("Current filterTerm:", filterTerm);
+    // console.log("Current searchTerm:", searchTerm);
+    // console.log("Current filterTerm:", filterTerm);
 
     const renderElement = (element) => {
         switch (element.objectType) {

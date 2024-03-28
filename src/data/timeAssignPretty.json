@@ -1,0 +1,66 @@
+[
+	{
+		"fieldData" : 
+		{
+			"actualV2" : 160,
+			"burdenV2" : 350,
+			"date" : "03/19/2024",
+			"dateDay_a" : 2,
+			"dateWeek_a" : 12,
+			"dateYear_a" : 2024,
+			"department" : "CNC",
+			"employeName_c" : "Justin Altenbeck",
+			"hoursV2" : 5,
+			"hoursV2_Original" : 5,
+			"id" : "124878FD-4BA7-BF41-8E39-5CAB641E4366",
+			"id_employee_a" : "A050ED47-995F-D145-9903-6A4F5B832388",
+			"id_job_a" : "5012CC50-FEA5-1C45-B634-1EDF72329034",
+			"id_timeassign" : "D340487F-82F5-F54C-83CC-9230BEF639FA",
+			"otV2" : 0,
+			"type" : "CNC Components",
+			"zCreationAccount" : "Drew",
+			"zCreationTimestamp" : "03/19/2024 14:33:04",
+			"zModificationAccount" : "Marcus",
+			"zModificationTimestamp" : "03/19/2024 15:44:35"
+		},
+		"modId" : "3",
+		"portalData" : 
+		{
+			"timeHours_EMPLOYEE" : 
+			[
+				{
+					"modId" : "15",
+					"recordId" : "335",
+					"timeHours_EMPLOYEE::Reports To" : "Anthony Piazza"
+				}
+			],
+			"timeHours_TIMEASSIGN" : 
+			[
+				{
+					"modId" : "0",
+					"recordId" : "10158",
+					"timeHours_TIMEASSIGN::jobNum_a" : "5159",
+					"timeHours_TIMEASSIGN::week" : 12,
+					"timeHours_TIMEASSIGN::weekStartDate_a" : "03/18/2024",
+					"timeHours_TIMEASSIGN::year" : 2024
+				}
+			]
+		},
+		"portalDataInfo" : 
+		[
+			{
+				"database" : "JOBS",
+				"foundCount" : 1,
+				"returnedCount" : 1,
+				"table" : "timeHours_TIMEASSIGN"
+			},
+			{
+				"database" : "JOBS",
+				"foundCount" : 1,
+				"returnedCount" : 1,
+				"table" : "timeHours_EMPLOYEE"
+			}
+		],
+		"recordId" : "23320"
+	}
+]

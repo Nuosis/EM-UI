@@ -17,7 +17,7 @@ export const icons = {
 
 export const ApproveButton = ({ onClick }) => (
     <button onClick={onClick} style={{
-        backgroundColor: '#4CAF50', // Green background
+        backgroundColor: '#FFCA28', // Green background
         color: 'white',
         padding: '10px 15px',
         border: 'none',
@@ -34,7 +34,7 @@ export const ApproveButton = ({ onClick }) => (
 
 export const ApprovedButton = ({ onClick }) => (
     <button onClick={onClick} style={{
-        backgroundColor: '#FFCA28', // Green background
+        backgroundColor: '#4CAF50', // Green background
         color: 'white',
         padding: '10px 15px',
         border: 'none',

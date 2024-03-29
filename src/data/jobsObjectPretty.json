@@ -1,0 +1,123 @@
+[
+    {
+        "fieldData" : 
+        {
+            "Approval Comments" : "",
+            "Approval Date" : "",
+            "Attention" : "",
+            "Cad Designer" : "",
+            "Id_Commodity" : "530A0AAD-A091-C147-8403-420AB625A0B6",
+            "JobNumText" : "ST5411",
+            "Moldmaker" : "",
+            "Program Manager" : "",
+            "Tool_ComitmentDate" : "",
+            "Tool_KickoffDate" : "",
+            "Workorder Type" : "New Build",
+            "commodity" : "Specialty Tooling",
+            "id" : "333AC381-EBF7-2A4C-A417-3A1CC44628BC",
+            "id_Image" : "",
+            "id_customer" : "0AD92DD2-2AEA-CA48-8948-2901A0DB2077",
+            "id_jobMaster" : "4A04D7CC-1AB5-6B4D-BBB8-D4960BF855D5",
+            "status" : "Kicked Off"
+        },
+        "modId" : "20",
+        "portalData" : 
+        {
+            "jobs_CUSTOMER" : 
+            [
+                {
+                    "jobs_CUSTOMER::CustomerName" : "Aliquam Iaculis Lacus LLC",
+                    "modId" : "8",
+                    "recordId" : "2611"
+                }
+            ],
+            "jobs_POlines" : 
+            [
+                {
+                    "jobs_POlines::flag_POtype" : 1,
+                    "jobs_POlines::id" : "8D46DB70-65E4-C949-BF0B-99F012528467",
+                    "jobs_POlines::id_po" : "B366C38F-4978-C149-B5EE-921F7CB07318",
+                    "jobs_POlines::total_cad" : 500,
+                    "modId" : "7",
+                    "recordId" : "13992"
+                },
+                {
+                    "jobs_POlines::flag_POtype" : 2,
+                    "jobs_POlines::id" : "CDC71E21-5ECB-BF41-BFE4-DFB1BD7489CF",
+                    "jobs_POlines::id_po" : "BD7FE1CD-4CEF-484A-BAE5-C651FC5A954B",
+                    "jobs_POlines::total_cad" : 500,
+                    "modId" : "8",
+                    "recordId" : "13993"
+                }
+            ],
+            "jobs_QUOTE" : 
+            [
+                {
+                    "jobs_QUOTE::id" : "DE972ED2-FEFD-F749-AD3C-6A861A90FADC",
+                    "jobs_QUOTE::laborTotal_c" : 8400,
+                    "jobs_QUOTE::materialTotal_c" : 120,
+                    "jobs_QUOTE::outsourceTotal_c" : 120,
+                    "modId" : "8",
+                    "recordId" : "3011"
+                },
+                {
+                    "jobs_QUOTE::id" : "4A7206C6-2B72-5846-A76B-B23DF2C708EA",
+                    "jobs_QUOTE::laborTotal_c" : 8400,
+                    "jobs_QUOTE::materialTotal_c" : 100,
+                    "jobs_QUOTE::outsourceTotal_c" : 100,
+                    "modId" : "13",
+                    "recordId" : "3012"
+                }
+            ],
+            "jobs_TIMEHOURS" : 
+            [
+                {
+                    "jobs_TIMEHOURS::actualV2" : 320,
+                    "jobs_TIMEHOURS::burdenV2" : 720,
+                    "jobs_TIMEHOURS::department" : "Build",
+                    "jobs_TIMEHOURS::id" : "6C8830D6-F13C-F944-BBF6-BB1C00263F17",
+                    "jobs_TIMEHOURS::type" : "Adjustments",
+                    "modId" : "11",
+                    "recordId" : "22713"
+                },
+                {
+                    "jobs_TIMEHOURS::actualV2" : 160,
+                    "jobs_TIMEHOURS::burdenV2" : 360,
+                    "jobs_TIMEHOURS::department" : "Build",
+                    "jobs_TIMEHOURS::id" : "E572CB66-E0B1-0D45-B3CE-FD5BC2095834",
+                    "jobs_TIMEHOURS::type" : "Fixture Build",
+                    "modId" : "12",
+                    "recordId" : "22714"
+                }
+            ]
+        },
+        "portalDataInfo" : 
+        [
+            {
+                "database" : "jobs",
+                "foundCount" : 1,
+                "returnedCount" : 1,
+                "table" : "jobs_CUSTOMER"
+            },
+            {
+                "database" : "jobs",
+                "foundCount" : 2,
+                "returnedCount" : 2,
+                "table" : "jobs_QUOTE"
+            },
+            {
+                "database" : "jobs",
+                "foundCount" : 2,
+                "returnedCount" : 2,
+                "table" : "jobs_TIMEHOURS"
+            },
+            {
+                "database" : "jobs",
+                "foundCount" : 2,
+                "returnedCount" : 2,
+                "table" : "jobs_POlines"
+            }
+        ],
+        "recordId" : "13772"
+    }
+]

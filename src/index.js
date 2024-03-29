@@ -3,10 +3,66 @@ import { createRoot } from "react-dom/client";
 import jobsData from './data/jobs.json';
 import timeAssignData from './data/timeAssign.json';
 import employeeHoursData from './data/employeeHours.json';
+import jobsObject from './data/jobsObject.json';
 import LoadTable from "../components/Table";
 import LoadJobsTable from "../components/JobsTable";
 import { root } from "postcss";
 import { ApprovedButton, ApproveButton } from '../src/icons'; 
+import {sumEmployeeHoursData,transformedHrs,performanceJobs} from './tansformData'
+
+
+    /**
+     * TABLE.JS
+     * 
+     * ELEMENTS (Array)
+     * 
+     * OPTIONAL: By including this you will display inpouts the user can use to modify what data is desplayed without distroying the data
+     * 
+     * STRUCTURE:
+     * objectType: string, values can be filter (omit) or search (find)
+     */
+
+
+    /**
+     * COLUMNS (Array)
+     * 
+     * REQUIRED: defines the columns and the properties of that column
+     * 
+     * STRUCTURE: metaData
+     * index: bool, use this column value as the index
+     * hidden: bool, do not display this column
+     * type: string, designates the type of column (text, button, component)
+     *      buttonText: string, (for use with button)
+     *      icon: string, (for use with button) the name of the icon to use from icons.js
+     *      compairColumn: (for use with component) the field to evaluate against 
+     *      ifTrue: (for use with component:compairColumn) The component to use when the compairColumn is true
+     *      ifFalse: (for use with component:compairColumn) The component to use when the compairColumn is false (default)
+     *      callbackPath: string, (for use with component) designates the path (subroutine) to use within the FileMaker Script
+     * 
+     * STRUCTURE: properties
+     * filterable: bool
+     * sortable: bool
+     * searchable: bool
+     * clickable: bool
+     *      callbackPath: string, (Used with clickable) designates the path (subroutine) to use within the FileMaker Script
+     * 
+     * STRUCTURE: data
+     * lable: string, the heading to display (can be "")
+     * field: string, the field to reference in the tablebody object to set as the display value
+     */
+
+        // const sumColumns = [
+    //     { label: 'ID', index: true, filterable: false, searchable: false, sortable: false, hidden: true, field: 'id' },
+    //     { label: 'Approved', index: true, filterable: false, searchable: false, sortable: false, hidden: true, field: 'approved' },
+    //     { label: 'Employee', index: false, filterable: true, searchable: true, sortable: true, sorted: true, field: 'employeeName'  },
+    //     { label: 'Department', index: false, filterable: true, searchable: true, sortable: true, field: 'department'  },
+    //     { label: 'Date', index: false, filterable: true, searchable: true, sortable: true, field: 'date'  },
+    //     { label: 'Allocated', index: false, filterable: false, searchable: false, sortable: true, field: 'timeAssigned', clickable: true, callbackPath: 'timeManagement.sum.allocated' },
+    //     { label: 'IN/OUT', index: false, filterable: true, searchable: true, sortable: true, field: 'isLoggedIn'  },
+    //     { label: 'Hours', index: false, filterable: false, searchable: false, sortable: true, field: 'totalHours', clickable: true, callbackPath: 'timeManagement.sum.hours'   },
+    //     { label: '', type: 'component', compairColumn: 'Approved', ifTrue: "ApprovedButton", ifFalse: "ApproveButton", callBackPath: "timeManagement.approve"  }
+    // ];
+
 
 console.log('E&M UI 2.0.0') 
 let globalRoot = null; // This will hold the root instance
@@ -22,74 +78,6 @@ function manageRoot(containerId, element) {
         globalRoot.render(element);
     }
 }
-
-function sumEmployeeHoursData(inputData) {
-    // Initialize a Map to hold the grouped data
-    const groupedMap = new Map();
-
-    // Iterate over the input data
-    inputData.forEach(data => {
-        const idDay = data.fieldData.id
-        const dayDate = data.fieldData.dateWorked
-        const employeeName = data.portalData.employeeDay_EMPLOYEE?.[0]?.["employeeDay_EMPLOYEE::nameDisplay_a"] || "Unknown Employee";
-        const employeeDepartment = data.portalData.employeeDay_TIMEHOURS?.[0]?.["employeeDay_TIMEHOURS::department"] || "";
-        const isLoggedInFlag = data.portalData.employeeDay_EMPLOYEEHOURS.some(hours => hours["employeeDay_EMPLOYEEHOURS::flag_open_a"] === 1);
-        const isLoggedIn = isLoggedInFlag ? "IN" : "OUT";
-        const isApproved = data.fieldData.approvedFLAG
-        //console.log("dayDate",dayDate)
-
-        // Calculate totalHours from EMPLOYEEHOURS, assuming 'hours' are in seconds
-        const totalHours = data.portalData.employeeDay_EMPLOYEEHOURS.reduce((acc, cur) => {
-            return acc + (cur["employeeDay_EMPLOYEEHOURS::hours"] / 3600); // Convert seconds to hours
-        }, 0);
-
-        // Calculate total hoursV2_Original from TIMEHOURS
-        const timeAssigned = data.portalData.employeeDay_TIMEHOURS.reduce((acc, cur) => {
-            return acc + cur["employeeDay_TIMEHOURS::hoursV2_Original"]; // Assuming hoursV2_Original is a number
-        }, 0);
-
-        // If the group exists, update it
-        if (groupedMap.has(idDay)) {
-            const existingEntry = groupedMap.get(idDay);
-            existingEntry.timeAssigned += timeAssigned; // Accumulate timeAssigned for the employee
-        } else {
-            // If the group doesn't exist in the map, add it
-            groupedMap.set(idDay, {
-                id: idDay,
-                date: dayDate,
-                approved: isApproved,
-                employeeName: employeeName,
-                isLoggedIn: isLoggedIn,
-                totalHours: totalHours,
-                department: employeeDepartment,
-                timeAssigned: timeAssigned, // Set initial timeAssigned for the employee
-            });
-        }
-    });
-
-    // Convert the map values to an array and sort it by employeeName
-    const sortedArray = Array.from(groupedMap.values()).sort((a, b) => {
-        const nameA = a.employeeName || "";
-        const nameB = b.employeeName || "";
-        return nameA.localeCompare(nameB);
-    });
-
-    return sortedArray;
-}
-
-function transformedHrs(hrs) {
-    return hrs.map(item => ({
-        id: item.fieldData.id,
-        date: item.fieldData.date,
-        department: item.fieldData.department,
-        activity: item.fieldData.type,
-        employeeName: item.fieldData.employeName_c,
-        jobNum: item.portalData.timeHours_TIMEASSIGN[0]["timeHours_TIMEASSIGN::jobNum_a"],
-        hours: item.fieldData.hoursV2_Original
-    })).sort((a, b) => new Date(a.date) - new Date(b.date)); // Sorting by date
-}
-
-    
 
 window.loadJobTracker = (json) => {
     console.log('init loadJobTracker')
@@ -110,40 +98,11 @@ window.loadTimeManagement = (json) => {
     const hrs = transformedHrs(data.timeAssignData);
     const hrsElements = data.timeAssignElements
     const hrsColumns = data.timeAssignColumns
-    // const hrsElements = [
-    //     { objectType: 'search'},
-    //     { objectType: 'filter'},
-    // ];
-    // const hrsColumns = [
-    //     { label: 'ID', type: 'text', index: true, filterable: false, searchable: false, sortable: false, hidden: true, field: 'id' },
-    //     { label: 'Date', type: 'text', index: false, filterable: true, searchable: true, sortable: true, sorted: true, field: 'date' },
-    //     { label: 'Employee', type: 'text', index: false, filterable: true, searchable: true, sortable: true, field: 'employeeName', clickable: true, callbackPath: 'timeManagement.hrs.employee' },
-    //     { label: 'Department', type: 'text', index: false, filterable: true, searchable: true, sortable: true, field: 'department'  },
-    //     { label: 'Activity', type: 'text', index: false, filterable: true, searchable: true, sortable: true, field: 'activity'  },
-    //     { label: 'Job', type: 'text', index: false, filterable: true, searchable: true, sortable: true, field: 'jobNum'  },
-    //     { label: 'Hours Worked', type: 'text', index: false, filterable: false, searchable: false, sortable: true, field: 'hours'  },
-    //     { label: '', type: 'button', icon: 'delete24', callBackPath: "timeManagement.delete"  }
-    // ];
-
+    
     const sum = sumEmployeeHoursData(data.employeeHoursData);
     const sumElements = data.employeeHoursElements
     const sumColumns = data.employeeHoursColumns
     // console.log(`sumColumns`,sumColumns)
-    // const sumElements = [
-    //     { objectType: 'search'},
-    //     //{ objectType: 'filter'},
-    // ];
-    // const sumColumns = [
-    //     { label: 'ID', index: true, filterable: false, searchable: false, sortable: false, hidden: true, field: 'id' },
-    //     { label: 'Approved', index: true, filterable: false, searchable: false, sortable: false, hidden: true, field: 'approved' },
-    //     { label: 'Employee', index: false, filterable: true, searchable: true, sortable: true, sorted: true, field: 'employeeName'  },
-    //     { label: 'Department', index: false, filterable: true, searchable: true, sortable: true, field: 'department'  },
-    //     { label: 'Date', index: false, filterable: true, searchable: true, sortable: true, field: 'date'  },
-    //     { label: 'Allocated', index: false, filterable: false, searchable: false, sortable: true, field: 'timeAssigned', clickable: true, callbackPath: 'timeManagement.sum.allocated' },
-    //     { label: 'IN/OUT', index: false, filterable: true, searchable: true, sortable: true, field: 'isLoggedIn'  },
-    //     { label: 'Hours', index: false, filterable: false, searchable: false, sortable: true, field: 'totalHours', clickable: true, callbackPath: 'timeManagement.sum.hours'   },
-    //     { label: '', type: 'component', compairColumn: 'Approved', ifTrue: "ApprovedButton", ifFalse: "ApproveButton", callBackPath: "timeManagement.approve"  }
-    // ];
 
     manageRoot("root", 
         <>
@@ -153,6 +112,26 @@ window.loadTimeManagement = (json) => {
                 </div>
                 <div className="w-2/5 bg-gray-100" >
                     <LoadTable data={sum} elements={sumElements} columns={sumColumns} />
+                </div>
+            </div>
+        </>
+    );
+}
+
+window.loadJobPerformance = (json) => {
+    console.log('init jobPerformance')
+    const data = JSON.parse(json);
+    // console.log(`passedData`,data)
+    const jobsData = performanceJobs(data.jobsData);
+    const jobsElements = data.jobsElements
+    const jobsColumns = data.jobsColumns
+    // console.log(`jobsColumns`, jobsColumns)
+
+    manageRoot("root", 
+        <>
+            <div id="Tables" className="w-full flex flex-row gap-4">
+                <div className="w-5/5 bg-gray-100" >
+                    <LoadTable data={jobsData} elements={jobsElements} columns={jobsColumns} />
                 </div>
             </div>
         </>

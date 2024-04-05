@@ -9,6 +9,12 @@ export const icons = {
             <line x1="9" y1="9" x2="15" y2="15"></line>
         </svg>
     ),
+
+    arrow36: (
+    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none">
+        <path d="M8 5l7 7-7 7" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+    </svg>
+    ),
     //approve: (
         // Add your "approve" SVG here
     //),
@@ -17,7 +23,7 @@ export const icons = {
 
 export const ApproveButton = ({ onClick }) => (
     <button onClick={onClick} style={{
-        backgroundColor: '#FFCA28', // Green background
+        backgroundColor: '#FFCA28',
         color: 'white',
         padding: '10px 15px',
         border: 'none',
@@ -46,5 +52,22 @@ export const ApprovedButton = ({ onClick }) => (
         gap: '10px', // Space between text and icon
     }}>
         Approved
+    </button>
+);
+
+export const ButtonWithText = ({ onClick, text }) => (
+    <button onClick={onClick} style={{
+        backgroundColor: '#808080', // Green background
+        color: 'white',
+        padding: '5px 5px',
+        border: 'none',
+        cursor: 'pointer',
+        borderRadius: '5px',
+        display: 'inline-flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        fontSize: '14px',
+    }}>
+        {text}
     </button>
 );

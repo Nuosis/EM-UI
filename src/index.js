@@ -4,6 +4,7 @@ import jobsData from './data/jobs.json';
 import timeAssignData from './data/timeAssign.json';
 import employeeHoursData from './data/employeeHours.json';
 import jobsObject from './data/jobsObject.json';
+import {jobObjectColumns,jobObjectElements} from './data/jobsObjectColumns';
 import LoadTable from "../components/Table";
 import LoadJobsTable from "../components/JobsTable";
 import { root } from "postcss";
@@ -16,7 +17,7 @@ import {sumEmployeeHoursData,transformedHrs,performanceJobs} from './tansformDat
      * 
      * ELEMENTS (Array)
      * 
-     * OPTIONAL: By including this you will display inpouts the user can use to modify what data is desplayed without distroying the data
+     * OPTIONAL: By including this you will display inputs the user can use to modify what data is desplayed without distroying the data
      * 
      * STRUCTURE:
      * objectType: string, values can be filter (omit) or search (find)
@@ -34,6 +35,7 @@ import {sumEmployeeHoursData,transformedHrs,performanceJobs} from './tansformDat
      * type: string, designates the type of column (text, button, component)
      *      buttonText: string, (for use with button)
      *      icon: string, (for use with button) the name of the icon to use from icons.js
+     *      componentName: string, (for use with component) designates the name of the component to use in icon.js
      *      compairColumn: (for use with component) the field to evaluate against 
      *      ifTrue: (for use with component:compairColumn) The component to use when the compairColumn is true
      *      ifFalse: (for use with component:compairColumn) The component to use when the compairColumn is false (default)
@@ -51,7 +53,7 @@ import {sumEmployeeHoursData,transformedHrs,performanceJobs} from './tansformDat
      * field: string, the field to reference in the tablebody object to set as the display value
      */
 
-        // const sumColumns = [
+    //     const sumColumns = [
     //     { label: 'ID', index: true, filterable: false, searchable: false, sortable: false, hidden: true, field: 'id' },
     //     { label: 'Approved', index: true, filterable: false, searchable: false, sortable: false, hidden: true, field: 'approved' },
     //     { label: 'Employee', index: false, filterable: true, searchable: true, sortable: true, sorted: true, field: 'employeeName'  },
@@ -64,7 +66,7 @@ import {sumEmployeeHoursData,transformedHrs,performanceJobs} from './tansformDat
     // ];
 
 
-console.log('E&M UI 2.0.0') 
+console.log('E&M UI 2.0.3') 
 let globalRoot = null; // This will hold the root instance
 
 function manageRoot(containerId, element) {
@@ -102,7 +104,7 @@ window.loadTimeManagement = (json) => {
     const sum = sumEmployeeHoursData(data.employeeHoursData);
     const sumElements = data.employeeHoursElements
     const sumColumns = data.employeeHoursColumns
-    // console.log(`sumColumns`,sumColumns)
+    console.log(`sum`,sum)
 
     manageRoot("root", 
         <>
@@ -118,14 +120,16 @@ window.loadTimeManagement = (json) => {
     );
 }
 
-window.loadJobPerformance = (json) => {
+window.loadJobPerformance = async (json) => {
     console.log('init jobPerformance')
     const data = JSON.parse(json);
     // console.log(`passedData`,data)
-    const jobsData = performanceJobs(data.jobsData);
-    const jobsElements = data.jobsElements
-    const jobsColumns = data.jobsColumns
-    // console.log(`jobsColumns`, jobsColumns)
+    const jobsElements = data.elements
+    //console.log(`passedElements`,jobsElements)
+    const jobsColumns = data.columns
+    //console.log(`passedColumns`,jobsColumns)
+    const jobs = await performanceJobs(data.data).catch(e => console.error("Error in performanceJobs:", e));
+    const jobsData = jobs.jobObject;
 
     manageRoot("root", 
         <>
@@ -164,4 +168,4 @@ window.clearLoadingAnimation = () => {
 //showLoadingAnimation()
 //clearLoadingAnimation()
 //loadJobTracker(JSON.stringify(jobsData))
-//loadTimeManagement(JSON.stringify({timeAssignData,employeeHoursData}))
+loadJobPerformance(JSON.stringify({data: jobsObject,columns: jobObjectColumns,elements: jobObjectElements}))

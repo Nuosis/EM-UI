@@ -213,6 +213,31 @@ background-color: #f3f4f6; /* Slightly different background on hover */
     color: #4b5563; /* text-gray-700 */
 }
 
+.sub-table-header {
+    white-space: nowrap; /* Prevents wrapping */
+    font-weight: bold;
+    text-decoration: underline;
+    }
+.sub-table-row {
+    padding-left: 15px; /* Indent sub-table rows for visual hierarchy */
+    }
+
+.sub-table-section {
+    margin-bottom: 10px; /* Spacing between sections */
+}
+
+.sub-table-subheader {
+    font-weight: bold;
+    margin-bottom: 5px; /* Spacing between sub-header and values */
+}
+
+.sub-table-cell {
+    display: block;
+    white-space: nowrap;
+    margin-right: 10px; /* Spacing between cells */
+}
+
+
 
 
 /* SPINNER */

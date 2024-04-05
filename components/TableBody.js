@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useLayoutEffect } from 'react';
 import { useTableContext } from './TableState';
 import { icons } from '../src/icons'; 
-import { ApprovedButton, ApproveButton } from '../src/icons'; 
+import { ApprovedButton, ApproveButton, ButtonWithText } from '../src/icons'; 
 
 export default function LoadTableBody({ data, columns }) {
     const { searchTerm, filterTerm, sort, setSort } = useTableContext();
@@ -9,6 +9,9 @@ export default function LoadTableBody({ data, columns }) {
     //console.log("dataProvided:", data);
     //console.log("Current searchTerm:", searchTerm);
     //console.log("Current filterTerm:", filterTerm);
+    console.log("initTableBody");
+    console.log("data ",data);
+    console.log("columns ",columns);
 
     useLayoutEffect(() => {
         if (!sort.column) {
@@ -23,15 +26,27 @@ export default function LoadTableBody({ data, columns }) {
     const indexColumn = columns.find(col => col.index);
 
     const searchData = data.filter(item => {
-        // Combine all searchable column values into a single string for each row
         const searchableValues = columns
-            .filter(column => column.searchable) // Ensure you have a 'searchable' property on columns that can be searched
-            .map(column => item[column.field].toString().toLowerCase())
+            .filter(column => column.searchable)
+            .flatMap(column => { // Use flatMap to handle nested structures
+                if (column.type === 'array') {
+                    // If it's an array, return a new array of strings from each value
+                    return column.values.map(arrayValue => {
+                        const nestedItemValue = item[arrayValue.field];
+                        return nestedItemValue ? nestedItemValue.toString().toLowerCase() : '';
+                    });
+                } else {
+                    // For non-array types, just return the single string value
+                    const itemValue = item[column.field];
+                    return itemValue ? itemValue.toString().toLowerCase() : '';
+                }
+            })
             .join(' ');
-
-        // Return true if any searchableValue includes the searchTerm
+    
+        // Check if any of the searchable values includes the searchTerm
         return searchableValues.includes(searchTerm.toLowerCase());
     });
+    ;
     //console.log("dataAfterSearch:", searchData);
 
     // Then, conditionally apply the filter to omit matches if filterTerm is not empty
@@ -61,6 +76,7 @@ export default function LoadTableBody({ data, columns }) {
     const componentMap = {
         ApprovedButton: ApprovedButton,
         ApproveButton: ApproveButton,
+        ButtonWithText: ButtonWithText,
     };
 
     const handleCellClick = (callbackPath, record) => {
@@ -70,6 +86,23 @@ export default function LoadTableBody({ data, columns }) {
         });
         FileMaker.PerformScript("MyPage * JScallbacks", scriptParameter);
     };
+
+    function getValueByPath(obj, path) {
+        return path.split('.').reduce((acc, part) => acc && acc[part], obj) || '';
+    }
+
+    function formatCurrency(value) {
+        // If the value is null, undefined, or not a number, default it to 0
+        const number = isNaN(parseFloat(value)) ? 0 : parseFloat(value);
+        // Format the number as currency
+        return number.toLocaleString('en-US', {
+            style: 'currency',
+            currency: 'USD',
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2,
+        });
+    }
+    
 
     return (
     <div className="max-h-screen overflow-y-auto"> {/* Adjust the max height as needed */}
@@ -110,7 +143,7 @@ export default function LoadTableBody({ data, columns }) {
                                 });
                                 return (
                                     <td key={colIndex} className="p-2">
-                                        <button onClick={() => FileMaker.PerformScript("MyPage * JScallbacks", scriptParameter)}>
+                                        <button onClick={() => FileMaker.PerformScript("js * callbacks", scriptParameter)}>
                                             {IconComponent}
                                         </button>
                                     </td>
@@ -124,21 +157,98 @@ export default function LoadTableBody({ data, columns }) {
                                 });
                                 return (
                                     <td key={colIndex} className="p-2">
-                                        <ComponentToRender onClick={() => FileMaker.PerformScript("MyPage * JScallbacks", scriptParameter)} />
+                                        <ComponentToRender onClick={() => FileMaker.PerformScript("js * callbacks", scriptParameter)} />
+                                    </td>
+                                );
+                            } else if(column.type === 'component' && column.componentName === 'ButtonWithText') {
+                                // Use the specified component
+                                const Component = componentMap[column.componentName];
+                                if (!Component) {
+                                    console.error("Component not found for name:", column.componentName);
+                                    return null; // or some fallback UI
+                                }
+                                const textProp = column.text;
+                                //console.log("TextToRender:", textProp);
+                                const scriptParameter = JSON.stringify({
+                                    path: column.callBackPath, // Adjust as needed
+                                    record: item
+                                });
+                                return (
+                                    <td key={colIndex} className="p-2">
+                                        <Component text={textProp} onClick={() => FileMaker.PerformScript("js * callbacks", scriptParameter)} />
                                     </td>
                                 );
                             } else if(column.type === 'component' && column.component) {
-                                    // Use the specified component
-                                    const Component = column.component;
-                                    const scriptParameter = JSON.stringify({
-                                        path: column.callBackPath, // Adjust as needed
-                                        record: item
-                                    });
+                                // Use the specified component
+                                const Component = componentMap[column.componentName];
+                                const scriptParameter = JSON.stringify({
+                                    path: column.callBackPath, // Adjust as needed
+                                    record: item
+                                });
+                                return (
+                                    <td key={colIndex} className="p-2">
+                                        <Component onClick={() => FileMaker.PerformScript("js * callbacks", scriptParameter)} />
+                                    </td>
+                                );
+                            } else if (column.type === 'array') {
+                                return (
+                                    <td key={colIndex} className="p-2">
+                                        {column.values.map((value, valueIndex) => {
+                                            // Get the value based on the path
+                                            let cellValue = getValueByPath(item, value.field);
+                            
+                                            // Check for contentType and format accordingly
+                                            if (column.contentType === 'currency') {
+                                                cellValue = formatCurrency(cellValue);
+                                            }
+                                            // Add else if blocks here for other contentTypes if necessary
+                            
+                                            return (
+                                                <div key={valueIndex} className="sub-row">
+                                                    {value.label && <strong>{value.label}:</strong>} {cellValue}
+                                                </div>
+                                            );
+                                        })}
+                                    </td>
+                                );
+                            } else if(column.type === 'subTableHeaders') {
+                                return (
+                                    <td key={colIndex} className="p-2">
+                                        {column.values.map((value, valueIndex) => (
+                                            <div key={valueIndex} className="sub-row">
+                                                <strong>{value}</strong>
+                                            </div>
+                                        ))}
+                                    </td>
+                                );
+                            } else if (column.type === 'subTableBody') {
+                                return Object.keys(item.subTable).map((subKey, subIndex) => {
+                                    const subTableData = item.subTable[subKey];
                                     return (
-                                        <td key={colIndex} className="p-2">
-                                            <Component onClick={() => FileMaker.PerformScript("MyPage * JScallbacks", scriptParameter)} />
-                                        </td>
+                                        <React.Fragment key={subIndex}>
+                                            <td className="p-2">
+                                                <div className="sub-table-header">{subKey}</div>
+                                                {column.values.map((value, valueIndex) => {
+                                                    // Get the value based on the path, replacing the placeholder '[key]' with the actual subKey
+                                                    let pathWithKey = value.replace('[key]', subKey);
+                                                    let cellValue = getValueByPath(item, pathWithKey) || 0;
+                                                    
+                                                    // Check for contentType and format accordingly
+                                                    if (column.contentType === 'currency') {
+                                                        cellValue = formatCurrency(cellValue);
+                                                    }
+                                                    // Add else if blocks here for other contentTypes if necessary
+                            
+                                                    return (
+                                                        <div key={valueIndex} className="sub-table-cell">
+                                                            {cellValue}
+                                                        </div>
+                                                    );
+                                                })}
+                                            </td>
+                                        </React.Fragment>
                                     );
+                                });
                             } else {
                                 // Render cell normally for 'text' type columns
                                 const value = item[column.field];

@@ -219,15 +219,18 @@ background-color: #f3f4f6; /* Slightly different background on hover */
     text-decoration: underline;
     }
 .sub-table-row {
+    white-space: nowrap;
     padding-left: 15px; /* Indent sub-table rows for visual hierarchy */
     }
 
 .sub-table-section {
+    white-space: nowrap;
     margin-bottom: 10px; /* Spacing between sections */
 }
 
 .sub-table-subheader {
     font-weight: bold;
+    white-space: nowrap;
     margin-bottom: 5px; /* Spacing between sub-header and values */
 }
 

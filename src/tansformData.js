@@ -1,5 +1,23 @@
 import FMGofer from 'fm-gofer';
 
+async function getFMData(params) {
+    try {
+        return await FMGofer.PerformScript("js * GOferCallbacks", params);
+    } catch (error) {
+        console.error('Failed to fetch commodity data:', error);
+        return null;
+    }
+}
+
+function safeJSONParse(str) {
+    try {
+        return JSON.parse(str);
+    } catch (e) {
+        // console.error("Failed to parse JSON:", str, e);
+        return null; // or return {}, [], false based on what you expect
+    }
+}
+
 export function sumEmployeeHoursData(inputData) {
     const groupedMap = new Map();
 
@@ -66,7 +84,6 @@ export function sumEmployeeHoursData(inputData) {
     return finalArray;
 }
 
-
 export function transformedHrs(hrs) {
     return hrs.map(item => ({
         id: item.fieldData.id,
@@ -78,25 +95,6 @@ export function transformedHrs(hrs) {
         hours: item.fieldData.hoursV2_Original
     })).sort((a, b) => new Date(a.date) - new Date(b.date)); // Sorting by date
 }
-
-async function getFMData(params) {
-    try {
-        return await FMGofer.PerformScript("js * GOferCallbacks", params);
-    } catch (error) {
-        console.error('Failed to fetch commodity data:', error);
-        return null;
-    }
-}
-
-function safeJSONParse(str) {
-    try {
-        return JSON.parse(str);
-    } catch (e) {
-        // console.error("Failed to parse JSON:", str, e);
-        return null; // or return {}, [], false based on what you expect
-    }
-}
-
 
 export async function performanceJobs(json) {
     console.log('init transformJobPerformance')
@@ -117,8 +115,7 @@ export async function performanceJobs(json) {
             jobLead: item.fieldData.Moldmaker,
             cadDesign: item.fieldData["Cad Designer"],
             labour: {},
-            materials: {},
-            outsource: {},
+            other: {},
             profit: {}
         };
 
@@ -157,7 +154,7 @@ export async function performanceJobs(json) {
             }
             return acc;
         }, {});        
-        console.log("quoteObject",quoteObject)
+        //console.log("quoteObject",quoteObject)
 
         /**
          * MANAGE LABOUR OBJECT
@@ -202,7 +199,7 @@ export async function performanceJobs(json) {
             quoteActualHours += actualHours;
 
 
-            console.log("quoteData: ",{headingHours,hoursToDate,actualHours,headingCost,costToDate,actualCost,})
+            //console.log("quoteData: ",{headingHours,hoursToDate,actualHours,headingCost,costToDate,actualCost,})
 
 
             // Initialize heading object and its budget property if it does not exist
@@ -216,12 +213,64 @@ export async function performanceJobs(json) {
                 actualHours: hoursToDate,
                 diffHours: headingHours - hoursToDate,
                 diffCost: headingCost - costToDate
-            };
-            console.log("objectAfterHeading",obj)
-        });
+            }});
+            //console.log("objectAfterLabour",obj)
+
+        /**
+         * MANAGE MATERIALS OBJECT
+         */
+
+
+        let actualMaterialCost = 0;
+        let headingMaterialCost = parseFloat(quoteObject.Materials.cost);
+        if (isNaN(headingMaterialCost)) {
+            headingMaterialCost = 0; // Fallback to 0 or any other default value
+        }
+        actualMaterialCost = item.portalData.jobs_POlines.reduce((total, record) => {
+            return record['jobs_POlines::flag_POtype'] === 1 ? total + record["jobs_POlines::total_cad"] : total;
+        }, 0);
+
+        quoteBudgetCost += headingMaterialCost;
+        quoteActualCost += actualMaterialCost;
+
+        // Assign the calculated totals to the heading in the obj
+        if (!obj.other.Materials) obj.other.Materials = {};
+        obj.other.Materials = {
+            budget: headingMaterialCost,
+            actual: actualMaterialCost,
+            diff: headingMaterialCost - actualMaterialCost
+        };
+        //console.log("objectAfterMaterial",obj);
+
+        /**
+         * MANAGE OUTSOURCE OBJECT
+         */
+
+
+        let actualOutsourceCost = 0;
+        let headingOutsourceCost = parseFloat(quoteObject.Outsource.cost);
+        if (isNaN(headingOutsourceCost)) {
+            headingOutsourceCost = 0; // Fallback to 0 or any other default value
+        }
+        actualOutsourceCost = item.portalData.jobs_POlines.reduce((total, record) => {
+            return record['jobs_POlines::flag_POtype'] === 2 ? total + record["jobs_POlines::total_cad"] : total;
+        }, 0);
+
+        quoteBudgetCost += headingOutsourceCost;
+        quoteActualCost += actualOutsourceCost;
+
+        // Assign the calculated totals to the heading in the obj
+        if (!obj.other.Outsource) obj.other.Outsource = {};
+        obj.other.Outsource = {
+            budget: headingOutsourceCost,
+            actual: actualOutsourceCost,
+            diff: headingOutsourceCost - actualOutsourceCost
+        };
+        //console.log("objectAfterOutsource",obj);
 
         // Assign profit calculations to the obj
-        obj.profit = {
+        if (!obj.profit.Profit) obj.profit.Profit = {};
+        obj.profit.Profit = {
             quoteBudgetHours,
             quoteBudgetCost,
             quoteActualCost,
@@ -229,7 +278,7 @@ export async function performanceJobs(json) {
             diffHours: quoteBudgetHours - quoteActualHours,
             diffCost: quoteBudgetCost - quoteActualCost
         };
-        console.log("objectAfterProfit",obj)
+        //console.log("objectAfterProfit",obj)
 
         return obj; // Return the fully constructed obj for the current item
     })).catch(error => console.error("Promise.all error:", error));

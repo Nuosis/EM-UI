@@ -4,7 +4,7 @@ import LoadTableManagement from './TableManagement';
 import { TableProvider } from './TableState';
 
 export default function LoadTable({ data, elements, columns }) { 
-    console.log('Data in LoadTable:', data);
+    //console.log('Data in LoadTable:', data);
     return (
         <TableProvider>
             <div id="Table" className="w-full flex flex-col">

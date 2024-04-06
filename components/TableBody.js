@@ -87,9 +87,31 @@ export default function LoadTableBody({ data, columns }) {
         FileMaker.PerformScript("MyPage * JScallbacks", scriptParameter);
     };
 
+    const handleSubTableCellClick = (callBackPath, record, subKey) => {
+        const scriptParameter = JSON.stringify({
+            path: callBackPath,
+            record,
+            subKey
+        });
+        // Assuming you have a way to call a script or navigate to a chart, for example:
+        FileMaker.PerformScript("MyPage * JScallbacks", scriptParameter);
+    }
+
     function getValueByPath(obj, path) {
         return path.split('.').reduce((acc, part) => acc && acc[part], obj) || '';
     }
+    function getDynamicValueByPath(item, valuePathTemplate, subKey) {
+        // Extract the object name from the path (e.g., 'labour' from 'labour.[key].budgetHours')
+        const objNameMatch = valuePathTemplate.match(/(\w+)\.\[key\]/);
+        if (!objNameMatch) return null;
+    
+        const objName = objNameMatch[1]; // This is 'labour'
+        // Replace the placeholder '[key]' with the actual subKey and '[objName]' with the actual object name
+        const pathWithObjNameAndKey = valuePathTemplate.replace('[objName]', objName).replace('[key]', subKey);
+        // Now get the value by the new path
+        return getValueByPath(item, pathWithObjNameAndKey) || 0;
+    }
+    
 
     function formatCurrency(value) {
         // If the value is null, undefined, or not a number, default it to 0
@@ -215,32 +237,50 @@ export default function LoadTableBody({ data, columns }) {
                                 return (
                                     <td key={colIndex} className="p-2">
                                         {column.values.map((value, valueIndex) => (
-                                            <div key={valueIndex} className="sub-row">
+                                            <div
+                                                key={valueIndex}
+                                                className="sub-row"
+                                                style={{ color: value === '_' ? 'transparent' : 'inherit' }}
+                                            >
                                                 <strong>{value}</strong>
                                             </div>
                                         ))}
                                     </td>
                                 );
                             } else if (column.type === 'subTableBody') {
-                                return Object.keys(item.subTable).map((subKey, subIndex) => {
-                                    const subTableData = item.subTable[subKey];
+                                // First, determine the object name (e.g., 'labour' or 'material') from the first entry in the values array
+                                const objNameMatch = column.values[0].match(/^(\w+)\.\[key\]/);
+                                if (!objNameMatch) {
+                                    console.error('Invalid column value format:', column.values[0]);
+                                    return null; // or some fallback UI
+                                }
+                                const objName = objNameMatch[1];
+                            
+                                // Now map over the keys of the specified object in the item
+                                return Object.keys(item[objName]).map((subKey, subIndex) => {
                                     return (
                                         <React.Fragment key={subIndex}>
                                             <td className="p-2">
-                                                <div className="sub-table-header">{subKey}</div>
-                                                {column.values.map((value, valueIndex) => {
-                                                    // Get the value based on the path, replacing the placeholder '[key]' with the actual subKey
-                                                    let pathWithKey = value.replace('[key]', subKey);
-                                                    let cellValue = getValueByPath(item, pathWithKey) || 0;
+                                                <div
+                                                    className={`sub-table-header ${column.clickable ? 'clickable' : ''}`}
+                                                    onClick={() => column.clickable ? handleSubTableCellClick(column.callBackPath, item, subKey) : null}
+                                                    style={{ cursor: 'pointer' }}
+                                                >{subKey}</div>
+                                                {column.values.map((valueTemplate, valueIndex) => {
+                                                    let cellValue = getDynamicValueByPath(item, valueTemplate, subKey);
+                                                    let isNegative = typeof cellValue === 'number' && cellValue < 0;
                                                     
                                                     // Check for contentType and format accordingly
                                                     if (column.contentType === 'currency') {
                                                         cellValue = formatCurrency(cellValue);
                                                     }
-                                                    // Add else if blocks here for other contentTypes if necessary
                             
                                                     return (
-                                                        <div key={valueIndex} className="sub-table-cell">
+                                                        <div
+                                                            key={valueIndex}
+                                                            className="sub-table-cell"
+                                                            style={{ backgroundColor: isNegative ? '#ffcccc' : 'transparent' }}
+                                                        >
                                                             {cellValue}
                                                         </div>
                                                     );

@@ -66,7 +66,7 @@ import {sumEmployeeHoursData,transformedHrs,performanceJobs} from './tansformDat
     // ];
 
 
-console.log('E&M UI 2.0.3') 
+console.log('E&M UI 2.0.4') 
 let globalRoot = null; // This will hold the root instance
 
 function manageRoot(containerId, element) {
@@ -81,6 +81,11 @@ function manageRoot(containerId, element) {
     }
 }
 
+/**
+ * 
+ * TRACKERS 
+ * 
+ */
 window.loadJobTracker = (json) => {
     console.log('init loadJobTracker')
     clearLoadingAnimation()
@@ -141,7 +146,11 @@ window.loadJobPerformance = async (json) => {
         </>
     );
 }
-
+/**
+ * 
+ * FUNCTIONS
+ * 
+ */
 window.showLoadingAnimation = () => {
     const formContainer = document.getElementById("root");
     // Remove existing content
@@ -163,6 +172,40 @@ window.showLoadingAnimation = () => {
 window.clearLoadingAnimation = () => {
     const feedbackContainer = document.getElementById("feedback");
     feedbackContainer.innerHTML = '';
+}
+
+window.sumJobActivity = (json) => {
+
+    // provides array ob objects where keys are total hours, total, burden and total actuals for each department of a provided job.
+    // assumes all from the same job
+    // expects data consistenmt with timeHours.json (dataAPI call to dapiTimeHours for a given job)
+    data = JSON.parse(json)
+    const result = {};
+        data.forEach(item => {
+            const { department, type, hoursV2_Original, burdenV2, actualV2 } = item.fieldData;
+            
+            // If the department doesn't exist, initialize it
+            if (!result[department]) {
+                result[department] = {};
+            }
+            
+            // If the type within the department doesn't exist, initialize it
+            if (!result[department][type]) {
+                result[department][type] = { totalHoursV2Original: 0, totalBurdenV2: 0, totalActualV2: 0 };
+            }
+            
+            // Accumulate the values for hoursV2_Original, burdenV2, and actualV2 for each type within the department
+            result[department][type].totalHoursV2Original += hoursV2_Original;
+            result[department][type].totalBurdenV2 += burdenV2;
+            result[department][type].totalActualV2 += actualV2;
+        });
+        const scriptParameter = JSON.stringify({
+            path: "chart.render",
+            result,
+        });
+        // Assuming you have a way to call a script or navigate to a chart, for example:
+        FileMaker.PerformScript("js * callbacks", scriptParameter);
+        return result;
 }
 
 //showLoadingAnimation()

@@ -115,12 +115,22 @@ export async function performanceJobs(json) {
             jobLead: item.fieldData.Moldmaker,
             cadDesign: item.fieldData["Cad Designer"],
             labour: {},
+            labourTotals: {},
             other: {},
             profit: {}
         };
+        if (!obj.labourTotals.costActual) obj.labourTotals.costActual = 0;
+        if (!obj.labourTotals.costBurden) obj.labourTotals.costBurden = 0;
+        if (!obj.labourTotals.costBudget) obj.labourTotals.costBudget = 0;
+        //console.log(obj)
 
         // Process quote data
         const quoteBody = item.portalData.jobs_QUOTE;
+        // Sum up the laborTotal_c values from each quote record
+        const totalPrice = quoteBody.reduce((acc, curr) => {
+            const laborCost = parseFloat(curr["jobs_QUOTE::grandTotalCND_c"]);
+            return acc + (isNaN(laborCost) ? 0 : laborCost);
+        }, 0);
         const quoteParams = JSON.stringify({quoteBody, path: "getQuoteValues"});
         const quoteHeading = await getFMData(quoteParams)
         const quoteHeadingData = safeJSONParse(quoteHeading);
@@ -153,8 +163,9 @@ export async function performanceJobs(json) {
                 }
             }
             return acc;
-        }, {});        
-        //console.log("quoteObject",quoteObject)
+        }, {});      
+        quoteObject.total = totalPrice
+        // console.log("quoteObject",quoteObject)
 
         /**
          * MANAGE LABOUR OBJECT
@@ -166,11 +177,14 @@ export async function performanceJobs(json) {
         let quoteBudgetCost = 0;
         let quoteBudgetHours = 0;
         let quoteActualCost = 0;
+        let quoteBurdenCost = 0;
         let quoteActualHours = 0;
         labourHeadings.forEach(heading => {
             let actualHours = 0;
             let actualCost = 0;
+            let burdenCost = 0;
             let costToDate = 0;
+            let burdenToDate = 0;
             let hoursToDate = 0;
             //handle cost
             let headingCost = parseFloat(quoteObject[heading].cost);
@@ -180,10 +194,15 @@ export async function performanceJobs(json) {
             actualCost = item.portalData.jobs_TIMEHOURS.reduce((total, record) => {
                 return record['jobs_TIMEHOURS::department'] === heading ? total + record["jobs_TIMEHOURS::actualV2"] : total;
             }, 0);
+            burdenCost = item.portalData.jobs_TIMEHOURS.reduce((total, record) => {
+                return record['jobs_TIMEHOURS::department'] === heading ? total + record["jobs_TIMEHOURS::burdenV2"] : total;
+            }, 0);
 
             costToDate += actualCost;
+            burdenToDate += burdenCost;
             quoteBudgetCost += headingCost;
             quoteActualCost += actualCost;
+            quoteBurdenCost += burdenCost;
 
             //handle hours
             let headingHours = parseFloat(quoteObject[heading].hours);
@@ -209,12 +228,18 @@ export async function performanceJobs(json) {
             obj.labour[heading] = {
                 budgetCoL: headingCost,
                 actualCoL: costToDate,
+                burdenCoL: burdenToDate,
                 budgetHours: headingHours,
                 actualHours: hoursToDate,
                 diffHours: headingHours - hoursToDate,
-                diffCost: headingCost - costToDate
-            }});
-            //console.log("objectAfterLabour",obj)
+                diffActual: headingCost - costToDate,
+                diffBurden: headingCost - burdenToDate
+            }
+            obj.labourTotals.costActual += costToDate
+            obj.labourTotals.costBurden += burdenToDate
+            obj.labourTotals.costBudget += headingCost
+        });
+        // console.log("objectAfterLabour",obj)
 
         /**
          * MANAGE MATERIALS OBJECT
@@ -240,6 +265,7 @@ export async function performanceJobs(json) {
             actual: actualMaterialCost,
             diff: headingMaterialCost - actualMaterialCost
         };
+        
         //console.log("objectAfterMaterial",obj);
 
         /**
@@ -256,9 +282,6 @@ export async function performanceJobs(json) {
             return record['jobs_POlines::flag_POtype'] === 2 ? total + record["jobs_POlines::total_cad"] : total;
         }, 0);
 
-        quoteBudgetCost += headingOutsourceCost;
-        quoteActualCost += actualOutsourceCost;
-
         // Assign the calculated totals to the heading in the obj
         if (!obj.other.Outsource) obj.other.Outsource = {};
         obj.other.Outsource = {
@@ -271,14 +294,23 @@ export async function performanceJobs(json) {
         // Assign profit calculations to the obj
         if (!obj.profit.Profit) obj.profit.Profit = {};
         obj.profit.Profit = {
-            quoteBudgetHours,
-            quoteBudgetCost,
-            quoteActualCost,
+            totalPrice,
+            totalLabourCost: obj.labourTotals.costActual,
+            totalLabourCostBurden: obj.labourTotals.costBurden,
+            totalMaterialCost: obj.other.Materials.actual,
+            totalOutsourceCost: obj.other.Outsource.actual,
+            totalCosts: obj.labourTotals.costActual+obj.other.Materials.actual+obj.other.Outsource.actual,
+            totalCostsBurden: obj.labourTotals.costBurden+obj.other.Materials.actual+obj.other.Outsource.actual,
             quoteActualHours,
+            quoteBudgetHours,
             diffHours: quoteBudgetHours - quoteActualHours,
-            diffCost: quoteBudgetCost - quoteActualCost
+            diffCost: totalPrice - (obj.labourTotals.costActual + obj.other.Materials.actual + obj.other.Outsource.actual),
+            diffCostBurden: totalPrice - obj.labourTotals.costBurden - obj.other.Materials.actual - obj.other.Outsource.actual,
         };
-        //console.log("objectAfterProfit",obj)
+        obj.profit.Profit.percentProfit = obj.profit.Profit.diffCost/obj.profit.Profit.totalPrice || 0;
+        obj.profit.Profit.percentProfitBurden = obj.profit.Profit.diffCostBurden/obj.profit.Profit.totalPrice || 0;
+        delete obj.labour.total;
+        console.log("objectAfterProfit",obj)
 
         return obj; // Return the fully constructed obj for the current item
     })).catch(error => console.error("Promise.all error:", error));

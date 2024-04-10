@@ -9,10 +9,11 @@ export const jobObjectColumns = [
     { label: 'Team', type: 'array', filterable: true, searchable: true, values: [{label:'Manager',field: 'progMan'},{label:'Lead',field: 'jobLead'},{label:'CAD',field: 'cadDesign'}] },
     { label: '', type: 'component', componentName: 'ButtonWithText', text: 'Progress Comments', clickable: true, callBackPath: "jobPerformance.addComment"  },
     { label: '', type: 'subTableHeaders', filterable: false, searchable: false, values: ['_','Hours','Actual','Diff'] },
-    { label: '', type: 'subTableBody', clickable: true, callBackPath: "jobPerformance.chart", filterable: false, searchable: false, values: ['labour.[key].budgetHours','labour.[key].actualHours','labour.[key].diffHours'] },
+    { label: '', type: 'subTableBody', clickable: true, callBackPath: "jobPerformance.chart", filterable: false, searchable: false, values: [{ field: 'labour.[key].budgetHours'},{ field: 'labour.[key].actualHours'},{ field: 'labour.[key].diffHours'}] },
     { label: '', type: 'subTableHeaders', filterable: false, searchable: false, values: ['_','Budget','Actual','Diff'] },
-    { label: '', type: 'subTableBody', clickable: true, callBackPath: "jobPerformance.chart", contentType: 'currency', filterable: false, searchable: false, values: ['other.[key].budget','other.[key].actual','other.[key].diff'] },
-    { label: '', type: 'subTableBody', contentType: 'currency', filterable: false, searchable: false, values: ['profit.[key].quoteBudgetCost','profit.[key].quoteActualCost','profit.[key].diffCost'] },
+    { label: '', type: 'subTableBody', clickable: true, callBackPath: "jobPerformance.chart", filterable: false, searchable: false, values: [{ field: 'other.[key].budget', contentType: 'currency'},{ field: 'other.[key].actual', contentType: 'currency' },{ field: 'other.[key].diff', contentType: 'currency' }] },
+    { label: '', type: 'subTableHeaders', filterable: false, searchable: false, values: ['_','Price','$','%'] },
+    { label: '', type: 'subTableBody', filterable: false, searchable: false, values: [{ field: 'profit.[key].totalPrice', contentType: 'currency' },{ field: 'profit.[key].diffCostBurden', contentType: 'currency' },{ field: 'profit.[key].percentProfitBurden', contentType: 'percent' }, ] },
 ]
 
 export const jobObjectElements = [{objectType: "filter"},{objectType: "search"}];

@@ -1,0 +1,912 @@
+[
+	{
+		"fieldData" : 
+		{
+			"actualV2" : 72,
+			"burdenV2" : 210,
+			"date" : "03/04/2024",
+			"dateDay_a" : 1,
+			"dateWeek_a" : 10,
+			"dateYear_a" : 2024,
+			"department" : "EDM",
+			"employeName_c" : "Alan Stuart",
+			"hoursV2" : 3,
+			"hoursV2_Original" : 3,
+			"id" : "29344F3C-D5EA-D944-8CC9-B7C956BEEF19",
+			"id_employee_a" : "700545E7-60CC-0041-A05A-E1A00051B82F",
+			"id_job_a" : "4C5E546A-BC3A-3C41-8D4E-8C8BB078C6E8",
+			"id_timeassign" : "F41DEC98-24D1-1E40-8B15-E6280601B507",
+			"otV2" : 0,
+			"type" : "Surface Carbon",
+			"zCreationAccount" : "AlStuart",
+			"zCreationTimestamp" : "03/04/2024 15:27:25",
+			"zModificationAccount" : "TimeEntry",
+			"zModificationTimestamp" : "03/04/2024 15:27:28"
+		},
+		"modId" : "2",
+		"portalData" : 
+		{
+			"timeHours_EMPLOYEE" : 
+			[
+				{
+					"modId" : "17",
+					"recordId" : "233",
+					"timeHours_EMPLOYEE::Reports To" : "Anthony Piazza"
+				}
+			],
+			"timeHours_JOBS" : 
+			[
+				{
+					"modId" : "111",
+					"recordId" : "13996",
+					"timeHours_JOBS::Approval Comments" : "",
+					"timeHours_JOBS::Approval Date" : "",
+					"timeHours_JOBS::Attention" : "Aleks Krndija",
+					"timeHours_JOBS::Cad Designer" : "",
+					"timeHours_JOBS::Customer Name" : "",
+					"timeHours_JOBS::Id_Commodity" : "25989A73-1167-4134-94D8-5D3749783E0A",
+					"timeHours_JOBS::JobNumText" : "5094-03",
+					"timeHours_JOBS::Moldmaker" : "Don Anderson",
+					"timeHours_JOBS::Program Manager" : "David Guenther",
+					"timeHours_JOBS::Tool_ComitmentDate" : "04/01/2024",
+					"timeHours_JOBS::Tool_KickoffDate" : "03/01/2024",
+					"timeHours_JOBS::Workorder Type" : "Engineering Change",
+					"timeHours_JOBS::id" : "4C5E546A-BC3A-3C41-8D4E-8C8BB078C6E8",
+					"timeHours_JOBS::status" : "Complete"
+				}
+			],
+			"timeHours_TIMEASSIGN" : 
+			[
+				{
+					"modId" : "0",
+					"recordId" : "11517",
+					"timeHours_TIMEASSIGN::jobNum_a" : "5094-03",
+					"timeHours_TIMEASSIGN::week" : 10,
+					"timeHours_TIMEASSIGN::weekStartDate_a" : "03/04/2024",
+					"timeHours_TIMEASSIGN::year" : 2024
+				}
+			]
+		},
+		"portalDataInfo" : 
+		[
+			{
+				"database" : "Jobs",
+				"foundCount" : 1,
+				"returnedCount" : 1,
+				"table" : "timeHours_TIMEASSIGN"
+			},
+			{
+				"database" : "Jobs",
+				"foundCount" : 1,
+				"returnedCount" : 1,
+				"table" : "timeHours_EMPLOYEE"
+			},
+			{
+				"database" : "Jobs",
+				"foundCount" : 1,
+				"returnedCount" : 1,
+				"table" : "timeHours_JOBS"
+			}
+		],
+		"recordId" : "23054"
+	},
+	{
+		"fieldData" : 
+		{
+			"actualV2" : 96,
+			"burdenV2" : 210,
+			"date" : "03/05/2024",
+			"dateDay_a" : 2,
+			"dateWeek_a" : 10,
+			"dateYear_a" : 2024,
+			"department" : "EDM",
+			"employeName_c" : "Steve Thibert",
+			"hoursV2" : 3,
+			"hoursV2_Original" : 3,
+			"id" : "9DB8B192-E8C8-6241-AB01-401CF4CE661B",
+			"id_employee_a" : "CE6773D6-CEBA-AB48-94E7-B45EF5142E3E",
+			"id_job_a" : "4C5E546A-BC3A-3C41-8D4E-8C8BB078C6E8",
+			"id_timeassign" : "88FB99CD-6DD7-7B4C-B411-FB1E4C9FF456",
+			"otV2" : 0,
+			"type" : "CNC Electrodes",
+			"zCreationAccount" : "cnc",
+			"zCreationTimestamp" : "03/05/2024 12:34:17",
+			"zModificationAccount" : "TimeEntry",
+			"zModificationTimestamp" : "03/05/2024 12:34:21"
+		},
+		"modId" : "2",
+		"portalData" : 
+		{
+			"timeHours_EMPLOYEE" : 
+			[
+				{
+					"modId" : "18",
+					"recordId" : "213",
+					"timeHours_EMPLOYEE::Reports To" : "Anthony Piazza"
+				}
+			],
+			"timeHours_JOBS" : 
+			[
+				{
+					"modId" : "111",
+					"recordId" : "13996",
+					"timeHours_JOBS::Approval Comments" : "",
+					"timeHours_JOBS::Approval Date" : "",
+					"timeHours_JOBS::Attention" : "Aleks Krndija",
+					"timeHours_JOBS::Cad Designer" : "",
+					"timeHours_JOBS::Customer Name" : "",
+					"timeHours_JOBS::Id_Commodity" : "25989A73-1167-4134-94D8-5D3749783E0A",
+					"timeHours_JOBS::JobNumText" : "5094-03",
+					"timeHours_JOBS::Moldmaker" : "Don Anderson",
+					"timeHours_JOBS::Program Manager" : "David Guenther",
+					"timeHours_JOBS::Tool_ComitmentDate" : "04/01/2024",
+					"timeHours_JOBS::Tool_KickoffDate" : "03/01/2024",
+					"timeHours_JOBS::Workorder Type" : "Engineering Change",
+					"timeHours_JOBS::id" : "4C5E546A-BC3A-3C41-8D4E-8C8BB078C6E8",
+					"timeHours_JOBS::status" : "Complete"
+				}
+			],
+			"timeHours_TIMEASSIGN" : 
+			[
+				{
+					"modId" : "0",
+					"recordId" : "11547",
+					"timeHours_TIMEASSIGN::jobNum_a" : "5094-03",
+					"timeHours_TIMEASSIGN::week" : 10,
+					"timeHours_TIMEASSIGN::weekStartDate_a" : "03/04/2024",
+					"timeHours_TIMEASSIGN::year" : 2024
+				}
+			]
+		},
+		"portalDataInfo" : 
+		[
+			{
+				"database" : "Jobs",
+				"foundCount" : 1,
+				"returnedCount" : 1,
+				"table" : "timeHours_TIMEASSIGN"
+			},
+			{
+				"database" : "Jobs",
+				"foundCount" : 1,
+				"returnedCount" : 1,
+				"table" : "timeHours_EMPLOYEE"
+			},
+			{
+				"database" : "Jobs",
+				"foundCount" : 1,
+				"returnedCount" : 1,
+				"table" : "timeHours_JOBS"
+			}
+		],
+		"recordId" : "23088"
+	},
+	{
+		"fieldData" : 
+		{
+			"actualV2" : 60,
+			"burdenV2" : 175,
+			"date" : "03/05/2024",
+			"dateDay_a" : 2,
+			"dateWeek_a" : 10,
+			"dateYear_a" : 2024,
+			"department" : "EDM",
+			"employeName_c" : "Alan Stuart",
+			"hoursV2" : 2.5,
+			"hoursV2_Original" : 2.5,
+			"id" : "5512E15E-E00E-104E-AA84-8BDB98258FA1",
+			"id_employee_a" : "700545E7-60CC-0041-A05A-E1A00051B82F",
+			"id_job_a" : "4C5E546A-BC3A-3C41-8D4E-8C8BB078C6E8",
+			"id_timeassign" : "F41DEC98-24D1-1E40-8B15-E6280601B507",
+			"otV2" : 0,
+			"type" : "Surface Carbon",
+			"zCreationAccount" : "AlStuart",
+			"zCreationTimestamp" : "03/05/2024 13:54:18",
+			"zModificationAccount" : "TimeEntry",
+			"zModificationTimestamp" : "03/05/2024 13:54:20"
+		},
+		"modId" : "2",
+		"portalData" : 
+		{
+			"timeHours_EMPLOYEE" : 
+			[
+				{
+					"modId" : "17",
+					"recordId" : "233",
+					"timeHours_EMPLOYEE::Reports To" : "Anthony Piazza"
+				}
+			],
+			"timeHours_JOBS" : 
+			[
+				{
+					"modId" : "111",
+					"recordId" : "13996",
+					"timeHours_JOBS::Approval Comments" : "",
+					"timeHours_JOBS::Approval Date" : "",
+					"timeHours_JOBS::Attention" : "Aleks Krndija",
+					"timeHours_JOBS::Cad Designer" : "",
+					"timeHours_JOBS::Customer Name" : "",
+					"timeHours_JOBS::Id_Commodity" : "25989A73-1167-4134-94D8-5D3749783E0A",
+					"timeHours_JOBS::JobNumText" : "5094-03",
+					"timeHours_JOBS::Moldmaker" : "Don Anderson",
+					"timeHours_JOBS::Program Manager" : "David Guenther",
+					"timeHours_JOBS::Tool_ComitmentDate" : "04/01/2024",
+					"timeHours_JOBS::Tool_KickoffDate" : "03/01/2024",
+					"timeHours_JOBS::Workorder Type" : "Engineering Change",
+					"timeHours_JOBS::id" : "4C5E546A-BC3A-3C41-8D4E-8C8BB078C6E8",
+					"timeHours_JOBS::status" : "Complete"
+				}
+			],
+			"timeHours_TIMEASSIGN" : 
+			[
+				{
+					"modId" : "0",
+					"recordId" : "11517",
+					"timeHours_TIMEASSIGN::jobNum_a" : "5094-03",
+					"timeHours_TIMEASSIGN::week" : 10,
+					"timeHours_TIMEASSIGN::weekStartDate_a" : "03/04/2024",
+					"timeHours_TIMEASSIGN::year" : 2024
+				}
+			]
+		},
+		"portalDataInfo" : 
+		[
+			{
+				"database" : "Jobs",
+				"foundCount" : 1,
+				"returnedCount" : 1,
+				"table" : "timeHours_TIMEASSIGN"
+			},
+			{
+				"database" : "Jobs",
+				"foundCount" : 1,
+				"returnedCount" : 1,
+				"table" : "timeHours_EMPLOYEE"
+			},
+			{
+				"database" : "Jobs",
+				"foundCount" : 1,
+				"returnedCount" : 1,
+				"table" : "timeHours_JOBS"
+			}
+		],
+		"recordId" : "23095"
+	},
+	{
+		"fieldData" : 
+		{
+			"actualV2" : 160,
+			"burdenV2" : 350,
+			"date" : "03/06/2024",
+			"dateDay_a" : 3,
+			"dateWeek_a" : 10,
+			"dateYear_a" : 2024,
+			"department" : "EDM",
+			"employeName_c" : "Steve Thibert",
+			"hoursV2" : 5,
+			"hoursV2_Original" : 5,
+			"id" : "23A39FB1-8D28-1C4A-80BA-512B157BC9CD",
+			"id_employee_a" : "CE6773D6-CEBA-AB48-94E7-B45EF5142E3E",
+			"id_job_a" : "4C5E546A-BC3A-3C41-8D4E-8C8BB078C6E8",
+			"id_timeassign" : "88FB99CD-6DD7-7B4C-B411-FB1E4C9FF456",
+			"otV2" : 0,
+			"type" : "CNC Electrodes",
+			"zCreationAccount" : "cnc",
+			"zCreationTimestamp" : "03/06/2024 11:09:28",
+			"zModificationAccount" : "TimeEntry",
+			"zModificationTimestamp" : "03/06/2024 11:09:31"
+		},
+		"modId" : "2",
+		"portalData" : 
+		{
+			"timeHours_EMPLOYEE" : 
+			[
+				{
+					"modId" : "18",
+					"recordId" : "213",
+					"timeHours_EMPLOYEE::Reports To" : "Anthony Piazza"
+				}
+			],
+			"timeHours_JOBS" : 
+			[
+				{
+					"modId" : "111",
+					"recordId" : "13996",
+					"timeHours_JOBS::Approval Comments" : "",
+					"timeHours_JOBS::Approval Date" : "",
+					"timeHours_JOBS::Attention" : "Aleks Krndija",
+					"timeHours_JOBS::Cad Designer" : "",
+					"timeHours_JOBS::Customer Name" : "",
+					"timeHours_JOBS::Id_Commodity" : "25989A73-1167-4134-94D8-5D3749783E0A",
+					"timeHours_JOBS::JobNumText" : "5094-03",
+					"timeHours_JOBS::Moldmaker" : "Don Anderson",
+					"timeHours_JOBS::Program Manager" : "David Guenther",
+					"timeHours_JOBS::Tool_ComitmentDate" : "04/01/2024",
+					"timeHours_JOBS::Tool_KickoffDate" : "03/01/2024",
+					"timeHours_JOBS::Workorder Type" : "Engineering Change",
+					"timeHours_JOBS::id" : "4C5E546A-BC3A-3C41-8D4E-8C8BB078C6E8",
+					"timeHours_JOBS::status" : "Complete"
+				}
+			],
+			"timeHours_TIMEASSIGN" : 
+			[
+				{
+					"modId" : "0",
+					"recordId" : "11547",
+					"timeHours_TIMEASSIGN::jobNum_a" : "5094-03",
+					"timeHours_TIMEASSIGN::week" : 10,
+					"timeHours_TIMEASSIGN::weekStartDate_a" : "03/04/2024",
+					"timeHours_TIMEASSIGN::year" : 2024
+				}
+			]
+		},
+		"portalDataInfo" : 
+		[
+			{
+				"database" : "Jobs",
+				"foundCount" : 1,
+				"returnedCount" : 1,
+				"table" : "timeHours_TIMEASSIGN"
+			},
+			{
+				"database" : "Jobs",
+				"foundCount" : 1,
+				"returnedCount" : 1,
+				"table" : "timeHours_EMPLOYEE"
+			},
+			{
+				"database" : "Jobs",
+				"foundCount" : 1,
+				"returnedCount" : 1,
+				"table" : "timeHours_JOBS"
+			}
+		],
+		"recordId" : "23159"
+	},
+	{
+		"fieldData" : 
+		{
+			"actualV2" : 171,
+			"burdenV2" : 420,
+			"date" : "03/06/2024",
+			"dateDay_a" : 3,
+			"dateWeek_a" : 10,
+			"dateYear_a" : 2024,
+			"department" : "EDM",
+			"employeName_c" : "Lisa Fells",
+			"hoursV2" : 6,
+			"hoursV2_Original" : 6,
+			"id" : "C5CF11EF-D5A3-3F41-BCF8-42C84BD138FE",
+			"id_employee_a" : "5DBE1901-1921-EC4A-8443-69B3F710B7AA",
+			"id_job_a" : "4C5E546A-BC3A-3C41-8D4E-8C8BB078C6E8",
+			"id_timeassign" : "5A431D5F-674A-C14C-9BAB-FD7E786FFB77",
+			"otV2" : 0,
+			"type" : "CNC Electrodes",
+			"zCreationAccount" : "cnc",
+			"zCreationTimestamp" : "03/06/2024 23:33:17",
+			"zModificationAccount" : "TimeEntry",
+			"zModificationTimestamp" : "03/06/2024 23:33:21"
+		},
+		"modId" : "1",
+		"portalData" : 
+		{
+			"timeHours_EMPLOYEE" : 
+			[
+				{
+					"modId" : "17",
+					"recordId" : "241",
+					"timeHours_EMPLOYEE::Reports To" : "Anthony Piazza"
+				}
+			],
+			"timeHours_JOBS" : 
+			[
+				{
+					"modId" : "111",
+					"recordId" : "13996",
+					"timeHours_JOBS::Approval Comments" : "",
+					"timeHours_JOBS::Approval Date" : "",
+					"timeHours_JOBS::Attention" : "Aleks Krndija",
+					"timeHours_JOBS::Cad Designer" : "",
+					"timeHours_JOBS::Customer Name" : "",
+					"timeHours_JOBS::Id_Commodity" : "25989A73-1167-4134-94D8-5D3749783E0A",
+					"timeHours_JOBS::JobNumText" : "5094-03",
+					"timeHours_JOBS::Moldmaker" : "Don Anderson",
+					"timeHours_JOBS::Program Manager" : "David Guenther",
+					"timeHours_JOBS::Tool_ComitmentDate" : "04/01/2024",
+					"timeHours_JOBS::Tool_KickoffDate" : "03/01/2024",
+					"timeHours_JOBS::Workorder Type" : "Engineering Change",
+					"timeHours_JOBS::id" : "4C5E546A-BC3A-3C41-8D4E-8C8BB078C6E8",
+					"timeHours_JOBS::status" : "Complete"
+				}
+			],
+			"timeHours_TIMEASSIGN" : 
+			[
+				{
+					"modId" : "0",
+					"recordId" : "11600",
+					"timeHours_TIMEASSIGN::jobNum_a" : "5094-03",
+					"timeHours_TIMEASSIGN::week" : 10,
+					"timeHours_TIMEASSIGN::weekStartDate_a" : "03/04/2024",
+					"timeHours_TIMEASSIGN::year" : 2024
+				}
+			]
+		},
+		"portalDataInfo" : 
+		[
+			{
+				"database" : "Jobs",
+				"foundCount" : 1,
+				"returnedCount" : 1,
+				"table" : "timeHours_TIMEASSIGN"
+			},
+			{
+				"database" : "Jobs",
+				"foundCount" : 1,
+				"returnedCount" : 1,
+				"table" : "timeHours_EMPLOYEE"
+			},
+			{
+				"database" : "Jobs",
+				"foundCount" : 1,
+				"returnedCount" : 1,
+				"table" : "timeHours_JOBS"
+			}
+		],
+		"recordId" : "23204"
+	},
+	{
+		"fieldData" : 
+		{
+			"actualV2" : 228,
+			"burdenV2" : 560,
+			"date" : "03/07/2024",
+			"dateDay_a" : 4,
+			"dateWeek_a" : 10,
+			"dateYear_a" : 2024,
+			"department" : "EDM",
+			"employeName_c" : "Lisa Fells",
+			"hoursV2" : 8,
+			"hoursV2_Original" : 8,
+			"id" : "CBBEFF18-2887-F241-8F77-66AB44683E02",
+			"id_employee_a" : "5DBE1901-1921-EC4A-8443-69B3F710B7AA",
+			"id_job_a" : "4C5E546A-BC3A-3C41-8D4E-8C8BB078C6E8",
+			"id_timeassign" : "5A431D5F-674A-C14C-9BAB-FD7E786FFB77",
+			"otV2" : 0,
+			"type" : "CNC Electrodes",
+			"zCreationAccount" : "cnc",
+			"zCreationTimestamp" : "03/07/2024 22:59:26",
+			"zModificationAccount" : "TimeEntry",
+			"zModificationTimestamp" : "03/07/2024 22:59:30"
+		},
+		"modId" : "1",
+		"portalData" : 
+		{
+			"timeHours_EMPLOYEE" : 
+			[
+				{
+					"modId" : "17",
+					"recordId" : "241",
+					"timeHours_EMPLOYEE::Reports To" : "Anthony Piazza"
+				}
+			],
+			"timeHours_JOBS" : 
+			[
+				{
+					"modId" : "111",
+					"recordId" : "13996",
+					"timeHours_JOBS::Approval Comments" : "",
+					"timeHours_JOBS::Approval Date" : "",
+					"timeHours_JOBS::Attention" : "Aleks Krndija",
+					"timeHours_JOBS::Cad Designer" : "",
+					"timeHours_JOBS::Customer Name" : "",
+					"timeHours_JOBS::Id_Commodity" : "25989A73-1167-4134-94D8-5D3749783E0A",
+					"timeHours_JOBS::JobNumText" : "5094-03",
+					"timeHours_JOBS::Moldmaker" : "Don Anderson",
+					"timeHours_JOBS::Program Manager" : "David Guenther",
+					"timeHours_JOBS::Tool_ComitmentDate" : "04/01/2024",
+					"timeHours_JOBS::Tool_KickoffDate" : "03/01/2024",
+					"timeHours_JOBS::Workorder Type" : "Engineering Change",
+					"timeHours_JOBS::id" : "4C5E546A-BC3A-3C41-8D4E-8C8BB078C6E8",
+					"timeHours_JOBS::status" : "Complete"
+				}
+			],
+			"timeHours_TIMEASSIGN" : 
+			[
+				{
+					"modId" : "0",
+					"recordId" : "11600",
+					"timeHours_TIMEASSIGN::jobNum_a" : "5094-03",
+					"timeHours_TIMEASSIGN::week" : 10,
+					"timeHours_TIMEASSIGN::weekStartDate_a" : "03/04/2024",
+					"timeHours_TIMEASSIGN::year" : 2024
+				}
+			]
+		},
+		"portalDataInfo" : 
+		[
+			{
+				"database" : "Jobs",
+				"foundCount" : 1,
+				"returnedCount" : 1,
+				"table" : "timeHours_TIMEASSIGN"
+			},
+			{
+				"database" : "Jobs",
+				"foundCount" : 1,
+				"returnedCount" : 1,
+				"table" : "timeHours_EMPLOYEE"
+			},
+			{
+				"database" : "Jobs",
+				"foundCount" : 1,
+				"returnedCount" : 1,
+				"table" : "timeHours_JOBS"
+			}
+		],
+		"recordId" : "23266"
+	},
+	{
+		"fieldData" : 
+		{
+			"actualV2" : 60,
+			"burdenV2" : 175,
+			"date" : "03/11/2024",
+			"dateDay_a" : 1,
+			"dateWeek_a" : 11,
+			"dateYear_a" : 2024,
+			"department" : "EDM",
+			"employeName_c" : "Alan Stuart",
+			"hoursV2" : 2.5,
+			"hoursV2_Original" : 2.5,
+			"id" : "ECB5B25B-97BB-7E4D-9281-173D65C3344F",
+			"id_employee_a" : "700545E7-60CC-0041-A05A-E1A00051B82F",
+			"id_job_a" : "4C5E546A-BC3A-3C41-8D4E-8C8BB078C6E8",
+			"id_timeassign" : "40B96919-1A3B-2940-8FCC-84E0B574905C",
+			"otV2" : 0,
+			"type" : "Surface Carbon",
+			"zCreationAccount" : "AlStuart",
+			"zCreationTimestamp" : "03/11/2024 13:58:52",
+			"zModificationAccount" : "TimeEntry",
+			"zModificationTimestamp" : "03/11/2024 13:58:55"
+		},
+		"modId" : "1",
+		"portalData" : 
+		{
+			"timeHours_EMPLOYEE" : 
+			[
+				{
+					"modId" : "17",
+					"recordId" : "233",
+					"timeHours_EMPLOYEE::Reports To" : "Anthony Piazza"
+				}
+			],
+			"timeHours_JOBS" : 
+			[
+				{
+					"modId" : "111",
+					"recordId" : "13996",
+					"timeHours_JOBS::Approval Comments" : "",
+					"timeHours_JOBS::Approval Date" : "",
+					"timeHours_JOBS::Attention" : "Aleks Krndija",
+					"timeHours_JOBS::Cad Designer" : "",
+					"timeHours_JOBS::Customer Name" : "",
+					"timeHours_JOBS::Id_Commodity" : "25989A73-1167-4134-94D8-5D3749783E0A",
+					"timeHours_JOBS::JobNumText" : "5094-03",
+					"timeHours_JOBS::Moldmaker" : "Don Anderson",
+					"timeHours_JOBS::Program Manager" : "David Guenther",
+					"timeHours_JOBS::Tool_ComitmentDate" : "04/01/2024",
+					"timeHours_JOBS::Tool_KickoffDate" : "03/01/2024",
+					"timeHours_JOBS::Workorder Type" : "Engineering Change",
+					"timeHours_JOBS::id" : "4C5E546A-BC3A-3C41-8D4E-8C8BB078C6E8",
+					"timeHours_JOBS::status" : "Complete"
+				}
+			],
+			"timeHours_TIMEASSIGN" : 
+			[
+				{
+					"modId" : "0",
+					"recordId" : "11678",
+					"timeHours_TIMEASSIGN::jobNum_a" : "5094-03",
+					"timeHours_TIMEASSIGN::week" : 11,
+					"timeHours_TIMEASSIGN::weekStartDate_a" : "03/11/2024",
+					"timeHours_TIMEASSIGN::year" : 2024
+				}
+			]
+		},
+		"portalDataInfo" : 
+		[
+			{
+				"database" : "Jobs",
+				"foundCount" : 1,
+				"returnedCount" : 1,
+				"table" : "timeHours_TIMEASSIGN"
+			},
+			{
+				"database" : "Jobs",
+				"foundCount" : 1,
+				"returnedCount" : 1,
+				"table" : "timeHours_EMPLOYEE"
+			},
+			{
+				"database" : "Jobs",
+				"foundCount" : 1,
+				"returnedCount" : 1,
+				"table" : "timeHours_JOBS"
+			}
+		],
+		"recordId" : "23383"
+	},
+	{
+		"fieldData" : 
+		{
+			"actualV2" : 192,
+			"burdenV2" : 420,
+			"date" : "03/11/2024",
+			"dateDay_a" : 1,
+			"dateWeek_a" : 11,
+			"dateYear_a" : 2024,
+			"department" : "EDM",
+			"employeName_c" : "Steve Thibert",
+			"hoursV2" : 6,
+			"hoursV2_Original" : 6,
+			"id" : "6F45C4A7-D93E-D342-AB82-CF9B484D193F",
+			"id_employee_a" : "CE6773D6-CEBA-AB48-94E7-B45EF5142E3E",
+			"id_job_a" : "4C5E546A-BC3A-3C41-8D4E-8C8BB078C6E8",
+			"id_timeassign" : "44C96C48-90D2-FE4A-8345-15A5BCCF6C66",
+			"otV2" : 0,
+			"type" : "CNC Electrodes",
+			"zCreationAccount" : "cnc",
+			"zCreationTimestamp" : "03/11/2024 14:29:44",
+			"zModificationAccount" : "TimeEntry",
+			"zModificationTimestamp" : "03/11/2024 14:29:47"
+		},
+		"modId" : "1",
+		"portalData" : 
+		{
+			"timeHours_EMPLOYEE" : 
+			[
+				{
+					"modId" : "18",
+					"recordId" : "213",
+					"timeHours_EMPLOYEE::Reports To" : "Anthony Piazza"
+				}
+			],
+			"timeHours_JOBS" : 
+			[
+				{
+					"modId" : "111",
+					"recordId" : "13996",
+					"timeHours_JOBS::Approval Comments" : "",
+					"timeHours_JOBS::Approval Date" : "",
+					"timeHours_JOBS::Attention" : "Aleks Krndija",
+					"timeHours_JOBS::Cad Designer" : "",
+					"timeHours_JOBS::Customer Name" : "",
+					"timeHours_JOBS::Id_Commodity" : "25989A73-1167-4134-94D8-5D3749783E0A",
+					"timeHours_JOBS::JobNumText" : "5094-03",
+					"timeHours_JOBS::Moldmaker" : "Don Anderson",
+					"timeHours_JOBS::Program Manager" : "David Guenther",
+					"timeHours_JOBS::Tool_ComitmentDate" : "04/01/2024",
+					"timeHours_JOBS::Tool_KickoffDate" : "03/01/2024",
+					"timeHours_JOBS::Workorder Type" : "Engineering Change",
+					"timeHours_JOBS::id" : "4C5E546A-BC3A-3C41-8D4E-8C8BB078C6E8",
+					"timeHours_JOBS::status" : "Complete"
+				}
+			],
+			"timeHours_TIMEASSIGN" : 
+			[
+				{
+					"modId" : "0",
+					"recordId" : "11682",
+					"timeHours_TIMEASSIGN::jobNum_a" : "5094-03",
+					"timeHours_TIMEASSIGN::week" : 11,
+					"timeHours_TIMEASSIGN::weekStartDate_a" : "03/11/2024",
+					"timeHours_TIMEASSIGN::year" : 2024
+				}
+			]
+		},
+		"portalDataInfo" : 
+		[
+			{
+				"database" : "Jobs",
+				"foundCount" : 1,
+				"returnedCount" : 1,
+				"table" : "timeHours_TIMEASSIGN"
+			},
+			{
+				"database" : "Jobs",
+				"foundCount" : 1,
+				"returnedCount" : 1,
+				"table" : "timeHours_EMPLOYEE"
+			},
+			{
+				"database" : "Jobs",
+				"foundCount" : 1,
+				"returnedCount" : 1,
+				"table" : "timeHours_JOBS"
+			}
+		],
+		"recordId" : "23388"
+	},
+	{
+		"fieldData" : 
+		{
+			"actualV2" : 171,
+			"burdenV2" : 420,
+			"date" : "03/11/2024",
+			"dateDay_a" : 1,
+			"dateWeek_a" : 11,
+			"dateYear_a" : 2024,
+			"department" : "EDM",
+			"employeName_c" : "Lisa Fells",
+			"hoursV2" : 6,
+			"hoursV2_Original" : 6,
+			"id" : "9D50B1DC-4063-4C4D-B807-294CFAA20ADA",
+			"id_employee_a" : "5DBE1901-1921-EC4A-8443-69B3F710B7AA",
+			"id_job_a" : "4C5E546A-BC3A-3C41-8D4E-8C8BB078C6E8",
+			"id_timeassign" : "C99CD38C-76F3-E241-9ABD-C43209354AB8",
+			"otV2" : 0,
+			"type" : "CNC Electrodes",
+			"zCreationAccount" : "cnc",
+			"zCreationTimestamp" : "03/11/2024 22:54:16",
+			"zModificationAccount" : "TimeEntry",
+			"zModificationTimestamp" : "03/11/2024 22:54:20"
+		},
+		"modId" : "1",
+		"portalData" : 
+		{
+			"timeHours_EMPLOYEE" : 
+			[
+				{
+					"modId" : "17",
+					"recordId" : "241",
+					"timeHours_EMPLOYEE::Reports To" : "Anthony Piazza"
+				}
+			],
+			"timeHours_JOBS" : 
+			[
+				{
+					"modId" : "111",
+					"recordId" : "13996",
+					"timeHours_JOBS::Approval Comments" : "",
+					"timeHours_JOBS::Approval Date" : "",
+					"timeHours_JOBS::Attention" : "Aleks Krndija",
+					"timeHours_JOBS::Cad Designer" : "",
+					"timeHours_JOBS::Customer Name" : "",
+					"timeHours_JOBS::Id_Commodity" : "25989A73-1167-4134-94D8-5D3749783E0A",
+					"timeHours_JOBS::JobNumText" : "5094-03",
+					"timeHours_JOBS::Moldmaker" : "Don Anderson",
+					"timeHours_JOBS::Program Manager" : "David Guenther",
+					"timeHours_JOBS::Tool_ComitmentDate" : "04/01/2024",
+					"timeHours_JOBS::Tool_KickoffDate" : "03/01/2024",
+					"timeHours_JOBS::Workorder Type" : "Engineering Change",
+					"timeHours_JOBS::id" : "4C5E546A-BC3A-3C41-8D4E-8C8BB078C6E8",
+					"timeHours_JOBS::status" : "Complete"
+				}
+			],
+			"timeHours_TIMEASSIGN" : 
+			[
+				{
+					"modId" : "0",
+					"recordId" : "11709",
+					"timeHours_TIMEASSIGN::jobNum_a" : "5094-03",
+					"timeHours_TIMEASSIGN::week" : 11,
+					"timeHours_TIMEASSIGN::weekStartDate_a" : "03/11/2024",
+					"timeHours_TIMEASSIGN::year" : 2024
+				}
+			]
+		},
+		"portalDataInfo" : 
+		[
+			{
+				"database" : "Jobs",
+				"foundCount" : 1,
+				"returnedCount" : 1,
+				"table" : "timeHours_TIMEASSIGN"
+			},
+			{
+				"database" : "Jobs",
+				"foundCount" : 1,
+				"returnedCount" : 1,
+				"table" : "timeHours_EMPLOYEE"
+			},
+			{
+				"database" : "Jobs",
+				"foundCount" : 1,
+				"returnedCount" : 1,
+				"table" : "timeHours_JOBS"
+			}
+		],
+		"recordId" : "23421"
+	},
+	{
+		"fieldData" : 
+		{
+			"actualV2" : 220.5,
+			"burdenV2" : 490,
+			"date" : "03/12/2024",
+			"dateDay_a" : 2,
+			"dateWeek_a" : 11,
+			"dateYear_a" : 2024,
+			"department" : "EDM",
+			"employeName_c" : "Daniel Farrer",
+			"hoursV2" : 7,
+			"hoursV2_Original" : 7,
+			"id" : "D9ADADEA-6A92-8D41-978E-8176EF7D03E6",
+			"id_employee_a" : "F4D7839B-0ABD-204E-B154-8AA7503EA97E",
+			"id_job_a" : "4C5E546A-BC3A-3C41-8D4E-8C8BB078C6E8",
+			"id_timeassign" : "0D8BF0F0-9200-2D4F-83A0-E6CD1FAE9A90",
+			"otV2" : 0,
+			"type" : "EDM Burn",
+			"zCreationAccount" : "cnc",
+			"zCreationTimestamp" : "03/13/2024 03:24:36",
+			"zModificationAccount" : "TimeEntry",
+			"zModificationTimestamp" : "03/13/2024 03:24:38"
+		},
+		"modId" : "1",
+		"portalData" : 
+		{
+			"timeHours_EMPLOYEE" : 
+			[
+				{
+					"modId" : "18",
+					"recordId" : "218",
+					"timeHours_EMPLOYEE::Reports To" : "Anthony Piazza"
+				}
+			],
+			"timeHours_JOBS" : 
+			[
+				{
+					"modId" : "111",
+					"recordId" : "13996",
+					"timeHours_JOBS::Approval Comments" : "",
+					"timeHours_JOBS::Approval Date" : "",
+					"timeHours_JOBS::Attention" : "Aleks Krndija",
+					"timeHours_JOBS::Cad Designer" : "",
+					"timeHours_JOBS::Customer Name" : "",
+					"timeHours_JOBS::Id_Commodity" : "25989A73-1167-4134-94D8-5D3749783E0A",
+					"timeHours_JOBS::JobNumText" : "5094-03",
+					"timeHours_JOBS::Moldmaker" : "Don Anderson",
+					"timeHours_JOBS::Program Manager" : "David Guenther",
+					"timeHours_JOBS::Tool_ComitmentDate" : "04/01/2024",
+					"timeHours_JOBS::Tool_KickoffDate" : "03/01/2024",
+					"timeHours_JOBS::Workorder Type" : "Engineering Change",
+					"timeHours_JOBS::id" : "4C5E546A-BC3A-3C41-8D4E-8C8BB078C6E8",
+					"timeHours_JOBS::status" : "Complete"
+				}
+			],
+			"timeHours_TIMEASSIGN" : 
+			[
+				{
+					"modId" : "0",
+					"recordId" : "11758",
+					"timeHours_TIMEASSIGN::jobNum_a" : "5094-03",
+					"timeHours_TIMEASSIGN::week" : 11,
+					"timeHours_TIMEASSIGN::weekStartDate_a" : "03/11/2024",
+					"timeHours_TIMEASSIGN::year" : 2024
+				}
+			]
+		},
+		"portalDataInfo" : 
+		[
+			{
+				"database" : "Jobs",
+				"foundCount" : 1,
+				"returnedCount" : 1,
+				"table" : "timeHours_TIMEASSIGN"
+			},
+			{
+				"database" : "Jobs",
+				"foundCount" : 1,
+				"returnedCount" : 1,
+				"table" : "timeHours_EMPLOYEE"
+			},
+			{
+				"database" : "Jobs",
+				"foundCount" : 1,
+				"returnedCount" : 1,
+				"table" : "timeHours_JOBS"
+			}
+		],
+		"recordId" : "23504"
+	}
+]

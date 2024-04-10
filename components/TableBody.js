@@ -84,7 +84,7 @@ export default function LoadTableBody({ data, columns }) {
             path: callbackPath,
             record
         });
-        FileMaker.PerformScript("MyPage * JScallbacks", scriptParameter);
+        FileMaker.PerformScript("js * callbacks", scriptParameter);
     };
 
     const handleSubTableCellClick = (callBackPath, record, subKey) => {
@@ -94,7 +94,7 @@ export default function LoadTableBody({ data, columns }) {
             subKey
         });
         // Assuming you have a way to call a script or navigate to a chart, for example:
-        FileMaker.PerformScript("MyPage * JScallbacks", scriptParameter);
+        FileMaker.PerformScript("js * callbacks", scriptParameter);
     }
 
     function getValueByPath(obj, path) {
@@ -249,12 +249,13 @@ export default function LoadTableBody({ data, columns }) {
                                 );
                             } else if (column.type === 'subTableBody') {
                                 // First, determine the object name (e.g., 'labour' or 'material') from the first entry in the values array
-                                const objNameMatch = column.values[0].match(/^(\w+)\.\[key\]/);
+                                const objNameMatch = column.values[0].field.match(/^(\w+)\.\[key\]/);
                                 if (!objNameMatch) {
                                     console.error('Invalid column value format:', column.values[0]);
                                     return null; // or some fallback UI
                                 }
                                 const objName = objNameMatch[1];
+                                console.log(objName)
                             
                                 // Now map over the keys of the specified object in the item
                                 return Object.keys(item[objName]).map((subKey, subIndex) => {
@@ -266,13 +267,15 @@ export default function LoadTableBody({ data, columns }) {
                                                     onClick={() => column.clickable ? handleSubTableCellClick(column.callBackPath, item, subKey) : null}
                                                     style={{ cursor: 'pointer' }}
                                                 >{subKey}</div>
-                                                {column.values.map((valueTemplate, valueIndex) => {
-                                                    let cellValue = getDynamicValueByPath(item, valueTemplate, subKey);
+                                                {column.values.map((valueObj, valueIndex) => {
+                                                    let cellValue = getDynamicValueByPath(item, valueObj.field, subKey);
                                                     let isNegative = typeof cellValue === 'number' && cellValue < 0;
                                                     
                                                     // Check for contentType and format accordingly
-                                                    if (column.contentType === 'currency') {
-                                                        cellValue = formatCurrency(cellValue);
+                                                    if (valueObj.contentType === 'currency') {
+                                                        cellValue = formatCurrency(cellValue) || 0;
+                                                    } else if (valueObj.contentType === 'percent') {
+                                                    	cellValue = isNaN(parseFloat(cellValue)) ? 0 : `${(parseFloat(cellValue) * 100).toFixed(2)}%`;
                                                     }
                             
                                                     return (

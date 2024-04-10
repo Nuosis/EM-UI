@@ -23,7 +23,7 @@
 			"status" : "Complete",
 			"zCreationTimestamp" : "03/01/2024 08:50:06"
 		},
-		"modId" : "108",
+		"modId" : "114",
 		"portalData" : 
 		{
 			"jobs_CUSTOMER" : 
@@ -104,6 +104,7 @@
 			"jobs_QUOTE" : 
 			[
 				{
+					"jobs_QUOTE::grandTotalCND_c" : 18450,
 					"jobs_QUOTE::id" : "9076EDEB-611D-614E-9A36-D42C83509836",
 					"jobs_QUOTE::laborTotal_c" : 12492,
 					"jobs_QUOTE::materialTotal_c" : 120,
@@ -112,6 +113,7 @@
 					"recordId" : "3650"
 				},
 				{
+					"jobs_QUOTE::grandTotalCND_c" : 4720,
 					"jobs_QUOTE::id" : "6A663692-65CD-214A-B988-85BFD15627DE",
 					"jobs_QUOTE::laborTotal_c" : 4620,
 					"jobs_QUOTE::materialTotal_c" : 99.99,
@@ -937,7 +939,7 @@
 			"status" : "Complete",
 			"zCreationTimestamp" : "03/05/2024 11:55:46"
 		},
-		"modId" : "60",
+		"modId" : "61",
 		"portalData" : 
 		{
 			"jobs_CUSTOMER" : 
@@ -986,6 +988,7 @@
 			"jobs_QUOTE" : 
 			[
 				{
+					"jobs_QUOTE::grandTotalCND_c" : 13030,
 					"jobs_QUOTE::id" : "72168504-A862-D340-9608-0640DE425FA2",
 					"jobs_QUOTE::laborTotal_c" : 9499,
 					"jobs_QUOTE::materialTotal_c" : 11.5,
@@ -1411,7 +1414,7 @@
 			"status" : "Complete",
 			"zCreationTimestamp" : "03/06/2024 07:30:28"
 		},
-		"modId" : "40",
+		"modId" : "43",
 		"portalData" : 
 		{
 			"jobs_CUSTOMER" : 
@@ -1436,6 +1439,7 @@
 			"jobs_QUOTE" : 
 			[
 				{
+					"jobs_QUOTE::grandTotalCND_c" : 0,
 					"jobs_QUOTE::id" : "949853F5-CEEA-DB45-A58C-B63D3D4278A5",
 					"jobs_QUOTE::laborTotal_c" : "",
 					"jobs_QUOTE::materialTotal_c" : "",
@@ -1618,10 +1622,10 @@
 			"id_Image" : 19804,
 			"id_customer" : "D8109762-29A3-3F4B-B6CA-30B0ECBCC777",
 			"id_jobMaster" : "133C6D25-1D96-6E46-B982-BA13D6B6F90C",
-			"status" : "In Manufacturing",
+			"status" : "Complete",
 			"zCreationTimestamp" : "03/07/2024 12:46:01"
 		},
-		"modId" : "53",
+		"modId" : "61",
 		"portalData" : 
 		{
 			"jobs_CUSTOMER" : 
@@ -1654,6 +1658,7 @@
 			"jobs_QUOTE" : 
 			[
 				{
+					"jobs_QUOTE::grandTotalCND_c" : 0,
 					"jobs_QUOTE::id" : "8CD8D504-08E9-E641-95C5-BE0A852059B3",
 					"jobs_QUOTE::laborTotal_c" : "",
 					"jobs_QUOTE::materialTotal_c" : "",
@@ -2074,6 +2079,7 @@
 			"jobs_QUOTE" : 
 			[
 				{
+					"jobs_QUOTE::grandTotalCND_c" : 1176,
 					"jobs_QUOTE::id" : "18D83B0F-DDB3-8749-B5B9-2F1E73ADD056",
 					"jobs_QUOTE::laborTotal_c" : "",
 					"jobs_QUOTE::materialTotal_c" : "",
@@ -2164,6 +2170,7 @@
 			"jobs_QUOTE" : 
 			[
 				{
+					"jobs_QUOTE::grandTotalCND_c" : 0,
 					"jobs_QUOTE::id" : "A0981F44-F536-E04A-902C-195534763EF6",
 					"jobs_QUOTE::laborTotal_c" : "",
 					"jobs_QUOTE::materialTotal_c" : "",
@@ -2236,10 +2243,10 @@
 			"id_Image" : 18520,
 			"id_customer" : "D8109762-29A3-3F4B-B6CA-30B0ECBCC777",
 			"id_jobMaster" : "511FB345-0F20-6040-972D-D6798B947CFA",
-			"status" : "In Manufacturing",
+			"status" : "Complete",
 			"zCreationTimestamp" : "03/08/2024 12:32:56"
 		},
-		"modId" : "36",
+		"modId" : "40",
 		"portalData" : 
 		{
 			"jobs_CUSTOMER" : 
@@ -2264,7 +2271,7 @@
 					"jobs_POlines::flag_POtype" : 1,
 					"jobs_POlines::id" : "3688119A-EF39-0D41-95AA-5595ADA34BD0",
 					"jobs_POlines::id_po" : "36CF74A9-9D71-194C-B86E-ADDECFAB2B1C",
-					"jobs_POlines::total_cad" : 778.6,
+					"jobs_POlines::total_cad" : 1056.54482444078,
 					"modId" : "8",
 					"recordId" : "25161"
 				}
@@ -2272,6 +2279,7 @@
 			"jobs_QUOTE" : 
 			[
 				{
+					"jobs_QUOTE::grandTotalCND_c" : 0,
 					"jobs_QUOTE::id" : "50217819-C9F4-EE43-B8AB-EB5DDEE80C81",
 					"jobs_QUOTE::laborTotal_c" : "",
 					"jobs_QUOTE::materialTotal_c" : "",
@@ -2712,6 +2720,7 @@
 			"jobs_QUOTE" : 
 			[
 				{
+					"jobs_QUOTE::grandTotalCND_c" : 0,
 					"jobs_QUOTE::id" : "CDEF5E76-C8F9-5745-9D75-F80583476476",
 					"jobs_QUOTE::laborTotal_c" : "",
 					"jobs_QUOTE::materialTotal_c" : "",
@@ -2910,6 +2919,7 @@
 			"jobs_QUOTE" : 
 			[
 				{
+					"jobs_QUOTE::grandTotalCND_c" : 941,
 					"jobs_QUOTE::id" : "481A264E-9E43-7544-B855-5E7E99E1623A",
 					"jobs_QUOTE::laborTotal_c" : 684,
 					"jobs_QUOTE::materialTotal_c" : 360,
@@ -3260,6 +3270,7 @@
 			"jobs_QUOTE" : 
 			[
 				{
+					"jobs_QUOTE::grandTotalCND_c" : 4059,
 					"jobs_QUOTE::id" : "D145FC7A-43AD-9646-9B30-4EFF0B007CE8",
 					"jobs_QUOTE::laborTotal_c" : 3938,
 					"jobs_QUOTE::materialTotal_c" : 132.3025,
@@ -3490,6 +3501,7 @@
 			"jobs_QUOTE" : 
 			[
 				{
+					"jobs_QUOTE::grandTotalCND_c" : 0,
 					"jobs_QUOTE::id" : "BE8AEE34-E92E-6442-89DA-D79AB2577A71",
 					"jobs_QUOTE::laborTotal_c" : "",
 					"jobs_QUOTE::materialTotal_c" : "",
@@ -3610,6 +3622,7 @@
 			"jobs_QUOTE" : 
 			[
 				{
+					"jobs_QUOTE::grandTotalCND_c" : 0,
 					"jobs_QUOTE::id" : "5FF53BC4-7555-6141-98D8-3B4EF80E35A7",
 					"jobs_QUOTE::laborTotal_c" : "",
 					"jobs_QUOTE::materialTotal_c" : "",
@@ -3685,7 +3698,7 @@
 			"status" : "Complete",
 			"zCreationTimestamp" : "03/13/2024 10:30:55"
 		},
-		"modId" : "29",
+		"modId" : "31",
 		"portalData" : 
 		{
 			"jobs_CUSTOMER" : 
@@ -3726,6 +3739,7 @@
 			"jobs_QUOTE" : 
 			[
 				{
+					"jobs_QUOTE::grandTotalCND_c" : 5950,
 					"jobs_QUOTE::id" : "F65D9FED-DDD1-284E-ADCC-C2DB78151DFC",
 					"jobs_QUOTE::laborTotal_c" : 3432,
 					"jobs_QUOTE::materialTotal_c" : "",
@@ -3906,6 +3920,7 @@
 			"jobs_QUOTE" : 
 			[
 				{
+					"jobs_QUOTE::grandTotalCND_c" : 0,
 					"jobs_QUOTE::id" : "3580E290-6005-0645-A71B-C6B86A146EC8",
 					"jobs_QUOTE::laborTotal_c" : "",
 					"jobs_QUOTE::materialTotal_c" : "",
@@ -3981,7 +3996,7 @@
 			"status" : "Complete",
 			"zCreationTimestamp" : "03/14/2024 14:33:47"
 		},
-		"modId" : "49",
+		"modId" : "58",
 		"portalData" : 
 		{
 			"jobs_CUSTOMER" : 
@@ -4006,11 +4021,12 @@
 			"jobs_QUOTE" : 
 			[
 				{
+					"jobs_QUOTE::grandTotalCND_c" : 3675,
 					"jobs_QUOTE::id" : "13E40D8D-4C42-4042-88CE-09A42831F8E9",
 					"jobs_QUOTE::laborTotal_c" : 2550,
 					"jobs_QUOTE::materialTotal_c" : "",
 					"jobs_QUOTE::outsourceTotal_c" : 1125,
-					"modId" : "14",
+					"modId" : "15",
 					"recordId" : "4028"
 				}
 			],
@@ -4146,14 +4162,15 @@
 					"jobs_POlines::flag_POtype" : 2,
 					"jobs_POlines::id" : "CCF654A5-6244-D44D-97B6-350668091267",
 					"jobs_POlines::id_po" : "86E14883-095B-6847-A8D2-8F9AFA06CD74",
-					"jobs_POlines::total_cad" : 0,
-					"modId" : "2",
+					"jobs_POlines::total_cad" : 320,
+					"modId" : "3",
 					"recordId" : "25518"
 				}
 			],
 			"jobs_QUOTE" : 
 			[
 				{
+					"jobs_QUOTE::grandTotalCND_c" : 1176,
 					"jobs_QUOTE::id" : "1A32ADCA-FB14-1B41-9469-8BEEA4C30C37",
 					"jobs_QUOTE::laborTotal_c" : 0,
 					"jobs_QUOTE::materialTotal_c" : "",
@@ -4218,7 +4235,7 @@
 			"Part Name" : "Tube Tool",
 			"Part Number" : "",
 			"Program Manager" : "David Guenther",
-			"Tool_ComitmentDate" : "04/15/2024",
+			"Tool_ComitmentDate" : "04/22/2024",
 			"Tool_KickoffDate" : "03/18/2024",
 			"Workorder Type" : "T&M Work",
 			"commodity" : "Mold Making",
@@ -4229,7 +4246,7 @@
 			"status" : "Kicked Off",
 			"zCreationTimestamp" : "03/18/2024 11:44:00"
 		},
-		"modId" : "19",
+		"modId" : "21",
 		"portalData" : 
 		{
 			"jobs_CUSTOMER" : 
@@ -4249,11 +4266,20 @@
 					"jobs_POlines::total_cad" : 465.5,
 					"modId" : "4",
 					"recordId" : "25260"
+				},
+				{
+					"jobs_POlines::flag_POtype" : 2,
+					"jobs_POlines::id" : "4C156462-59CE-ED46-A586-525B0ACD8A51",
+					"jobs_POlines::id_po" : "C73402F8-B548-5049-942D-E55F33F5E678",
+					"jobs_POlines::total_cad" : 0,
+					"modId" : "2",
+					"recordId" : "26768"
 				}
 			],
 			"jobs_QUOTE" : 
 			[
 				{
+					"jobs_QUOTE::grandTotalCND_c" : 0,
 					"jobs_QUOTE::id" : "884FF34A-B5D4-7E4C-BCD0-7C47F6DA1EF4",
 					"jobs_QUOTE::laborTotal_c" : "",
 					"jobs_QUOTE::materialTotal_c" : "",
@@ -4363,6 +4389,26 @@
 					"jobs_TIMEHOURS::type" : "Finish Machining",
 					"modId" : "1",
 					"recordId" : "24846"
+				},
+				{
+					"jobs_TIMEHOURS::actualV2" : 63,
+					"jobs_TIMEHOURS::burdenV2" : 140,
+					"jobs_TIMEHOURS::department" : "EDM",
+					"jobs_TIMEHOURS::hoursV2_Original" : 2,
+					"jobs_TIMEHOURS::id" : "FD8CB75E-575F-2B4D-AD47-FD62B9446D19",
+					"jobs_TIMEHOURS::type" : "EDM Burn",
+					"modId" : "1",
+					"recordId" : "24979"
+				},
+				{
+					"jobs_TIMEHOURS::actualV2" : 136,
+					"jobs_TIMEHOURS::burdenV2" : 240,
+					"jobs_TIMEHOURS::department" : "Mold Making",
+					"jobs_TIMEHOURS::hoursV2_Original" : 4,
+					"jobs_TIMEHOURS::id" : "5D03F295-3474-9145-B9B8-2AF3E369FF3B",
+					"jobs_TIMEHOURS::type" : "Spotting & Matching",
+					"modId" : "1",
+					"recordId" : "25130"
 				}
 			]
 		},
@@ -4382,14 +4428,14 @@
 			},
 			{
 				"database" : "Jobs",
-				"foundCount" : 10,
-				"returnedCount" : 10,
+				"foundCount" : 12,
+				"returnedCount" : 12,
 				"table" : "jobs_TIMEHOURS"
 			},
 			{
 				"database" : "Jobs",
-				"foundCount" : 1,
-				"returnedCount" : 1,
+				"foundCount" : 2,
+				"returnedCount" : 2,
 				"table" : "jobs_POlines"
 			}
 		],
@@ -4484,14 +4530,16 @@
 			"jobs_QUOTE" : 
 			[
 				{
+					"jobs_QUOTE::grandTotalCND_c" : 5294,
 					"jobs_QUOTE::id" : "430594D6-6444-A84E-8A3F-FA4E6643FB71",
 					"jobs_QUOTE::laborTotal_c" : 5089.5,
 					"jobs_QUOTE::materialTotal_c" : "",
 					"jobs_QUOTE::outsourceTotal_c" : "",
-					"modId" : "14",
+					"modId" : "15",
 					"recordId" : "4101"
 				},
 				{
+					"jobs_QUOTE::grandTotalCND_c" : 33529,
 					"jobs_QUOTE::id" : "88AF49A4-ED61-6D43-890A-B1A92374ACED",
 					"jobs_QUOTE::laborTotal_c" : 22100,
 					"jobs_QUOTE::materialTotal_c" : 856.94375,
@@ -5002,6 +5050,7 @@
 			"jobs_QUOTE" : 
 			[
 				{
+					"jobs_QUOTE::grandTotalCND_c" : 0,
 					"jobs_QUOTE::id" : "FAE3D276-2A7F-944F-B2DF-BBB07F0B9215",
 					"jobs_QUOTE::laborTotal_c" : "",
 					"jobs_QUOTE::materialTotal_c" : "",
@@ -5076,7 +5125,7 @@
 			"Part Name" : "BT1FG Hummer EV Garage Rack Assy",
 			"Part Number" : "",
 			"Program Manager" : "David Guenther",
-			"Tool_ComitmentDate" : "04/12/2024",
+			"Tool_ComitmentDate" : "04/10/2024",
 			"Tool_KickoffDate" : "03/21/2024",
 			"Workorder Type" : "Engineering Change",
 			"commodity" : "Mold Making",
@@ -5084,10 +5133,10 @@
 			"id_Image" : 2.93059209470923e+57,
 			"id_customer" : "E20A2B29-7D8A-C446-918B-FD35AEAEE09B",
 			"id_jobMaster" : "05ACC74D-4248-934A-8292-F01E372EE423",
-			"status" : "Kicked Off",
+			"status" : "Complete",
 			"zCreationTimestamp" : "03/21/2024 11:17:33"
 		},
-		"modId" : "27",
+		"modId" : "65",
 		"portalData" : 
 		{
 			"jobs_CUSTOMER" : 
@@ -5128,11 +5177,12 @@
 			"jobs_QUOTE" : 
 			[
 				{
+					"jobs_QUOTE::grandTotalCND_c" : 11000,
 					"jobs_QUOTE::id" : "101EC6AC-B002-2047-BCEB-D83290002A2B",
 					"jobs_QUOTE::laborTotal_c" : 5388,
 					"jobs_QUOTE::materialTotal_c" : "",
 					"jobs_QUOTE::outsourceTotal_c" : 5760,
-					"modId" : "16",
+					"modId" : "17",
 					"recordId" : "3992"
 				}
 			],
@@ -5327,6 +5377,16 @@
 					"jobs_TIMEHOURS::type" : "Assembly",
 					"modId" : "1",
 					"recordId" : "24838"
+				},
+				{
+					"jobs_TIMEHOURS::actualV2" : 46,
+					"jobs_TIMEHOURS::burdenV2" : 120,
+					"jobs_TIMEHOURS::department" : "Mold Making",
+					"jobs_TIMEHOURS::hoursV2_Original" : 2,
+					"jobs_TIMEHOURS::id" : "D6AEF653-5F8B-2344-B2FC-99247B61B023",
+					"jobs_TIMEHOURS::type" : "Assembly",
+					"modId" : "1",
+					"recordId" : "24932"
 				}
 			]
 		},
@@ -5346,8 +5406,8 @@
 			},
 			{
 				"database" : "Jobs",
-				"foundCount" : 19,
-				"returnedCount" : 19,
+				"foundCount" : 20,
+				"returnedCount" : 20,
 				"table" : "jobs_TIMEHOURS"
 			},
 			{
@@ -5383,7 +5443,7 @@
 			"status" : "Kicked Off",
 			"zCreationTimestamp" : "03/25/2024 08:23:11"
 		},
-		"modId" : "25",
+		"modId" : "32",
 		"portalData" : 
 		{
 			"jobs_CUSTOMER" : 
@@ -5398,6 +5458,7 @@
 			"jobs_QUOTE" : 
 			[
 				{
+					"jobs_QUOTE::grandTotalCND_c" : 0,
 					"jobs_QUOTE::id" : "F43F2133-87C9-FB40-9993-FFCDED561264",
 					"jobs_QUOTE::laborTotal_c" : "",
 					"jobs_QUOTE::materialTotal_c" : "",
@@ -5457,6 +5518,36 @@
 					"jobs_TIMEHOURS::type" : "Handwork Core",
 					"modId" : "1",
 					"recordId" : "24443"
+				},
+				{
+					"jobs_TIMEHOURS::actualV2" : 30.5,
+					"jobs_TIMEHOURS::burdenV2" : 70,
+					"jobs_TIMEHOURS::department" : "CNC",
+					"jobs_TIMEHOURS::hoursV2_Original" : 1,
+					"jobs_TIMEHOURS::id" : "FFF43814-A5DE-DB47-8255-13BB5F4A02DE",
+					"jobs_TIMEHOURS::type" : "Finish Machining",
+					"modId" : "1",
+					"recordId" : "24939"
+				},
+				{
+					"jobs_TIMEHOURS::actualV2" : 17.25,
+					"jobs_TIMEHOURS::burdenV2" : 52.5,
+					"jobs_TIMEHOURS::department" : "Engineering",
+					"jobs_TIMEHOURS::hoursV2_Original" : 0.75,
+					"jobs_TIMEHOURS::id" : "476BB743-CABD-BB4E-9F91-F0E5789B0003",
+					"jobs_TIMEHOURS::type" : "Advanced Engineering",
+					"modId" : "1",
+					"recordId" : "24960"
+				},
+				{
+					"jobs_TIMEHOURS::actualV2" : 46,
+					"jobs_TIMEHOURS::burdenV2" : 120,
+					"jobs_TIMEHOURS::department" : "Mold Making",
+					"jobs_TIMEHOURS::hoursV2_Original" : 2,
+					"jobs_TIMEHOURS::id" : "723619C5-093C-DA4F-8620-37E461A73476",
+					"jobs_TIMEHOURS::type" : "Assembly",
+					"modId" : "1",
+					"recordId" : "25136"
 				}
 			]
 		},
@@ -5476,8 +5567,8 @@
 			},
 			{
 				"database" : "Jobs",
-				"foundCount" : 5,
-				"returnedCount" : 5,
+				"foundCount" : 8,
+				"returnedCount" : 8,
 				"table" : "jobs_TIMEHOURS"
 			},
 			{
@@ -5538,6 +5629,7 @@
 			"jobs_QUOTE" : 
 			[
 				{
+					"jobs_QUOTE::grandTotalCND_c" : 0,
 					"jobs_QUOTE::id" : "EE7E88BE-8345-1C45-BDAF-D60B437154E6",
 					"jobs_QUOTE::laborTotal_c" : "",
 					"jobs_QUOTE::materialTotal_c" : "",
@@ -5597,6 +5689,26 @@
 					"jobs_TIMEHOURS::type" : "Assembly",
 					"modId" : "1",
 					"recordId" : "24760"
+				},
+				{
+					"jobs_TIMEHOURS::actualV2" : 30.5,
+					"jobs_TIMEHOURS::burdenV2" : 70,
+					"jobs_TIMEHOURS::department" : "CNC",
+					"jobs_TIMEHOURS::hoursV2_Original" : 1,
+					"jobs_TIMEHOURS::id" : "7C1B15FF-1BF4-A742-BCB9-AFD78FC18F54",
+					"jobs_TIMEHOURS::type" : "Finish Machining",
+					"modId" : "1",
+					"recordId" : "24937"
+				},
+				{
+					"jobs_TIMEHOURS::actualV2" : 17.25,
+					"jobs_TIMEHOURS::burdenV2" : 52.5,
+					"jobs_TIMEHOURS::department" : "Engineering",
+					"jobs_TIMEHOURS::hoursV2_Original" : 0.75,
+					"jobs_TIMEHOURS::id" : "30D7DB3B-DDE3-7D41-8078-1B189B65D2A7",
+					"jobs_TIMEHOURS::type" : "Advanced Engineering",
+					"modId" : "1",
+					"recordId" : "24961"
 				}
 			]
 		},
@@ -5616,8 +5728,8 @@
 			},
 			{
 				"database" : "Jobs",
-				"foundCount" : 5,
-				"returnedCount" : 5,
+				"foundCount" : 7,
+				"returnedCount" : 7,
 				"table" : "jobs_TIMEHOURS"
 			},
 			{
@@ -5650,10 +5762,10 @@
 			"id_Image" : 8.58885037391781e+55,
 			"id_customer" : "38963F57-E53F-AC46-866F-BB5FEB054BCE",
 			"id_jobMaster" : "291FD7A2-08C8-A547-9D8C-A15D9318EFC7",
-			"status" : "Kicked Off",
+			"status" : "Complete",
 			"zCreationTimestamp" : "03/25/2024 08:49:14"
 		},
-		"modId" : "198",
+		"modId" : "217",
 		"portalData" : 
 		{
 			"jobs_CUSTOMER" : 
@@ -5668,6 +5780,7 @@
 			"jobs_QUOTE" : 
 			[
 				{
+					"jobs_QUOTE::grandTotalCND_c" : "?",
 					"jobs_QUOTE::id" : "C742752F-3902-704A-B4A7-2E04BB347829",
 					"jobs_QUOTE::laborTotal_c" : "",
 					"jobs_QUOTE::materialTotal_c" : "",
@@ -5697,6 +5810,16 @@
 					"jobs_TIMEHOURS::type" : "Advanced Engineering",
 					"modId" : "0",
 					"recordId" : "24868"
+				},
+				{
+					"jobs_TIMEHOURS::actualV2" : 8.625,
+					"jobs_TIMEHOURS::burdenV2" : 17.5,
+					"jobs_TIMEHOURS::department" : "Engineering",
+					"jobs_TIMEHOURS::hoursV2_Original" : 0.25,
+					"jobs_TIMEHOURS::id" : "39ABDB98-A541-E546-A89F-D9621AABB99F",
+					"jobs_TIMEHOURS::type" : "Advanced Engineering",
+					"modId" : "1",
+					"recordId" : "24944"
 				}
 			]
 		},
@@ -5716,8 +5839,8 @@
 			},
 			{
 				"database" : "Jobs",
-				"foundCount" : 2,
-				"returnedCount" : 2,
+				"foundCount" : 3,
+				"returnedCount" : 3,
 				"table" : "jobs_TIMEHOURS"
 			},
 			{
@@ -5771,13 +5894,14 @@
 					"jobs_POlines::id" : "CE626282-2497-244F-AC4C-12568A6811AD",
 					"jobs_POlines::id_po" : "B90E2FBC-52E7-544E-B060-FD54CF94CCFA",
 					"jobs_POlines::total_cad" : 0,
-					"modId" : "2",
+					"modId" : "3",
 					"recordId" : "26453"
 				}
 			],
 			"jobs_QUOTE" : 
 			[
 				{
+					"jobs_QUOTE::grandTotalCND_c" : 0,
 					"jobs_QUOTE::id" : "11E0C46C-826A-E045-8A03-64E9DF33BD77",
 					"jobs_QUOTE::laborTotal_c" : "",
 					"jobs_QUOTE::materialTotal_c" : "",
@@ -5937,6 +6061,16 @@
 					"jobs_TIMEHOURS::type" : "Assembly",
 					"modId" : "1",
 					"recordId" : "24872"
+				},
+				{
+					"jobs_TIMEHOURS::actualV2" : 23,
+					"jobs_TIMEHOURS::burdenV2" : 70,
+					"jobs_TIMEHOURS::department" : "Engineering",
+					"jobs_TIMEHOURS::hoursV2_Original" : 1,
+					"jobs_TIMEHOURS::id" : "6B43CCD2-F3D8-094E-ACE5-305B4A3EA857",
+					"jobs_TIMEHOURS::type" : "Advanced Engineering",
+					"modId" : "1",
+					"recordId" : "24959"
 				}
 			]
 		},
@@ -5956,8 +6090,8 @@
 			},
 			{
 				"database" : "Jobs",
-				"foundCount" : 15,
-				"returnedCount" : 15,
+				"foundCount" : 16,
+				"returnedCount" : 16,
 				"table" : "jobs_TIMEHOURS"
 			},
 			{
@@ -5990,10 +6124,10 @@
 			"id_Image" : 2.43685301134989e+57,
 			"id_customer" : "D8109762-29A3-3F4B-B6CA-30B0ECBCC777",
 			"id_jobMaster" : "4AA231BF-DDDC-9C44-A25A-32BA1AE340E3",
-			"status" : "In Manufacturing",
+			"status" : "Complete",
 			"zCreationTimestamp" : "03/26/2024 12:30:33"
 		},
-		"modId" : "101",
+		"modId" : "108",
 		"portalData" : 
 		{
 			"jobs_CUSTOMER" : 
@@ -6010,8 +6144,8 @@
 					"jobs_POlines::flag_POtype" : 2,
 					"jobs_POlines::id" : "F63CD786-2922-A247-96DD-2274A11D89E4",
 					"jobs_POlines::id_po" : "62178A7C-F9F5-8642-951C-C0035EB1E0B5",
-					"jobs_POlines::total_cad" : 0,
-					"modId" : "3",
+					"jobs_POlines::total_cad" : 160,
+					"modId" : "4",
 					"recordId" : "25517"
 				},
 				{
@@ -6034,6 +6168,7 @@
 			"jobs_QUOTE" : 
 			[
 				{
+					"jobs_QUOTE::grandTotalCND_c" : 0,
 					"jobs_QUOTE::id" : "34DFB985-BF8C-6649-B7E5-89AE9FD90EEC",
 					"jobs_QUOTE::laborTotal_c" : "",
 					"jobs_QUOTE::materialTotal_c" : "",
@@ -6042,6 +6177,7 @@
 					"recordId" : "4182"
 				},
 				{
+					"jobs_QUOTE::grandTotalCND_c" : 4706,
 					"jobs_QUOTE::id" : "98FDFD72-F977-E243-A7C8-D6FF80B2DA24",
 					"jobs_QUOTE::laborTotal_c" : 4056.25,
 					"jobs_QUOTE::materialTotal_c" : 562.5,
@@ -6262,6 +6398,7 @@
 			"jobs_QUOTE" : 
 			[
 				{
+					"jobs_QUOTE::grandTotalCND_c" : 0,
 					"jobs_QUOTE::id" : "B51A0EE8-7B2A-5A45-A7E9-B479C0B73F54",
 					"jobs_QUOTE::laborTotal_c" : "",
 					"jobs_QUOTE::materialTotal_c" : "",
@@ -6344,10 +6481,10 @@
 			"id_Image" : 4.48884506128651e+57,
 			"id_customer" : "C9F10617-DE9C-934F-8940-28D5281E0F6B",
 			"id_jobMaster" : "72600659-9222-924B-B2B0-9521A156EA37",
-			"status" : "Designed & Build in Process",
+			"status" : "Complete",
 			"zCreationTimestamp" : "04/01/2024 07:25:32"
 		},
-		"modId" : "20",
+		"modId" : "23",
 		"portalData" : 
 		{
 			"jobs_CUSTOMER" : 
@@ -6362,6 +6499,7 @@
 			"jobs_QUOTE" : 
 			[
 				{
+					"jobs_QUOTE::grandTotalCND_c" : 2059,
 					"jobs_QUOTE::id" : "79AF9115-934E-164B-B5B9-01C0447B0FFB",
 					"jobs_QUOTE::laborTotal_c" : 1755,
 					"jobs_QUOTE::materialTotal_c" : 130,
@@ -6401,6 +6539,16 @@
 					"jobs_TIMEHOURS::type" : "Surface Carbon",
 					"modId" : "1",
 					"recordId" : "24699"
+				},
+				{
+					"jobs_TIMEHOURS::actualV2" : 31.5,
+					"jobs_TIMEHOURS::burdenV2" : 70,
+					"jobs_TIMEHOURS::department" : "EDM",
+					"jobs_TIMEHOURS::hoursV2_Original" : 1,
+					"jobs_TIMEHOURS::id" : "A079FF64-9987-A94C-8CCB-EF7AB4C0126F",
+					"jobs_TIMEHOURS::type" : "EDM Burn",
+					"modId" : "3",
+					"recordId" : "24974"
 				}
 			]
 		},
@@ -6420,8 +6568,8 @@
 			},
 			{
 				"database" : "Jobs",
-				"foundCount" : 3,
-				"returnedCount" : 3,
+				"foundCount" : 4,
+				"returnedCount" : 4,
 				"table" : "jobs_TIMEHOURS"
 			},
 			{
@@ -6454,17 +6602,17 @@
 			"id_Image" : 3.87265430132203e+57,
 			"id_customer" : "947F5FA1-DCB7-944F-87B8-2E401A6C78A8",
 			"id_jobMaster" : "4B05BDD2-63CE-FA41-BAA5-B91FCCEA8E9B",
-			"status" : "In Manufacturing",
+			"status" : "Complete",
 			"zCreationTimestamp" : "04/01/2024 14:54:49"
 		},
-		"modId" : "24",
+		"modId" : "44",
 		"portalData" : 
 		{
 			"jobs_CUSTOMER" : 
 			[
 				{
 					"jobs_CUSTOMER::CustomerName" : "MVA Stratford Inc.",
-					"modId" : "13",
+					"modId" : "14",
 					"recordId" : "2501"
 				}
 			],
@@ -6515,7 +6663,7 @@
 					"jobs_POlines::id" : "D5AA3E13-7D86-E044-ABB2-EC4313127F6E",
 					"jobs_POlines::id_po" : "90E2A12B-9C2D-1342-8BB4-327992DF30DE",
 					"jobs_POlines::total_cad" : 22,
-					"modId" : "4",
+					"modId" : "5",
 					"recordId" : "26490"
 				},
 				{
@@ -6525,16 +6673,33 @@
 					"jobs_POlines::total_cad" : 131,
 					"modId" : "8",
 					"recordId" : "26521"
+				},
+				{
+					"jobs_POlines::flag_POtype" : 1,
+					"jobs_POlines::id" : "39F17CA0-68FE-F844-BB4C-CE40164D8811",
+					"jobs_POlines::id_po" : "F31A6E51-C611-564D-AFD0-B1585C6B8A91",
+					"jobs_POlines::total_cad" : 470,
+					"modId" : "7",
+					"recordId" : "26552"
+				},
+				{
+					"jobs_POlines::flag_POtype" : 1,
+					"jobs_POlines::id" : "0DA7F3BA-4E1E-7346-B68F-763C5A1C96A1",
+					"jobs_POlines::id_po" : "F31A6E51-C611-564D-AFD0-B1585C6B8A91",
+					"jobs_POlines::total_cad" : 125,
+					"modId" : "7",
+					"recordId" : "26553"
 				}
 			],
 			"jobs_QUOTE" : 
 			[
 				{
+					"jobs_QUOTE::grandTotalCND_c" : 13350,
 					"jobs_QUOTE::id" : "8CA835A0-F693-6C41-8F02-65C564AD6334",
 					"jobs_QUOTE::laborTotal_c" : 7865,
-					"jobs_QUOTE::materialTotal_c" : 1950,
-					"jobs_QUOTE::outsourceTotal_c" : "",
-					"modId" : "22",
+					"jobs_QUOTE::materialTotal_c" : 3315,
+					"jobs_QUOTE::outsourceTotal_c" : 1820,
+					"modId" : "25",
 					"recordId" : "4212"
 				}
 			],
@@ -6609,6 +6774,176 @@
 					"jobs_TIMEHOURS::type" : "Assembly",
 					"modId" : "1",
 					"recordId" : "24900"
+				},
+				{
+					"jobs_TIMEHOURS::actualV2" : 190.625,
+					"jobs_TIMEHOURS::burdenV2" : 360,
+					"jobs_TIMEHOURS::department" : "Mold Making",
+					"jobs_TIMEHOURS::hoursV2_Original" : 6,
+					"jobs_TIMEHOURS::id" : "A2261617-983F-6646-BD8F-F71C729EE7A3",
+					"jobs_TIMEHOURS::type" : "Assembly",
+					"modId" : "1",
+					"recordId" : "24922"
+				},
+				{
+					"jobs_TIMEHOURS::actualV2" : 94.5,
+					"jobs_TIMEHOURS::burdenV2" : 180,
+					"jobs_TIMEHOURS::department" : "Mold Making",
+					"jobs_TIMEHOURS::hoursV2_Original" : 3,
+					"jobs_TIMEHOURS::id" : "318CD3AF-3DA5-3949-8D30-211DA30013EE",
+					"jobs_TIMEHOURS::type" : "Toolroom/Mfg Comps",
+					"modId" : "1",
+					"recordId" : "24925"
+				},
+				{
+					"jobs_TIMEHOURS::actualV2" : 189,
+					"jobs_TIMEHOURS::burdenV2" : 285,
+					"jobs_TIMEHOURS::department" : "Mold Making",
+					"jobs_TIMEHOURS::hoursV2_Original" : 4.75,
+					"jobs_TIMEHOURS::id" : "F5A0350B-D380-E242-92CC-2CEE5F3C5DC7",
+					"jobs_TIMEHOURS::type" : "Toolroom/Mfg Comps",
+					"modId" : "1",
+					"recordId" : "24927"
+				},
+				{
+					"jobs_TIMEHOURS::actualV2" : 374,
+					"jobs_TIMEHOURS::burdenV2" : 525,
+					"jobs_TIMEHOURS::department" : "Mold Making",
+					"jobs_TIMEHOURS::hoursV2_Original" : 8.75,
+					"jobs_TIMEHOURS::id" : "78289113-DB92-F44B-A154-533CB29541F9",
+					"jobs_TIMEHOURS::type" : "Toolroom/Mfg Comps",
+					"modId" : "1",
+					"recordId" : "24928"
+				},
+				{
+					"jobs_TIMEHOURS::actualV2" : 138,
+					"jobs_TIMEHOURS::burdenV2" : 360,
+					"jobs_TIMEHOURS::department" : "Mold Making",
+					"jobs_TIMEHOURS::hoursV2_Original" : 6,
+					"jobs_TIMEHOURS::id" : "B5457B4B-0EF1-5A45-9281-B0375935AAFF",
+					"jobs_TIMEHOURS::type" : "Toolroom/Mfg Comps",
+					"modId" : "1",
+					"recordId" : "24931"
+				},
+				{
+					"jobs_TIMEHOURS::actualV2" : 272.25,
+					"jobs_TIMEHOURS::burdenV2" : 480,
+					"jobs_TIMEHOURS::department" : "Mold Making",
+					"jobs_TIMEHOURS::hoursV2_Original" : 8,
+					"jobs_TIMEHOURS::id" : "C15B8494-E31A-0A48-8996-BB4BEB0F86F4",
+					"jobs_TIMEHOURS::type" : "Assembly",
+					"modId" : "1",
+					"recordId" : "24970"
+				},
+				{
+					"jobs_TIMEHOURS::actualV2" : 325,
+					"jobs_TIMEHOURS::burdenV2" : 720,
+					"jobs_TIMEHOURS::department" : "Mold Making",
+					"jobs_TIMEHOURS::hoursV2_Original" : 12,
+					"jobs_TIMEHOURS::id" : "0BB4D815-9443-DA49-B155-73E2824F26B5",
+					"jobs_TIMEHOURS::type" : "Assembly",
+					"modId" : "1",
+					"recordId" : "24978"
+				},
+				{
+					"jobs_TIMEHOURS::actualV2" : 536.25,
+					"jobs_TIMEHOURS::burdenV2" : 780,
+					"jobs_TIMEHOURS::department" : "Mold Making",
+					"jobs_TIMEHOURS::hoursV2_Original" : 13,
+					"jobs_TIMEHOURS::id" : "2E1601CB-0AF4-9346-A4A1-8D0C6E380C58",
+					"jobs_TIMEHOURS::type" : "Assembly",
+					"modId" : "1",
+					"recordId" : "24982"
+				},
+				{
+					"jobs_TIMEHOURS::actualV2" : 420,
+					"jobs_TIMEHOURS::burdenV2" : 780,
+					"jobs_TIMEHOURS::department" : "Mold Making",
+					"jobs_TIMEHOURS::hoursV2_Original" : 13,
+					"jobs_TIMEHOURS::id" : "2F601974-05C3-EC49-8EAD-2D002BA0C895",
+					"jobs_TIMEHOURS::type" : "Assembly",
+					"modId" : "1",
+					"recordId" : "24984"
+				},
+				{
+					"jobs_TIMEHOURS::actualV2" : 216.75,
+					"jobs_TIMEHOURS::burdenV2" : 255,
+					"jobs_TIMEHOURS::department" : "Mold Making",
+					"jobs_TIMEHOURS::hoursV2_Original" : 4.25,
+					"jobs_TIMEHOURS::id" : "A912E0E1-3BA3-2A41-BAD1-F16C5EBF9142",
+					"jobs_TIMEHOURS::type" : "Assembly",
+					"modId" : "3",
+					"recordId" : "24990"
+				},
+				{
+					"jobs_TIMEHOURS::actualV2" : 205.875,
+					"jobs_TIMEHOURS::burdenV2" : 270,
+					"jobs_TIMEHOURS::department" : "Mold Making",
+					"jobs_TIMEHOURS::hoursV2_Original" : 4.5,
+					"jobs_TIMEHOURS::id" : "B6AEFE7D-A20D-B54C-8B89-34E3AD4C6208",
+					"jobs_TIMEHOURS::type" : "Assembly",
+					"modId" : "1",
+					"recordId" : "24995"
+				},
+				{
+					"jobs_TIMEHOURS::actualV2" : 236.25,
+					"jobs_TIMEHOURS::burdenV2" : 300,
+					"jobs_TIMEHOURS::department" : "Mold Making",
+					"jobs_TIMEHOURS::hoursV2_Original" : 5,
+					"jobs_TIMEHOURS::id" : "72B7BBAF-FC7B-6B48-8CD5-53FEFE01B30E",
+					"jobs_TIMEHOURS::type" : "Assembly",
+					"modId" : "1",
+					"recordId" : "24996"
+				},
+				{
+					"jobs_TIMEHOURS::actualV2" : 157.5,
+					"jobs_TIMEHOURS::burdenV2" : 300,
+					"jobs_TIMEHOURS::department" : "Mold Making",
+					"jobs_TIMEHOURS::hoursV2_Original" : 5,
+					"jobs_TIMEHOURS::id" : "D8AD2DB4-97D1-9840-ABAD-FBA7CA92D09A",
+					"jobs_TIMEHOURS::type" : "Assembly",
+					"modId" : "1",
+					"recordId" : "24997"
+				},
+				{
+					"jobs_TIMEHOURS::actualV2" : 155.25,
+					"jobs_TIMEHOURS::burdenV2" : 270,
+					"jobs_TIMEHOURS::department" : "Mold Making",
+					"jobs_TIMEHOURS::hoursV2_Original" : 4.5,
+					"jobs_TIMEHOURS::id" : "B058FFD4-DED3-0A43-BB72-555D09D22AD2",
+					"jobs_TIMEHOURS::type" : "Assembly",
+					"modId" : "1",
+					"recordId" : "24998"
+				},
+				{
+					"jobs_TIMEHOURS::actualV2" : 118,
+					"jobs_TIMEHOURS::burdenV2" : 240,
+					"jobs_TIMEHOURS::department" : "Mold Making",
+					"jobs_TIMEHOURS::hoursV2_Original" : 4,
+					"jobs_TIMEHOURS::id" : "1239B3D3-32D1-554E-9D8B-2BD10EF2DC3C",
+					"jobs_TIMEHOURS::type" : "Assembly",
+					"modId" : "1",
+					"recordId" : "25000"
+				},
+				{
+					"jobs_TIMEHOURS::actualV2" : 199.125,
+					"jobs_TIMEHOURS::burdenV2" : 270,
+					"jobs_TIMEHOURS::department" : "Mold Making",
+					"jobs_TIMEHOURS::hoursV2_Original" : 4.5,
+					"jobs_TIMEHOURS::id" : "F931CB80-5A6D-2849-9A2E-B597A4192653",
+					"jobs_TIMEHOURS::type" : "Assembly",
+					"modId" : "1",
+					"recordId" : "25001"
+				},
+				{
+					"jobs_TIMEHOURS::actualV2" : 0,
+					"jobs_TIMEHOURS::burdenV2" : 0,
+					"jobs_TIMEHOURS::department" : "Mold Making",
+					"jobs_TIMEHOURS::hoursV2_Original" : 0,
+					"jobs_TIMEHOURS::id" : "3077C5A7-0614-DA4F-87CD-CCEEEDB6C784",
+					"jobs_TIMEHOURS::type" : "Assembly",
+					"modId" : "3",
+					"recordId" : "25002"
 				}
 			]
 		},
@@ -6628,14 +6963,14 @@
 			},
 			{
 				"database" : "Jobs",
-				"foundCount" : 7,
-				"returnedCount" : 7,
+				"foundCount" : 24,
+				"returnedCount" : 24,
 				"table" : "jobs_TIMEHOURS"
 			},
 			{
 				"database" : "Jobs",
-				"foundCount" : 7,
-				"returnedCount" : 7,
+				"foundCount" : 9,
+				"returnedCount" : 9,
 				"table" : "jobs_POlines"
 			}
 		],
@@ -6654,7 +6989,7 @@
 			"Part Name" : "OUTER LENS",
 			"Part Number" : "TBD",
 			"Program Manager" : "Andrew Broadbent",
-			"Tool_ComitmentDate" : "04/24/2024",
+			"Tool_ComitmentDate" : "04/25/2024",
 			"Tool_KickoffDate" : "04/03/2024",
 			"Workorder Type" : "Tuning/Corrections",
 			"commodity" : "Mold Making",
@@ -6662,10 +6997,10 @@
 			"id_Image" : 4.48910291144322e+57,
 			"id_customer" : "38963F57-E53F-AC46-866F-BB5FEB054BCE",
 			"id_jobMaster" : "C2A6F9C6-8425-B045-B0D7-566FEEB13E5D",
-			"status" : "Kicked Off",
+			"status" : "In Manufacturing",
 			"zCreationTimestamp" : "04/03/2024 13:04:21"
 		},
-		"modId" : "10",
+		"modId" : "16",
 		"portalData" : 
 		{
 			"jobs_CUSTOMER" : 
@@ -6682,14 +7017,15 @@
 					"jobs_POlines::flag_POtype" : 2,
 					"jobs_POlines::id" : "A0678787-B62F-B249-B457-AF9664094818",
 					"jobs_POlines::id_po" : "09E39059-FF77-A546-80EF-D83ACDE6D9EA",
-					"jobs_POlines::total_cad" : 3200,
-					"modId" : "3",
+					"jobs_POlines::total_cad" : 3128.41452118,
+					"modId" : "4",
 					"recordId" : "26455"
 				}
 			],
 			"jobs_QUOTE" : 
 			[
 				{
+					"jobs_QUOTE::grandTotalCND_c" : 0,
 					"jobs_QUOTE::id" : "4D42DF00-437A-6547-9CAF-3A63C7E6A365",
 					"jobs_QUOTE::laborTotal_c" : "",
 					"jobs_QUOTE::materialTotal_c" : "",
@@ -6782,10 +7118,10 @@
 			"id_Image" : 6.13979091657168e+57,
 			"id_customer" : "FF96A03F-D787-6F4E-BC6D-BAE14F364E4A",
 			"id_jobMaster" : "291FD7A2-08C8-A547-9D8C-A15D9318EFC7",
-			"status" : "Design in Process",
+			"status" : "Complete",
 			"zCreationTimestamp" : "04/04/2024 14:39:22"
 		},
-		"modId" : "14",
+		"modId" : "21",
 		"portalData" : 
 		{
 			"jobs_CUSTOMER" : 
@@ -6800,6 +7136,7 @@
 			"jobs_QUOTE" : 
 			[
 				{
+					"jobs_QUOTE::grandTotalCND_c" : 0,
 					"jobs_QUOTE::id" : "271A8A21-5C98-2840-981A-8C0583884434",
 					"jobs_QUOTE::laborTotal_c" : "",
 					"jobs_QUOTE::materialTotal_c" : "",
@@ -6850,5 +7187,389 @@
 			}
 		],
 		"recordId" : "14040"
+	},
+	{
+		"fieldData" : 
+		{
+			"Approval Comments" : "",
+			"Approval Date" : "",
+			"Attention" : "Mike Thompson",
+			"Cad Designer" : "Dinesh Kumar",
+			"Id_Commodity" : "25989A73-1167-4134-94D8-5D3749783E0A",
+			"JobNumText" : "300-15",
+			"Moldmaker" : "N/A",
+			"Part Name" : "Unbillable Engineering",
+			"Part Number" : "N/A",
+			"Program Manager" : "Andrew Broadbent",
+			"Tool_ComitmentDate" : "04/05/2024",
+			"Tool_KickoffDate" : "04/05/2024",
+			"Workorder Type" : "Design Feasibility",
+			"commodity" : "Mold Making",
+			"id" : "D186A221-12AD-E14C-950C-B8ED8A891AB3",
+			"id_Image" : 4.92969087311733e+57,
+			"id_customer" : "FF96A03F-D787-6F4E-BC6D-BAE14F364E4A",
+			"id_jobMaster" : "291FD7A2-08C8-A547-9D8C-A15D9318EFC7",
+			"status" : "Complete",
+			"zCreationTimestamp" : "04/05/2024 07:25:56"
+		},
+		"modId" : "23",
+		"portalData" : 
+		{
+			"jobs_CUSTOMER" : 
+			[
+				{
+					"jobs_CUSTOMER::CustomerName" : "Autosystems, Div. of Magna Exteriors Inc.",
+					"modId" : "22",
+					"recordId" : "2583"
+				}
+			],
+			"jobs_POlines" : [],
+			"jobs_QUOTE" : 
+			[
+				{
+					"jobs_QUOTE::grandTotalCND_c" : 0,
+					"jobs_QUOTE::id" : "C25C64DE-0B59-F443-8F38-F63264CE013F",
+					"jobs_QUOTE::laborTotal_c" : "",
+					"jobs_QUOTE::materialTotal_c" : "",
+					"jobs_QUOTE::outsourceTotal_c" : "",
+					"modId" : "6",
+					"recordId" : "4398"
+				}
+			],
+			"jobs_TIMEHOURS" : 
+			[
+				{
+					"jobs_TIMEHOURS::actualV2" : 72.5,
+					"jobs_TIMEHOURS::burdenV2" : 140,
+					"jobs_TIMEHOURS::department" : "Engineering",
+					"jobs_TIMEHOURS::hoursV2_Original" : 2,
+					"jobs_TIMEHOURS::id" : "4C8C77FB-EFA8-BF4A-A9AF-4320A9C4A76F",
+					"jobs_TIMEHOURS::type" : "Advanced Engineering",
+					"modId" : "1",
+					"recordId" : "24953"
+				},
+				{
+					"jobs_TIMEHOURS::actualV2" : 149.5,
+					"jobs_TIMEHOURS::burdenV2" : 455,
+					"jobs_TIMEHOURS::department" : "Engineering",
+					"jobs_TIMEHOURS::hoursV2_Original" : 6.5,
+					"jobs_TIMEHOURS::id" : "48B075FA-8B28-A449-8DAC-233A7F30C551",
+					"jobs_TIMEHOURS::type" : "Advanced Engineering",
+					"modId" : "1",
+					"recordId" : "24958"
+				}
+			]
+		},
+		"portalDataInfo" : 
+		[
+			{
+				"database" : "Jobs",
+				"foundCount" : 1,
+				"returnedCount" : 1,
+				"table" : "jobs_CUSTOMER"
+			},
+			{
+				"database" : "Jobs",
+				"foundCount" : 1,
+				"returnedCount" : 1,
+				"table" : "jobs_QUOTE"
+			},
+			{
+				"database" : "Jobs",
+				"foundCount" : 2,
+				"returnedCount" : 2,
+				"table" : "jobs_TIMEHOURS"
+			},
+			{
+				"database" : "Jobs",
+				"foundCount" : 0,
+				"returnedCount" : 0,
+				"table" : "jobs_POlines"
+			}
+		],
+		"recordId" : "14041"
+	},
+	{
+		"fieldData" : 
+		{
+			"Approval Comments" : "",
+			"Approval Date" : "",
+			"Attention" : "Kyle Pierschke",
+			"Cad Designer" : "Justin Klimowicz",
+			"Id_Commodity" : "25989A73-1167-4134-94D8-5D3749783E0A",
+			"JobNumText" : "5051-04",
+			"Moldmaker" : "",
+			"Part Name" : "Lower IP Closeout",
+			"Part Number" : "FC00ACB08941",
+			"Program Manager" : "David Guenther",
+			"Tool_ComitmentDate" : "",
+			"Tool_KickoffDate" : "",
+			"Workorder Type" : "Tuning/Corrections",
+			"commodity" : "Mold Making",
+			"id" : "9F5F3A49-6D9B-B74A-B6E7-0A52D7444EF3",
+			"id_Image" : 2.16378294685407e+57,
+			"id_customer" : "8E95CF6B-C0E9-8D44-9841-E10DB07D82DF",
+			"id_jobMaster" : "14001162-DD5B-994B-AD6F-D78B745EAD0D",
+			"status" : "Complete",
+			"zCreationTimestamp" : "04/05/2024 13:49:50"
+		},
+		"modId" : "14",
+		"portalData" : 
+		{
+			"jobs_CUSTOMER" : 
+			[
+				{
+					"jobs_CUSTOMER::CustomerName" : "Crest Mold Technology Inc.",
+					"modId" : "14",
+					"recordId" : "2494"
+				}
+			],
+			"jobs_POlines" : 
+			[
+				{
+					"jobs_POlines::flag_POtype" : 1,
+					"jobs_POlines::id" : "131DF0E5-178C-6046-8A0F-9DD440BC5FF8",
+					"jobs_POlines::id_po" : "71001442-75C4-1146-B763-A82EDBD1C416",
+					"jobs_POlines::total_cad" : 0,
+					"modId" : "2",
+					"recordId" : "26716"
+				}
+			],
+			"jobs_QUOTE" : 
+			[
+				{
+					"jobs_QUOTE::grandTotalCND_c" : 0,
+					"jobs_QUOTE::id" : "C377BD61-B44D-8B45-90BA-2E92A7311A63",
+					"jobs_QUOTE::laborTotal_c" : "",
+					"jobs_QUOTE::materialTotal_c" : "",
+					"jobs_QUOTE::outsourceTotal_c" : "",
+					"modId" : "6",
+					"recordId" : "4419"
+				}
+			],
+			"jobs_TIMEHOURS" : 
+			[
+				{
+					"jobs_TIMEHOURS::actualV2" : 14.75,
+					"jobs_TIMEHOURS::burdenV2" : 35,
+					"jobs_TIMEHOURS::department" : "Engineering",
+					"jobs_TIMEHOURS::hoursV2_Original" : 0.5,
+					"jobs_TIMEHOURS::id" : "0A5C0F90-2C5C-AF41-80C1-F1088298A36C",
+					"jobs_TIMEHOURS::type" : "Post Engineering",
+					"modId" : "1",
+					"recordId" : "25083"
+				}
+			]
+		},
+		"portalDataInfo" : 
+		[
+			{
+				"database" : "Jobs",
+				"foundCount" : 1,
+				"returnedCount" : 1,
+				"table" : "jobs_CUSTOMER"
+			},
+			{
+				"database" : "Jobs",
+				"foundCount" : 1,
+				"returnedCount" : 1,
+				"table" : "jobs_QUOTE"
+			},
+			{
+				"database" : "Jobs",
+				"foundCount" : 1,
+				"returnedCount" : 1,
+				"table" : "jobs_TIMEHOURS"
+			},
+			{
+				"database" : "Jobs",
+				"foundCount" : 1,
+				"returnedCount" : 1,
+				"table" : "jobs_POlines"
+			}
+		],
+		"recordId" : "14043"
+	},
+	{
+		"fieldData" : 
+		{
+			"Approval Comments" : "",
+			"Approval Date" : "",
+			"Attention" : "Hank Jonkman",
+			"Cad Designer" : "N/A",
+			"Id_Commodity" : "32D0ED7E-4E47-5F49-B8EF-4B97FA01B8FA",
+			"JobNumText" : "5625",
+			"Moldmaker" : "Don Anderson",
+			"Part Name" : "HDLP Inner Lens",
+			"Part Number" : "800431 / 800432",
+			"Program Manager" : "Andrew Broadbent",
+			"Tool_ComitmentDate" : "04/07/2024",
+			"Tool_KickoffDate" : "04/07/2024",
+			"Workorder Type" : "Additional Service",
+			"commodity" : "Service",
+			"id" : "486EAB1C-C163-1C44-A4DB-03CE2E2B3573",
+			"id_Image" : 2.04833938787934e+57,
+			"id_customer" : "C9F10617-DE9C-934F-8940-28D5281E0F6B",
+			"id_jobMaster" : "49B17FA0-43F4-F54F-A51D-A939FC70407C",
+			"status" : "Complete",
+			"zCreationTimestamp" : "04/08/2024 06:31:15"
+		},
+		"modId" : "23",
+		"portalData" : 
+		{
+			"jobs_CUSTOMER" : 
+			[
+				{
+					"jobs_CUSTOMER::CustomerName" : "Autosystems America Inc.",
+					"modId" : "17",
+					"recordId" : "2491"
+				}
+			],
+			"jobs_POlines" : [],
+			"jobs_QUOTE" : 
+			[
+				{
+					"jobs_QUOTE::grandTotalCND_c" : 1000,
+					"jobs_QUOTE::id" : "CF55EA28-4B8D-2148-A395-E6CE0A9A0B70",
+					"jobs_QUOTE::laborTotal_c" : 390,
+					"jobs_QUOTE::materialTotal_c" : "",
+					"jobs_QUOTE::outsourceTotal_c" : 250,
+					"modId" : "21",
+					"recordId" : "4421"
+				}
+			],
+			"jobs_TIMEHOURS" : 
+			[
+				{
+					"jobs_TIMEHOURS::actualV2" : 318.9375,
+					"jobs_TIMEHOURS::burdenV2" : 405,
+					"jobs_TIMEHOURS::department" : "Mold Making",
+					"jobs_TIMEHOURS::hoursV2_Original" : 6.75,
+					"jobs_TIMEHOURS::id" : "77736D20-028B-7646-B68E-5138E8447A91",
+					"jobs_TIMEHOURS::type" : "Assembly",
+					"modId" : "1",
+					"recordId" : "25049"
+				}
+			]
+		},
+		"portalDataInfo" : 
+		[
+			{
+				"database" : "Jobs",
+				"foundCount" : 1,
+				"returnedCount" : 1,
+				"table" : "jobs_CUSTOMER"
+			},
+			{
+				"database" : "Jobs",
+				"foundCount" : 1,
+				"returnedCount" : 1,
+				"table" : "jobs_QUOTE"
+			},
+			{
+				"database" : "Jobs",
+				"foundCount" : 1,
+				"returnedCount" : 1,
+				"table" : "jobs_TIMEHOURS"
+			},
+			{
+				"database" : "Jobs",
+				"foundCount" : 0,
+				"returnedCount" : 0,
+				"table" : "jobs_POlines"
+			}
+		],
+		"recordId" : "14044"
+	},
+	{
+		"fieldData" : 
+		{
+			"Approval Comments" : "",
+			"Approval Date" : "",
+			"Attention" : "Kevin Harris",
+			"Cad Designer" : "Manuel Martinez",
+			"Id_Commodity" : "25989A73-1167-4134-94D8-5D3749783E0A",
+			"JobNumText" : "300-16",
+			"Moldmaker" : "N/A",
+			"Part Name" : "Unbillable Engineering",
+			"Part Number" : "N/A",
+			"Program Manager" : "Andrew Broadbent",
+			"Tool_ComitmentDate" : "04/10/2024",
+			"Tool_KickoffDate" : "04/08/2024",
+			"Workorder Type" : "Design Feasibility",
+			"commodity" : "Mold Making",
+			"id" : "56330807-C105-9C47-B474-D0BDEBD347FF",
+			"id_Image" : 5.45246332128191e+57,
+			"id_customer" : "FF96A03F-D787-6F4E-BC6D-BAE14F364E4A",
+			"id_jobMaster" : "291FD7A2-08C8-A547-9D8C-A15D9318EFC7",
+			"status" : "Complete",
+			"zCreationTimestamp" : "04/08/2024 10:13:29"
+		},
+		"modId" : "8",
+		"portalData" : 
+		{
+			"jobs_CUSTOMER" : 
+			[
+				{
+					"jobs_CUSTOMER::CustomerName" : "Autosystems, Div. of Magna Exteriors Inc.",
+					"modId" : "22",
+					"recordId" : "2583"
+				}
+			],
+			"jobs_POlines" : [],
+			"jobs_QUOTE" : 
+			[
+				{
+					"jobs_QUOTE::grandTotalCND_c" : 0,
+					"jobs_QUOTE::id" : "947B698B-3FBC-8C46-8929-2E34A921C8CE",
+					"jobs_QUOTE::laborTotal_c" : "",
+					"jobs_QUOTE::materialTotal_c" : "",
+					"jobs_QUOTE::outsourceTotal_c" : "",
+					"modId" : "3",
+					"recordId" : "4432"
+				}
+			],
+			"jobs_TIMEHOURS" : 
+			[
+				{
+					"jobs_TIMEHOURS::actualV2" : 52,
+					"jobs_TIMEHOURS::burdenV2" : 140,
+					"jobs_TIMEHOURS::department" : "Engineering",
+					"jobs_TIMEHOURS::hoursV2_Original" : 2,
+					"jobs_TIMEHOURS::id" : "B7CAB08D-81C0-4A4C-8C1A-16D9E4C6C52C",
+					"jobs_TIMEHOURS::type" : "Advanced Engineering",
+					"modId" : "1",
+					"recordId" : "25086"
+				}
+			]
+		},
+		"portalDataInfo" : 
+		[
+			{
+				"database" : "Jobs",
+				"foundCount" : 1,
+				"returnedCount" : 1,
+				"table" : "jobs_CUSTOMER"
+			},
+			{
+				"database" : "Jobs",
+				"foundCount" : 1,
+				"returnedCount" : 1,
+				"table" : "jobs_QUOTE"
+			},
+			{
+				"database" : "Jobs",
+				"foundCount" : 1,
+				"returnedCount" : 1,
+				"table" : "jobs_TIMEHOURS"
+			},
+			{
+				"database" : "Jobs",
+				"foundCount" : 0,
+				"returnedCount" : 0,
+				"table" : "jobs_POlines"
+			}
+		],
+		"recordId" : "14045"
 	}
 ]

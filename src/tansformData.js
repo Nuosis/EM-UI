@@ -97,7 +97,7 @@ export function transformedHrs(hrs) {
 }
 
 export async function performanceJobs(json) {
-    console.log('init transformJobPerformance')
+    console.log('init performanceJobs in TransformData')
     const jobObject = await Promise.all(json.map(async (item) => {
         // Initialize the obj for the current item
         let obj = {
@@ -310,12 +310,12 @@ export async function performanceJobs(json) {
         obj.profit.Profit.percentProfit = obj.profit.Profit.diffCost/obj.profit.Profit.totalPrice || 0;
         obj.profit.Profit.percentProfitBurden = obj.profit.Profit.diffCostBurden/obj.profit.Profit.totalPrice || 0;
         delete obj.labour.total;
-        console.log("objectAfterProfit",obj)
+        //console.log("objectAfterProfit",obj)
 
         return obj; // Return the fully constructed obj for the current item
     })).catch(error => console.error("Promise.all error:", error));
 
-    console.log("jobTransformed",jobObject)
+    //console.log("jobTransformed",jobObject)
 
     return {jobObject};
 }

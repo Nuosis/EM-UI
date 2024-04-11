@@ -125,7 +125,8 @@ window.loadTimeManagement = (json) => {
     );
 }
 
-window.loadJobPerformance = async (json) => {
+//load job performance by passing data object from dapi call. Uses FMGofer.
+window.transformAndLoadJobPerformance = async (json) => {
     console.log('init jobPerformance')
     const data = JSON.parse(json);
     // console.log(`passedData`,data)
@@ -135,6 +136,25 @@ window.loadJobPerformance = async (json) => {
     //console.log(`passedColumns`,jobsColumns)
     const jobs = await performanceJobs(data.data).catch(e => console.error("Error in performanceJobs:", e));
     const jobsData = jobs.jobObject;
+
+    manageRoot("root", 
+        <>
+            <div id="Tables" className="w-full flex flex-row gap-4">
+                <div className="w-5/5 bg-gray-100" >
+                    <LoadTable data={jobsData} elements={jobsElements} columns={jobsColumns} />
+                </div>
+            </div>
+        </>
+    );
+}
+
+//load job performance by passing transformed data object from dapi call using transformJobPerformance prior to call
+window.loadJobPerformance = async (json) => {
+    console.log('init jobPerformance')
+    const data = JSON.parse(json);
+    const jobsElements = data.elements
+    const jobsColumns = data.columns
+    const jobsData = data.data;
 
     manageRoot("root", 
         <>
@@ -208,7 +228,23 @@ window.sumJobActivity = (json) => {
         return result;
 }
 
+window.transformJobPerformance = async (json) => {
+    console.log('init transformJobPerformance')
+    const data = JSON.parse(json);
+    console.log({data})
+    const resultsPath = data.setResultsTo;
+    const jobs = await performanceJobs(data.data).catch(e => console.error("Error in performanceJobs:", e));
+    const jobsData = jobs.jobObject;
+    console.log({jobsData})
+    const scriptParameter = JSON.stringify({
+        path: "storeData",
+        resultsPath,
+        jobsData
+    });
+    FileMaker.PerformScript("jobPerformance * transformData * jsCallBack", scriptParameter);
+}
+
 //showLoadingAnimation()
 //clearLoadingAnimation()
 //loadJobTracker(JSON.stringify(jobsData))
-loadJobPerformance(JSON.stringify({data: jobsObject,columns: jobObjectColumns,elements: jobObjectElements}))
+// transformAndLoadJobPerformance(JSON.stringify({data: jobsObject,columns: jobObjectColumns,elements: jobObjectElements}))

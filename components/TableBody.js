@@ -6,12 +6,12 @@ import { ApprovedButton, ApproveButton, ButtonWithText } from '../src/icons';
 export default function LoadTableBody({ data, columns }) {
     const { searchTerm, filterTerm, sort, setSort } = useTableContext();
     //const initializedSort = useRef(false); // Tracks if initial sort state is set
-    //console.log("dataProvided:", data);
+    console.log("dataProvided:", data);
     //console.log("Current searchTerm:", searchTerm);
     //console.log("Current filterTerm:", filterTerm);
     console.log("initTableBody");
-    console.log("data ",data);
-    console.log("columns ",columns);
+    // console.log("data ",data);
+    // console.log("columns ",columns);
 
     useLayoutEffect(() => {
         if (!sort.column) {
@@ -255,7 +255,7 @@ export default function LoadTableBody({ data, columns }) {
                                     return null; // or some fallback UI
                                 }
                                 const objName = objNameMatch[1];
-                                console.log(objName)
+                                // console.log(objName)
                             
                                 // Now map over the keys of the specified object in the item
                                 return Object.keys(item[objName]).map((subKey, subIndex) => {

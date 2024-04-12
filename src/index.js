@@ -195,7 +195,6 @@ window.clearLoadingAnimation = () => {
 }
 
 window.sumJobActivity = (json) => {
-
     // provides array ob objects where keys are total hours, total, burden and total actuals for each department of a provided job.
     // assumes all from the same job
     // expects data consistenmt with timeHours.json (dataAPI call to dapiTimeHours for a given job)
@@ -220,12 +219,63 @@ window.sumJobActivity = (json) => {
             result[department][type].totalActualV2 += actualV2;
         });
         const scriptParameter = JSON.stringify({
-            path: "chart.render",
+            path: "chart.render.labour",
             result,
         });
         // Assuming you have a way to call a script or navigate to a chart, for example:
         FileMaker.PerformScript("js * callbacks", scriptParameter);
         return result;
+}
+
+
+window.sumPOLINES = (json) => {
+    // provides array ob of objects where key is total for each vendor of a provided job. 
+    // Assumes data prefiltered if desired (Does not filter for POLINE type.)
+    // assumes all from the same job
+    // expects data consistent with dataAPI call to dapiPOLINES for a given job
+    // [
+        // 	{
+        // 		"fieldData" : 
+        // 		{
+        // 			"JOBS::JobNum" : 4446,
+        // 			"flag_POtype" : 1,
+        // 			"id_job" : "446F288C-BA35-9D46-8E4B-0FB092FB6C9D",
+        // 			"id_vendor" : "",
+        // 			"total_cad" : 213.6,
+        // 			"vendorName_a" : "MORTON"
+        // 		},
+        // 		"modId" : "9",
+        // 		"portalData" : {},
+        // 		"recordId" : "26259"
+        // 	},
+    data = JSON.parse(json)
+    const result = {};
+    data.forEach(item => {
+        const { vendorName_a, total_cad} = item.fieldData;
+        const jobNum = item.fieldData["JOBS::JobNum"]
+
+        const vendor = vendorName_a || "Undefined"
+        
+        // If the department doesn't exist, initialize it
+        if (!result[jobNum]) {
+            result[jobNum] = {};
+        }
+        
+        // If the type within the department doesn't exist, initialize it
+        if (!result[jobNum][vendor]) {
+            result[jobNum][vendor] = { total: 0};
+        }
+        
+        // Accumulate the values for hoursV2_Original, burdenV2, and actualV2 for each type within the department
+        result[jobNum][vendor].total += total_cad;
+    });
+    const scriptParameter = JSON.stringify({
+        path: "chart.render.costResource",
+        result,
+    });
+    // Assuming you have a way to call a script or navigate to a chart, for example:
+    FileMaker.PerformScript("js * callbacks", scriptParameter);
+    return result;
 }
 
 window.transformJobPerformance = async (json) => {

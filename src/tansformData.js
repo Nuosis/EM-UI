@@ -30,8 +30,15 @@ export function sumEmployeeHoursData(inputData) {
         const isLoggedInFlag = data.portalData.employeeDay_EMPLOYEEHOURS.some(hours => hours["employeeDay_EMPLOYEEHOURS::flag_open_a"] === 1);
         const isLoggedIn = isLoggedInFlag ? "IN" : "OUT";
         let isApproved = data.fieldData.approvedFLAG === "1" || data.fieldData.approvedFLAG === true; // Assuming approvedFLAG can be boolean or string
-        const totalHours = data.portalData.employeeDay_EMPLOYEEHOURS.reduce((acc, cur) => acc + (cur["employeeDay_EMPLOYEEHOURS::hours"] / 3600), 0);
-        const timeAssigned = data.portalData.employeeDay_TIMEHOURS.reduce((acc, cur) => acc + cur["employeeDay_TIMEHOURS::hoursV2_Original"], 0);
+        const totalHours = data.portalData.employeeDay_EMPLOYEEHOURS.reduce((acc, cur) => {
+            const hours = parseFloat(cur["employeeDay_EMPLOYEEHOURS::hours"]);
+            return acc + (!isNaN(hours) ? hours / 3600 : 0);
+        }, 0);
+        const timeAssigned = data.portalData.employeeDay_TIMEHOURS.reduce((acc, cur) => {
+            const hours = parseFloat(cur["employeeDay_TIMEHOURS::hoursV2_Original"]);
+            return acc + (!isNaN(hours) ? hours : 0);
+        }, 0);
+        
 
         if (groupedMap.has(idDay)) {
             const existingEntry = groupedMap.get(idDay);
@@ -68,9 +75,11 @@ export function sumEmployeeHoursData(inputData) {
                 department: data.department,
             };
         }
+        const totalHours = isNaN(data.totalHours) ? 0 : data.totalHours ;
+        const timeAssigned = isNaN(data.timeAssigned) ? 0 : data.timeAssigned ;
 
-        aggregatedData[employeeKey].totalHours += data.totalHours;
-        aggregatedData[employeeKey].timeAssigned += data.timeAssigned;
+        aggregatedData[employeeKey].totalHours += totalHours;
+        aggregatedData[employeeKey].timeAssigned += timeAssigned;
         if (data.isLoggedIn === "IN") {
             aggregatedData[employeeKey].isLoggedIn = "IN";
         }
@@ -119,9 +128,10 @@ export async function performanceJobs(json) {
             other: {},
             profit: {}
         };
-        if (!obj.labourTotals.costActual) obj.labourTotals.costActual = 0;
-        if (!obj.labourTotals.costBurden) obj.labourTotals.costBurden = 0;
-        if (!obj.labourTotals.costBudget) obj.labourTotals.costBudget = 0;
+        obj.labourTotals.costActual = isNaN(obj.labourTotals.costActual) ? 0 : obj.labourTotals.costActual;
+        obj.labourTotals.costBurden = isNaN(obj.labourTotals.costBurden) ? 0 : obj.labourTotals.costBurden;
+        obj.labourTotals.costBudget = isNaN(obj.labourTotals.costBudget) ? 0 : obj.labourTotals.costBudget;
+        
         //console.log(obj)
 
         // Process quote data
@@ -192,10 +202,12 @@ export async function performanceJobs(json) {
                 headingCost = 0; // Fallback to 0 or any other default value
             }
             actualCost = item.portalData.jobs_TIMEHOURS.reduce((total, record) => {
-                return record['jobs_TIMEHOURS::department'] === heading ? total + record["jobs_TIMEHOURS::actualV2"] : total;
+                const cost = parseFloat(record["jobs_TIMEHOURS::actualV2"])
+                return record['jobs_TIMEHOURS::department'] === heading && !isNaN(cost) ? total + cost : total;
             }, 0);
             burdenCost = item.portalData.jobs_TIMEHOURS.reduce((total, record) => {
-                return record['jobs_TIMEHOURS::department'] === heading ? total + record["jobs_TIMEHOURS::burdenV2"] : total;
+                const cost = parseFloat(record["jobs_TIMEHOURS::burdenV2"])
+                return record['jobs_TIMEHOURS::department'] === heading && !isNaN(cost) ? total + cost : total;
             }, 0);
 
             costToDate += actualCost;
@@ -210,7 +222,8 @@ export async function performanceJobs(json) {
                 headingHours = 0; // Fallback to 0 or any other default value
             }
             actualHours = item.portalData.jobs_TIMEHOURS.reduce((total, record) => {
-                return record['jobs_TIMEHOURS::department'] === heading ? total + record["jobs_TIMEHOURS::hoursV2_Original"] : total;
+                const cost = parseFloat(record["jobs_TIMEHOURS::hoursV2_Original"])
+                return record['jobs_TIMEHOURS::department'] === heading && !isNaN(cost) ? total + cost : total;
             }, 0);
 
             hoursToDate += actualHours;
@@ -252,7 +265,8 @@ export async function performanceJobs(json) {
             headingMaterialCost = 0; // Fallback to 0 or any other default value
         }
         actualMaterialCost = item.portalData.jobs_POlines.reduce((total, record) => {
-            return record['jobs_POlines::flag_POtype'] === 1 ? total + record["jobs_POlines::total_cad"] : total;
+            const cost = parseFloat(record["jobs_POlines::total_cad"])
+            return record['jobs_POlines::flag_POtype'] === 1 && !isNaN(cost) ? total + cost : total;
         }, 0);
 
         quoteBudgetCost += headingMaterialCost;
@@ -279,7 +293,8 @@ export async function performanceJobs(json) {
             headingOutsourceCost = 0; // Fallback to 0 or any other default value
         }
         actualOutsourceCost = item.portalData.jobs_POlines.reduce((total, record) => {
-            return record['jobs_POlines::flag_POtype'] === 2 ? total + record["jobs_POlines::total_cad"] : total;
+            const cost = parseFloat(record["jobs_POlines::total_cad"])
+            return record['jobs_POlines::flag_POtype'] === 2 && !isNaN(cost) ? total + cost : total;
         }, 0);
 
         // Assign the calculated totals to the heading in the obj

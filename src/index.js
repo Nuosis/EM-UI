@@ -66,7 +66,6 @@ import {sumEmployeeHoursData,transformedHrs,performanceJobs} from './tansformDat
     // ];
 
 
-console.log('E&M UI 2.0.4') 
 let globalRoot = null; // This will hold the root instance
 
 function manageRoot(containerId, element) {
@@ -298,3 +297,4 @@ window.transformJobPerformance = async (json) => {
 //clearLoadingAnimation()
 //loadJobTracker(JSON.stringify(jobsData))
 // transformAndLoadJobPerformance(JSON.stringify({data: jobsObject,columns: jobObjectColumns,elements: jobObjectElements}))
+console.log('E&M UI 2.0.5') 

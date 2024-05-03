@@ -26,25 +26,30 @@ export function sumEmployeeHoursData(inputData) {
         const dayDate = data.fieldData.dateWorked;
         const employeeId = data.fieldData.id_employee;
         const employeeName = data.portalData.employeeDay_EMPLOYEE?.[0]?.["employeeDay_EMPLOYEE::nameDisplay_a"] || "Unknown Employee";
-        const employeeDepartment = data.portalData.employeeDay_TIMEHOURS?.[0]?.["employeeDay_TIMEHOURS::department"] || "";
+        const employeeDepartment = data.portalData.employeeDay_TIMEASSIGN?.[0]?.["employeeDay_TIMEASSIGN::department_a"] || "";
         const isLoggedInFlag = data.portalData.employeeDay_EMPLOYEEHOURS.some(hours => hours["employeeDay_EMPLOYEEHOURS::flag_open_a"] === 1);
         const isLoggedIn = isLoggedInFlag ? "IN" : "OUT";
-        let isApproved = data.fieldData.approvedFLAG === "1" || data.fieldData.approvedFLAG === true; // Assuming approvedFLAG can be boolean or string
+        let isApproved = data.fieldData.approvedFLAG === "1" || data.fieldData.approvedFLAG === true;
         const totalHours = data.portalData.employeeDay_EMPLOYEEHOURS.reduce((acc, cur) => {
             const hours = parseFloat(cur["employeeDay_EMPLOYEEHOURS::hours"]);
             return acc + (!isNaN(hours) ? hours / 3600 : 0);
         }, 0);
-        const timeAssigned = data.portalData.employeeDay_TIMEHOURS.reduce((acc, cur) => {
-            const hours = parseFloat(cur["employeeDay_TIMEHOURS::hoursV2_Original"]);
-            return acc + (!isNaN(hours) ? hours : 0);
-        }, 0);
         
+        // Composite key combining employeeId and dayDate
+        const employeeDateKey = `${employeeId}_${dayDate}`;
 
-        if (groupedMap.has(idDay)) {
-            const existingEntry = groupedMap.get(idDay);
-            existingEntry.timeAssigned += timeAssigned;
+        if (groupedMap.has(employeeDateKey)) {
+            const existingEntry = groupedMap.get(employeeDateKey);
+            existingEntry.totalHours += totalHours;
         } else {
-            groupedMap.set(idDay, {
+            let timeAssigned = data.portalData.employeeDay_TIMEHOURS.reduce((acc, cur) => {
+                const hours = parseFloat(cur["employeeDay_TIMEHOURS::hoursV2_Original"]);
+                return acc + (!isNaN(hours) ? Math.round(hours * 100) : 0); // Scale to integer before adding
+            }, 0) / 100;
+
+            // console.log(employeeName,timeAssigned)
+
+            groupedMap.set(employeeDateKey, {
                 id: idDay,
                 date: dayDate,
                 approved: isApproved,
@@ -59,6 +64,7 @@ export function sumEmployeeHoursData(inputData) {
     });
 
     const sortedArray = Array.from(groupedMap.values()).sort((a, b) => a.employeeName.localeCompare(b.employeeName));
+    // console.log({sortedArray})
 
     const aggregatedData = {};
 
@@ -75,11 +81,18 @@ export function sumEmployeeHoursData(inputData) {
                 department: data.department,
             };
         }
-        const totalHours = isNaN(data.totalHours) ? 0 : data.totalHours ;
-        const timeAssigned = isNaN(data.timeAssigned) ? 0 : data.timeAssigned ;
 
-        aggregatedData[employeeKey].totalHours += totalHours;
-        aggregatedData[employeeKey].timeAssigned += timeAssigned;
+        const originalTimeAssigned = aggregatedData[employeeKey].timeAssigned;
+        let newTimeAssigned = isNaN(data.timeAssigned) ? 0 : parseFloat(data.timeAssigned.toFixed(2));
+        newTimeAssigned = Math.round(newTimeAssigned * 100)/100
+        aggregatedData[employeeKey].timeAssigned += newTimeAssigned;
+    
+        // Logging the calculation details
+        // console.log(`Updating timeAssigned for ${data.employeeName} (ID: ${data.employeeId}):`);
+        // console.log(`Original timeAssigned: ${originalTimeAssigned}, New addition: ${newTimeAssigned}, Updated timeAssigned: ${aggregatedData[employeeKey].timeAssigned}`);
+
+        aggregatedData[employeeKey].totalHours += isNaN(data.totalHours) ? 0 : data.totalHours;
+        // aggregatedData[employeeKey].timeAssigned += isNaN(data.timeAssigned) ? 0 : parseFloat(data.timeAssigned.toFixed(2));
         if (data.isLoggedIn === "IN") {
             aggregatedData[employeeKey].isLoggedIn = "IN";
         }
@@ -87,10 +100,12 @@ export function sumEmployeeHoursData(inputData) {
             aggregatedData[employeeKey].approved = false;
         }
     });
+    console.log({aggregatedData})
+    Object.keys(aggregatedData).forEach(key => {
+        aggregatedData[key].timeAssigned = parseFloat(aggregatedData[key].timeAssigned.toFixed(2));
+    });
 
-    const finalArray = Object.values(aggregatedData).map(({ date, ...rest }) => rest);
-
-    return finalArray;
+    return Object.values(aggregatedData);
 }
 
 export function transformedHrs(hrs) {
@@ -106,9 +121,14 @@ export function transformedHrs(hrs) {
 }
 
 export async function performanceJobs(json) {
-    console.log('init performanceJobs in TransformData')
+    console.log('init performanceJobs in TransformData',{json})
+    if (!Array.isArray(json)) {
+        console.error('Invalid input in performanceJobs: Expected an array');
+        return; // or throw an error
+    }
     const jobObject = await Promise.all(json.map(async (item) => {
-        // Initialize the obj for the current item
+        //Initialize the obj for the current item
+        console.log('itemMap',{item})
         let obj = {
             id: item.fieldData.id,
             customerName: item.portalData.jobs_CUSTOMER[0]["jobs_CUSTOMER::CustomerName"], 
@@ -121,6 +141,7 @@ export async function performanceJobs(json) {
             commitDate: item.fieldData.Tool_ComitmentDate,
             approvalDate: item.fieldData['Approval Date'],
             proMan: item.fieldData["Program Manager"],
+            projectName: item.fieldData["Project Name"],
             jobLead: item.fieldData.Moldmaker,
             cadDesign: item.fieldData["Cad Designer"],
             labour: {},
@@ -143,7 +164,9 @@ export async function performanceJobs(json) {
         }, 0);
         const quoteParams = JSON.stringify({quoteBody, path: "getQuoteValues"});
         const quoteHeading = await getFMData(quoteParams)
+        // console.log(quoteHeading)
         const quoteHeadingData = safeJSONParse(quoteHeading);
+        console.log(quoteHeadingData)
 
         if (!quoteHeadingData) {
             console.error('No data returned for quoteHeadingData');
@@ -264,9 +287,11 @@ export async function performanceJobs(json) {
         if (isNaN(headingMaterialCost)) {
             headingMaterialCost = 0; // Fallback to 0 or any other default value
         }
-        actualMaterialCost = item.portalData.jobs_POlines.reduce((total, record) => {
-            const cost = parseFloat(record["jobs_POlines::total_cad"])
-            return record['jobs_POlines::flag_POtype'] === 1 && !isNaN(cost) ? total + cost : total;
+        console.log('portalData',item.portalData)
+        console.log('PO_LINES',item.portalData.jobs_POLINES)
+        actualMaterialCost = item.portalData.jobs_POLINES.reduce((total, record) => {
+            const cost = parseFloat(record["jobs_POLINES::total_cad"])
+            return record['jobs_POLINES::flag_POtype'] === 1 && !isNaN(cost) ? total + cost : total;
         }, 0);
 
         quoteBudgetCost += headingMaterialCost;
@@ -292,9 +317,9 @@ export async function performanceJobs(json) {
         if (isNaN(headingOutsourceCost)) {
             headingOutsourceCost = 0; // Fallback to 0 or any other default value
         }
-        actualOutsourceCost = item.portalData.jobs_POlines.reduce((total, record) => {
-            const cost = parseFloat(record["jobs_POlines::total_cad"])
-            return record['jobs_POlines::flag_POtype'] === 2 && !isNaN(cost) ? total + cost : total;
+        actualOutsourceCost = item.portalData.jobs_POLINES.reduce((total, record) => {
+            const cost = parseFloat(record["jobs_POLINES::total_cad"])
+            return record['jobs_POLINES::flag_POtype'] === 2 && !isNaN(cost) ? total + cost : total;
         }, 0);
 
         // Assign the calculated totals to the heading in the obj

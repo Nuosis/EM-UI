@@ -6,7 +6,7 @@ import { ApprovedButton, ApproveButton, ButtonWithText } from '../src/icons';
 export default function LoadTableBody({ data, columns }) {
     const { searchTerm, filterTerm, sort, setSort } = useTableContext();
     //const initializedSort = useRef(false); // Tracks if initial sort state is set
-    console.log("dataProvided:", data);
+    console.log("tableDataProvided:", data);
     //console.log("Current searchTerm:", searchTerm);
     //console.log("Current filterTerm:", filterTerm);
     console.log("initTableBody");
@@ -168,6 +168,13 @@ export default function LoadTableBody({ data, columns }) {
                                         <button onClick={() => FileMaker.PerformScript("js * callbacks", scriptParameter)}>
                                             {IconComponent}
                                         </button>
+                                    </td>
+                                );
+                            } else if (column.type === 'base64') {
+                                const base64String = item[column.field];
+                                return (
+                                    <td key={colIndex} className="p-2">
+                                        <img src={`data:image/png;base64,${base64String}`} alt="Base64 Image" />
                                     </td>
                                 );
                             } else if(column.type === 'component' && column.compairColumn) {

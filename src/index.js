@@ -85,7 +85,9 @@ function manageRoot(containerId, element) {
  * TRACKERS 
  * 
  */
-window.loadJobTracker = (json) => {
+
+//depricated - use 
+window.x_loadJobTracker = (json) => {
     console.log('init loadJobTracker')
     clearLoadingAnimation()
     const data = JSON.parse(json); //in FM I am passing in only the data array
@@ -97,18 +99,43 @@ window.loadJobTracker = (json) => {
     );
 }
 
+window.callFileMakerScript = (script, params) => {
+        FileMaker.PerformScript(script, params);
+}
+
+window.loadJobTracker = (json) => {
+    console.log('init loadJobTracker')
+    const propData = JSON.parse(json);
+    // console.log(`passedJobData`,data.data)
+    const jobElements = propData.elements
+    const jobColumns = propData.columns
+    const data = propData.data
+
+    manageRoot("root", 
+        <>
+            <div id="Tables" className="w-full flex flex-row gap-4">
+                <div className="w-5/5 bg-gray-100" >
+                    <LoadTable data={data} elements={jobElements} columns={jobColumns} />
+                </div>
+            </div>
+        </>
+    );
+}
+
 window.loadTimeManagement = (json) => {
     console.log('init loadTimeManagement')
     const data = JSON.parse(json);
-    // console.log(`passedData`,data)
+    console.log(`passedTimeAssignData`,data.timeAssignData)
     const hrs = transformedHrs(data.timeAssignData);
+    console.log(`sumOfTimeAssign`,hrs)
     const hrsElements = data.timeAssignElements
     const hrsColumns = data.timeAssignColumns
     
     const sum = sumEmployeeHoursData(data.employeeHoursData);
+    console.log(`passedEmployeeHoursData`,data.employeeHoursData)
+    console.log(`sumOfEmployeeHours`,sum)
     const sumElements = data.employeeHoursElements
     const sumColumns = data.employeeHoursColumns
-    console.log(`sum`,sum)
 
     manageRoot("root", 
         <>
@@ -151,6 +178,7 @@ window.transformAndLoadJobPerformance = async (json) => {
 window.loadJobPerformance = async (json) => {
     console.log('init jobPerformance')
     const data = JSON.parse(json);
+    console.log({data})
     const jobsElements = data.elements
     const jobsColumns = data.columns
     const jobsData = data.data;
@@ -196,8 +224,9 @@ window.clearLoadingAnimation = () => {
 window.sumJobActivity = (json) => {
     // provides array ob objects where keys are total hours, total, burden and total actuals for each department of a provided job.
     // assumes all from the same job
-    // expects data consistenmt with timeHours.json (dataAPI call to dapiTimeHours for a given job)
+    // expects data consistent with timeHours.json (dataAPI call to dapiTimeHours for a given job)
     data = JSON.parse(json)
+    console.log("sumJob Data",{data})
     const result = {};
         data.forEach(item => {
             const { department, type, hoursV2_Original, burdenV2, actualV2 } = item.fieldData;
@@ -226,7 +255,6 @@ window.sumJobActivity = (json) => {
         return result;
 }
 
-
 window.sumPOLINES = (json) => {
     // provides array ob of objects where key is total for each vendor of a provided job. 
     // Assumes data prefiltered if desired (Does not filter for POLINE type.)
@@ -248,12 +276,12 @@ window.sumPOLINES = (json) => {
         // 		"recordId" : "26259"
         // 	},
     data = JSON.parse(json)
+    console.log('sumPOLINES',{data})
     const result = {};
     data.forEach(item => {
         const { vendorName_a, total_cad} = item.fieldData;
         const jobNum = item.fieldData["JOBS::JobNum"]
-
-        const vendor = vendorName_a || "Undefined"
+        const vendor = item.fieldData["jobs_POLINES_PO::vendorName_a"] || "Undefined"
         
         // If the department doesn't exist, initialize it
         if (!result[jobNum]) {
@@ -280,7 +308,7 @@ window.sumPOLINES = (json) => {
 window.transformJobPerformance = async (json) => {
     console.log('init transformJobPerformance')
     const data = JSON.parse(json);
-    console.log({data})
+    console.log('data: ',data)
     const resultsPath = data.setResultsTo;
     const jobs = await performanceJobs(data.data).catch(e => console.error("Error in performanceJobs:", e));
     const jobsData = jobs.jobObject;
@@ -297,4 +325,4 @@ window.transformJobPerformance = async (json) => {
 //clearLoadingAnimation()
 //loadJobTracker(JSON.stringify(jobsData))
 // transformAndLoadJobPerformance(JSON.stringify({data: jobsObject,columns: jobObjectColumns,elements: jobObjectElements}))
-console.log('E&M UI 2.0.5') 
+console.log('E&M UI 2.0.14') 

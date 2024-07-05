@@ -133,7 +133,7 @@ export default function LoadTableBody({ data, columns }) {
                 <tr>
                     {columns.map((column, index) => 
                         !column.hidden && (
-                            <th key={index} onClick={() => column.sortable && setSort(column.field)} 
+                            <th key={`head ${index}`} onClick={() => column.sortable && setSort(column.field)} 
                                 className={`p-2 cursor-pointer ${index !== columns.length - 1 ? 'border-r border-neutral-600' : ''} sticky top-0`}>
                                 {column.label}
                                 {sort.column === column.field && (sort.direction === 'asc' ? ' ↑' : ' ↓')}
@@ -144,7 +144,7 @@ export default function LoadTableBody({ data, columns }) {
             </thead>
             <tbody>
                 {sortedData.map((item, rowIndex) => {
-                    const key = indexColumn ? item[indexColumn.field] : rowIndex;
+                    const key = indexColumn ? item[indexColumn.field] : `row ${rowIndex}`;
                     const isEvenRow = rowIndex % 2 === 0;
                     return (
                     <tr key={key} style={{ backgroundColor: isEvenRow ? 'white' : 'transparent' }}>

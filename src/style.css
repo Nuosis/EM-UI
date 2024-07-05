@@ -246,6 +246,7 @@ background-color: #f3f4f6; /* Slightly different background on hover */
 /* SPINNER */
 
 .feedback-container {
+    margin-top: 100px;
     display: flex;
     justify-content: center;
     align-items: center;

@@ -1,14 +1,6 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
-import jobsData from './data/jobs.json';
-import timeAssignData from './data/timeAssign.json';
-import employeeHoursData from './data/employeeHours.json';
-import jobsObject from './data/jobsObject.json';
-import {jobObjectColumns,jobObjectElements} from './data/jobsObjectColumns';
 import LoadTable from "../components/Table";
-import LoadJobsTable from "../components/JobsTable";
-import { root } from "postcss";
-import { ApprovedButton, ApproveButton } from '../src/icons'; 
 import {sumEmployeeHoursData,transformedHrs,performanceJobs} from './tansformData'
 
 
@@ -65,6 +57,11 @@ import {sumEmployeeHoursData,transformedHrs,performanceJobs} from './tansformDat
     //     { label: '', type: 'component', compairColumn: 'Approved', ifTrue: "ApprovedButton", ifFalse: "ApproveButton", callBackPath: "timeManagement.approve"  }
     // ];
 
+/**
+ * 
+ * TRACKERS 
+ * 
+ */
 
 let globalRoot = null; // This will hold the root instance
 
@@ -78,29 +75,6 @@ function manageRoot(containerId, element) {
         globalRoot = createRoot(container);
         globalRoot.render(element);
     }
-}
-
-/**
- * 
- * TRACKERS 
- * 
- */
-
-//depricated - use 
-window.x_loadJobTracker = (json) => {
-    console.log('init loadJobTracker')
-    clearLoadingAnimation()
-    const data = JSON.parse(json); //in FM I am passing in only the data array
-    const jobs = data.jobs
-    manageRoot("root", 
-        <div id="jobsTable" className="container w-full columns-2 flex flex-col">
-            <LoadJobsTable data={jobs}/>
-        </div>
-    );
-}
-
-window.callFileMakerScript = (script, params) => {
-        FileMaker.PerformScript(script, params);
 }
 
 window.loadJobTracker = (json) => {
@@ -122,9 +96,21 @@ window.loadJobTracker = (json) => {
     );
 }
 
+window.callFileMakerScript = (script, params) => {
+        FileMaker.PerformScript(script, params);
+}
+
 window.loadTimeManagement = (json) => {
     console.log('init loadTimeManagement')
     const data = JSON.parse(json);
+    const spinner = data.loading
+    if(spinner){
+      manageRoot("root", 
+        <div id="loading" className="flex mt-20 justify-center items-center h-full">
+            <div className="spinner"></div> {/* Make sure to define CSS for this spinner */}
+        </div>
+      );
+    } else {
     console.log(`passedTimeAssignData`,data.timeAssignData)
     const hrs = transformedHrs(data.timeAssignData);
     console.log(`sumOfTimeAssign`,hrs)
@@ -135,8 +121,12 @@ window.loadTimeManagement = (json) => {
     console.log(`passedEmployeeHoursData`,data.employeeHoursData)
     console.log(`sumOfEmployeeHours`,sum)
     const sumElements = data.employeeHoursElements
-    const sumColumns = data.employeeHoursColumns
-
+    const sumColumns = data.employeeHoursColumns  
+    
+    // instantiate root
+    const container = document.getElementById("root");
+    const root = createRoot(container);
+  
     manageRoot("root", 
         <>
             <div id="Tables" className="w-full flex flex-row gap-4">
@@ -148,7 +138,7 @@ window.loadTimeManagement = (json) => {
                 </div>
             </div>
         </>
-    );
+    )}
 }
 
 //load job performance by passing data object from dapi call. Uses FMGofer.
@@ -198,27 +188,8 @@ window.loadJobPerformance = async (json) => {
  * FUNCTIONS
  * 
  */
-window.showLoadingAnimation = () => {
-    const formContainer = document.getElementById("root");
-    // Remove existing content
-    formContainer.innerHTML = '';
-
-    const feedbackContainer = document.getElementById("feedback");
-    // Ensure the container uses the Flexbox setup for centering
-    feedbackContainer.classList.add("feedback-container"); // Add the class to the container
-    
-    // Clear existing content
-    feedbackContainer.innerHTML = '';
-
-    // Create and add the spinner
-    const spinnerDiv = document.createElement('div');
-    spinnerDiv.className = 'spinner'; // Use the spinner class
-    feedbackContainer.appendChild(spinnerDiv);
-}
-
-window.clearLoadingAnimation = () => {
-    const feedbackContainer = document.getElementById("feedback");
-    feedbackContainer.innerHTML = '';
+window.toggleLoadingAnimation = (spinner, setSpinner) => {
+  setSpinner(!spinner)
 }
 
 window.sumJobActivity = (json) => {
@@ -325,4 +296,4 @@ window.transformJobPerformance = async (json) => {
 //clearLoadingAnimation()
 //loadJobTracker(JSON.stringify(jobsData))
 // transformAndLoadJobPerformance(JSON.stringify({data: jobsObject,columns: jobObjectColumns,elements: jobObjectElements}))
-console.log('E&M UI 2.0.14') 
+console.log('E&M UI 2.0.16') 

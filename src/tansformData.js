@@ -109,15 +109,15 @@ export function sumEmployeeHoursData(inputData) {
 }
 
 export function transformedHrs(hrs) {
-    return hrs.map(item => ({
-        id: item.fieldData.id,
-        date: item.fieldData.date,
-        department: item.fieldData.department,
-        activity: item.fieldData.type,
-        employeeName: item.fieldData.employeName_c,
-        jobNum: item.portalData.timeHours_TIMEASSIGN[0]["timeHours_TIMEASSIGN::jobNum_a"],
-        hours: item.fieldData.hoursV2_Original
-    })).sort((a, b) => new Date(a.date) - new Date(b.date)); // Sorting by date
+  return hrs.map(item => ({
+      id: item.fieldData?.id || 'undefinedID', // Fallback to 'DefaultID' if undefined
+      date: item.fieldData?.date || new Date().toISOString(), // Fallback to current date if undefined
+      department: item.fieldData?.department || '*', // Fallback to 'Default Department' if undefined
+      activity: item.fieldData?.type || '*', // Fallback to 'Default Activity' if undefined
+      employeeName: item.fieldData?.employeName_c || 'Unknown Employee', // Fallback to 'Unknown Employee' if undefined
+      jobNum: item.portalData?.timeHours_TIMEASSIGN?.[0]?.["timeHours_TIMEASSIGN::jobNum_a"] || '*', // Fallback to 'Default Job Number' if undefined
+      hours: item.fieldData?.hoursV2_Original || 0 // Fallback to 0 if undefined
+  })).sort((a, b) => new Date(a.date) - new Date(b.date)); // Sorting by date
 }
 
 export async function performanceJobs(json) {
